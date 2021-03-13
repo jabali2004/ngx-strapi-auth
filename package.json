@@ -1,6 +1,6 @@
 {
   "name": "ngx-strapi-auth",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "postinstall": "npm install projects/strapi-auth-showcase/strapi_backend",
     "ng": "ng",
