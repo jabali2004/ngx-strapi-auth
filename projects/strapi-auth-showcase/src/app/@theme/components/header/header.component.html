@@ -1,0 +1,26 @@
+<div class="header-container d-inline-flex">
+  <div class="logo-container d-flex">
+    <a (click)="toggleSidebar()" href="#" class="sidebar-toggle">
+      <nb-icon icon="menu-2-outline"></nb-icon>
+    </a>
+    <a class="logo" (click)="navigateHome()"><span>NgxStrapiAuth</span></a>
+  </div>
+  <!-- <div class="d-flex">
+    <nb-select [selected]="currentTheme" (selectedChange)="changeTheme($event)" status="primary">
+      <nb-option *ngFor="let theme of themes" [value]="theme.value"> {{ theme.name }}</nb-option>
+    </nb-select>
+  </div> -->
+</div>
+
+<div class="header-container d-flex flex-row">
+  <nb-actions size="small">
+    <nb-action class="user-action" *ngIf="isAuthenticated">
+      <nb-user [nbContextMenu]="userMenu" [onlyPicture]="true" [name]="user ? user.username : ''">
+      </nb-user>
+    </nb-action>
+
+    <nb-action *ngIf="!isAuthenticated" [nbContextMenu]="headerMenu">
+      <nb-icon icon="log-in-outline" size="tiny"></nb-icon>
+    </nb-action>
+  </nb-actions>
+</div>

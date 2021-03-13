@@ -1,0 +1,263 @@
+{
+  "errors": {
+    "auth": {
+      "login": {
+        "password_or_email": "Password or email address may be wrong!",
+        "undefined": "An unknown error has occurred!"
+      },
+      "register": {
+        "password_or_email": "Email or username are possibly already taken!",
+        "undefined": "An unknown error has occurred!"
+      },
+      "request-password": {
+        "email": "No account belongs to this email address!",
+        "undefined": "An unknown error has occurred!"
+      },
+      "reset-password": {
+        "code": "Recovery code has expired or is invalid!",
+        "undefined": "An unknown error has occurred!"
+      }
+    }
+  },
+  "auth": {
+    "change_password": {
+      "form": {
+        "button": {
+          "back_to": {
+            "text": "Back to Log In",
+            "title": "Register"
+          },
+          "change_password": {
+            "title": "Change password"
+          }
+        },
+        "input": {
+          "password": {
+            "label": "New Password:",
+            "min_length_message": "Password should contain from {{min}} to {{max}} characters",
+            "placeholder": "New Password",
+            "required_message": "Password is required!"
+          },
+          "password_confirmation": {
+            "label": "Confirm Password:",
+            "match_message": "Password does not match the confirm password.",
+            "placeholder": "Confirm Password",
+            "required_message": "Password confirmation is required!"
+          }
+        }
+      },
+      "messages": {
+        "error": "Oh snap!",
+        "success": "Hooray!"
+      },
+      "subtitle": "Please set a new password",
+      "title": "Change password"
+    },
+    "login": {
+      "form": {
+        "button": {
+          "login": "Log In",
+          "register": {
+            "label": "Don't have an account?",
+            "link": "Register"
+          }
+        },
+        "input": {
+          "email": {
+            "label": "Email address:",
+            "placeholder": "Email address",
+            "required_message": "Email is required!",
+            "valid_message": "Email should be the real one!"
+          },
+          "password": {
+            "forgot_message": "Forgot Password?",
+            "label": "Password:",
+            "min_length_message": "Password should contain from {{min}} to {{max}} characters",
+            "placeholder": "Password",
+            "required_message": "Password is required!"
+          }
+        }
+      },
+      "messages": {
+        "error": "Oh snap!",
+        "success": "Hooray!"
+      },
+      "subtitle": "Hello! Log in with your email.",
+      "title": "Login"
+    },
+    "logout": {
+      "logout_text": "Logging out, please wait..."
+    },
+    "register": {
+      "form": {
+        "button": {
+          "existing_account": {
+            "text": "Already have an account?",
+            "title": "Log in"
+          },
+          "register": {
+            "title": "Register"
+          }
+        },
+        "input": {
+          "email": {
+            "label": "Email address:",
+            "placeholder": "Email address",
+            "required_message": "Email is required!",
+            "valid_message": "Email should be the real one!"
+          },
+          "firstname": {
+            "label": "Firstname:",
+            "min_length_message": "Firstname should contains from {{min}} to {{max}} characters",
+            "placeholder": "Firstname",
+            "required_message": "Firstname is required!"
+          },
+          "lastname": {
+            "label": "Lastname:",
+            "min_length_message": "Lastname should contains from {{min}} to {{max}} characters",
+            "placeholder": "Lastname",
+            "required_message": "Lastname is required!"
+          },
+          "password": {
+            "label": "Password:",
+            "min_length_message": "Password should contain from {{min}} to {{max}} characters",
+            "placeholder": "Password",
+            "required_message": "Password is required!"
+          },
+          "repeat_password": {
+            "label": "Repeat password:",
+            "match_message": "Password confirmation is required!",
+            "placeholder": "Repeat password",
+            "required_message": "Password confirmation is required!"
+          },
+          "username": {
+            "label": "Username:",
+            "min_length_message": "Username should contain from {{min}} to {{max}} characters",
+            "placeholder": "Username",
+            "required_message": "Username is required!"
+          }
+        }
+      },
+      "messages": {
+        "error": "Oh snap!",
+        "success": "Hooray!"
+      },
+      "title": "Register"
+    },
+    "request_password": {
+      "form": {
+        "button": {
+          "back_to": {
+            "text": "Back to Log In",
+            "title": "Register"
+          },
+          "request": {
+            "title": "Request password"
+          }
+        },
+        "input": {
+          "email": {
+            "label": "Enter your email address:",
+            "placeholder": "Email address",
+            "required_message": "Email is required!",
+            "valid_message": "Email should be the real one!"
+          }
+        }
+      },
+      "messages": {
+        "error": "Oh snap!",
+        "success": "Hooray!"
+      },
+      "subtitle": "Enter your email address and we’ll send a link to reset your password",
+      "title": "Forgot Password"
+    },
+    "restore": {
+      "form": {
+        "button": {
+          "register": {
+            "label": "Don't have an account?",
+            "link": "Register"
+          },
+          "restore": "Restore Account"
+        },
+        "input": {
+          "email": {
+            "label": "Email address:",
+            "placeholder": "Email address",
+            "required_message": "Email is required!",
+            "valid_message": "Email should be the real one!"
+          },
+          "password": {
+            "forgot_message": "Forgot Password?",
+            "label": "Password:",
+            "min_length_message": "Password should contain from {{min}} to {{max}} characters",
+            "placeholder": "Password",
+            "required_message": "Password is required!"
+          }
+        }
+      },
+      "messages": {
+        "error": "Oh snap!",
+        "success": "Successfully restored account!"
+      },
+      "subtitle": "Hello! Restore account with your email.",
+      "title": "Restore"
+    },
+    "profile": {
+      "change_password": {
+        "title": "Change password"
+      },
+      "form": {
+        "button": {
+          "change_password": "Change password",
+          "save": "Save"
+        },
+        "input": {
+          "email": {
+            "label": "Email address:",
+            "placeholder": "Email address",
+            "required_message": "Email is required!",
+            "valid_message": "Email should be the real one!"
+          },
+          "firstname": {
+            "label": "Firstname:",
+            "min_length_message": "Firstname should contains from {{min}} to {{max}} characters",
+            "placeholder": "Firstname",
+            "required_message": "Firstname is required!"
+          },
+          "lastname": {
+            "label": "Lastname:",
+            "min_length_message": "Lastname should contains from {{min}} to {{max}} characters",
+            "placeholder": "Lastname",
+            "required_message": "Lastname is required!"
+          },
+          "password": {
+            "label": "Password:",
+            "min_length_message": "Password should contain from {{min}} to {{max}} characters",
+            "placeholder": "Password",
+            "required_message": "Password is required!"
+          },
+          "repeat_password": {
+            "label": "Repeat password:",
+            "match_message": "Password confirmation is required!",
+            "placeholder": "Repeat password",
+            "required_message": "Password confirmation is required!"
+          },
+          "username": {
+            "label": "Username:",
+            "min_length_message": "Username should contain from {{min}} to {{max}} characters",
+            "placeholder": "Username",
+            "required_message": "Username is required!"
+          }
+        }
+      },
+      "general_information": {
+        "title": "General informations"
+      },
+      "messages": {
+        "error": "Oh snap!",
+        "success": "Hooray!"
+      }
+    }
+  }
+}

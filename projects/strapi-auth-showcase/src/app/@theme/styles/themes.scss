@@ -1,0 +1,124 @@
+// @nebular theming framework
+@import '~@nebular/theme/styles/theming';
+// @nebular out of the box themes
+@import '~@nebular/theme/styles/themes';
+
+$nb-themes: nb-register-theme((layout-padding-top: 2.25rem,
+
+    menu-item-icon-margin: 0 0.5rem 0 0,
+
+    card-height-tiny: 13.5rem,
+    card-height-small: 21.1875rem,
+    card-height-medium: 28.875rem,
+    card-height-large: 36.5625rem,
+    card-height-giant: 44.25rem,
+    card-margin-bottom: 1.875rem,
+    card-header-with-select-padding-top: 0.5rem,
+    card-header-with-select-padding-bottom: 0.5rem,
+
+    select-min-width: 6rem,
+
+    slide-out-background: #f7f9fc,
+    slide-out-shadow-color: 0 4px 14px 0 #8f9bb3,
+    slide-out-shadow-color-rtl: 0 4px 14px 0 #8f9bb3,
+
+    // TODO: Add new color design
+
+    color-success-default: darkgreen,
+    color-success-active: green,
+    color-success-hover: green,
+    color-success-focus: green,
+
+    background-basic-color-4: #FFE8E3,
+
+    // color-primary-100: #f2f6ff,
+    // color-primary-200: #d9e4ff,
+    // color-primary-300: #a6c1ff,
+    // color-primary-400: #598bff,
+    // color-primary-500: #3366ff,
+    // color-primary-600: #274bdb,
+    // color-primary-700: #1a34b8,
+    // color-primary-800: #102694,
+    // color-primary-900: #091c7a,
+
+    // color-success-100: #f0fff5,
+    // color-success-200: #ccfce3,
+    // color-success-300: #8cfac7,
+    // color-success-400: #2ce69b,
+    // color-success-500: #00d68f,
+    // color-success-600: #00b887,
+    // color-success-700: #00997a,
+    // color-success-800: #007d6c,
+    // color-success-900: #184744,
+
+    // color-info-100: #f2f8ff,
+    // color-info-200: #c7e2ff,
+    // color-info-300: #94cbff,
+    // color-info-400: #42aaff,
+    // color-info-500: #0095ff,
+    // color-info-600: #006fd6,
+    // color-info-700: #0057c2,
+    // color-info-800: #0041a8,
+    // color-info-900: #002885,
+
+  ), default, default);
+
+$nb-themes: nb-register-theme((layout-padding-top: 2.25rem,
+
+    menu-item-icon-margin: 0 0.5rem 0 0,
+
+    card-height-tiny: 13.5rem,
+    card-height-small: 21.1875rem,
+    card-height-medium: 28.875rem,
+    card-height-large: 36.5625rem,
+    card-height-giant: 44.25rem,
+    card-margin-bottom: 1.875rem,
+    card-header-with-select-padding-top: 0.5rem,
+    card-header-with-select-padding-bottom: 0.5rem,
+
+    select-min-width: 6rem,
+
+    slide-out-background: #252547,
+    slide-out-shadow-color: 2px 0 3px #29157a,
+    slide-out-shadow-color-rtl: -2px 0 3px #29157a,
+  ), cosmic, cosmic);
+
+$nb-themes: nb-register-theme((layout-padding-top: 2.25rem,
+
+    menu-item-icon-margin: 0 0.5rem 0 0,
+
+    card-height-tiny: 13.5rem,
+    card-height-small: 21.1875rem,
+    card-height-medium: 28.875rem,
+    card-height-large: 36.5625rem,
+    card-height-giant: 44.25rem,
+    card-margin-bottom: 1.875rem,
+    card-header-with-select-padding-top: 0.5rem,
+    card-header-with-select-padding-bottom: 0.5rem,
+
+    select-min-width: 6rem,
+
+    slide-out-background: linear-gradient(270deg, #edf1f7 0%, #e4e9f2 100%),
+    slide-out-shadow-color: 0 4px 14px 0 #8f9bb3,
+    slide-out-shadow-color-rtl: 0 4px 14px 0 #8f9bb3,
+  ), corporate, corporate);
+
+$nb-themes: nb-register-theme((layout-padding-top: 2.25rem,
+
+    menu-item-icon-margin: 0 0.5rem 0 0,
+
+    card-height-tiny: 13.5rem,
+    card-height-small: 21.1875rem,
+    card-height-medium: 28.875rem,
+    card-height-large: 36.5625rem,
+    card-height-giant: 44.25rem,
+    card-margin-bottom: 1.875rem,
+    card-header-with-select-padding-top: 0.5rem,
+    card-header-with-select-padding-bottom: 0.5rem,
+
+    select-min-width: 6rem,
+
+    slide-out-background: linear-gradient(270deg, #222b45 0%, #151a30 100%),
+    slide-out-shadow-color: 0 4px 14px 0 #8f9bb3,
+    slide-out-shadow-color-rtl: 0 4px 14px 0 #8f9bb3,
+  ), dark, dark);

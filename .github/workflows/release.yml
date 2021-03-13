@@ -1,0 +1,44 @@
+name: library release pipeline
+on:
+  workflow_dispatch:
+    inputs:
+      versionName:
+        description: "Name of version  (ie 5.5.0)"
+        required: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install global deps
+        run: |
+          npm install -g standard-version
+          npm install -g @angular/cli
+      - name: Install local deps
+        run: npm install
+      - name: Create release branch
+        run: git checkout -b release/v${{ github.event.inputs.versionName }}
+      - name: Initialize mandatory git config
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      - name: Update Changelog
+        run: standard-version --release-as v${{ github.event.inputs.versionName }}
+      - name: Push new branch
+        run: git push origin release/v${{ github.event.inputs.versionName }}
+      - name: Create pull request into main
+        uses: thomaseizinger/create-pull-request@1.0.0
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          head: release/v${{ github.event.inputs.versionName }}
+          base: main
+          title: v${{ github.event.inputs.versionName }} into main
+          reviewers: ${{ github.event.issue.user.login }}

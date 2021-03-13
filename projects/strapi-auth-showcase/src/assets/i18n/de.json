@@ -1,0 +1,12 @@
+{
+	"footer": {
+		"contact": "Kontakt",
+		"impressum": "Impressum",
+		"text": "NgxStrapiAuth"
+	},
+	"header": {
+		"login": "Login",
+		"register": "Registrierung"
+	},
+	"page-title": "NgxStrapiAuth"
+}

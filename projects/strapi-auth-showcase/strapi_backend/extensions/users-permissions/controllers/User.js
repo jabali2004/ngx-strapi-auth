@@ -1,0 +1,53 @@
+'use strict';
+const { parseMultipartData, sanitizeEntity } = require('strapi-utils');
+
+/**
+ * Read the documentation (https://strapi.io/documentation/v3.x/concepts/controllers.html#core-controllers)
+ * to customize this controller
+ */
+
+module.exports = {
+  async updateme(ctx) {
+    const { id } = ctx.state.user;
+
+    // Remove all unaccepted data from request
+    delete ctx.request.body.provider;
+    delete ctx.request.body.resetPasswordToken;
+    delete ctx.request.body.confirmationToken;
+    delete ctx.request.body.confirmed;
+    delete ctx.request.body.blocked;
+    delete ctx.request.body.role;
+
+    if (ctx.request.body.email === null) {
+      delete ctx.request.body.email;
+    }
+
+    if (ctx.request.body.username === null) {
+      delete ctx.request.body.username;
+    }
+
+    if (ctx.request.body.password === null) {
+      delete ctx.request.body.password;
+    }
+
+    // Get user service and model ref
+    const userService = strapi.plugins['users-permissions'].services.user;
+    const userModel = strapi.plugins['users-permissions'].models.user;
+
+    if (ctx.request.body.password) {
+      const passwordHashed = await strapi.plugins[
+        'users-permissions'
+      ].services.user.hashPassword({
+        password: ctx.request.body.password
+      });
+
+      ctx.request.body.password = passwordHashed;
+    }
+
+    let entity = await userService.update({ id }, ctx.request.body);
+
+    return sanitizeEntity(entity, {
+      model: userModel
+    });
+  }
+};

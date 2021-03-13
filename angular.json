@@ -1,0 +1,183 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "strapi-auth": {
+      "projectType": "library",
+      "root": "projects/strapi-auth",
+      "sourceRoot": "projects/strapi-auth/src",
+      "prefix": "strapi",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/strapi-auth/tsconfig.lib.json",
+            "project": "projects/strapi-auth/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/strapi-auth/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/strapi-auth/src/test.ts",
+            "tsConfig": "projects/strapi-auth/tsconfig.spec.json",
+            "karmaConfig": "projects/strapi-auth/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/strapi-auth/tsconfig.lib.json",
+              "projects/strapi-auth/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "strapi-auth-showcase": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/strapi-auth-showcase",
+      "sourceRoot": "projects/strapi-auth-showcase/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/strapi-auth-showcase",
+            "index": "projects/strapi-auth-showcase/src/index.html",
+            "main": "projects/strapi-auth-showcase/src/main.ts",
+            "polyfills": "projects/strapi-auth-showcase/src/polyfills.ts",
+            "tsConfig": "projects/strapi-auth-showcase/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/strapi-auth-showcase/src/favicon.ico",
+              "projects/strapi-auth-showcase/src/assets"
+            ],
+            "styles": [
+              "./node_modules/quill/dist/quill.core.css",
+              "./node_modules/quill/dist/quill.bubble.css",
+              "./node_modules/quill/dist/quill.snow.css",
+              "./node_modules/quill-emoji/dist/quill-emoji.css",
+              "./node_modules/quill-mention/dist/quill.mention.min.css",
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "./node_modules/@nebular/theme/styles/prebuilt/default.css",
+              "./node_modules/@ng-select/ng-select/themes/material.theme.css",
+              "./node_modules/cookieconsent/build/cookieconsent.min.css",
+              "projects/strapi-auth-showcase/src/app/@theme/styles/styles.scss",
+              "projects/strapi-auth-showcase/src/styles.scss"
+            ],
+            "scripts": [
+              "./node_modules/quill/dist/quill.min.js",
+              "./node_modules/cookieconsent/build/cookieconsent.min.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/strapi-auth-showcase/src/environments/environment.ts",
+                  "with": "projects/strapi-auth-showcase/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "strapi-auth-showcase:build",
+            "proxyConfig": "projects/strapi-auth-showcase/src/proxy.conf.json"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "strapi-auth-showcase:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "strapi-auth-showcase:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/strapi-auth-showcase/src/test.ts",
+            "polyfills": "projects/strapi-auth-showcase/src/polyfills.ts",
+            "tsConfig": "projects/strapi-auth-showcase/tsconfig.spec.json",
+            "karmaConfig": "projects/strapi-auth-showcase/karma.conf.js",
+            "assets": [
+              "projects/strapi-auth-showcase/src/favicon.ico",
+              "projects/strapi-auth-showcase/src/assets"
+            ],
+            "styles": [
+              "projects/strapi-auth-showcase/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/strapi-auth-showcase/tsconfig.app.json",
+              "projects/strapi-auth-showcase/tsconfig.spec.json",
+              "projects/strapi-auth-showcase/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/strapi-auth-showcase/e2e/protractor.conf.js",
+            "devServerTarget": "strapi-auth-showcase:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "strapi-auth-showcase:serve:production"
+            }
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "strapi-auth"
+}

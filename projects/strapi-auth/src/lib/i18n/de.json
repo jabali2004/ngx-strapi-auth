@@ -1,0 +1,264 @@
+{
+  "errors": {
+    "auth": {
+      "login": {
+        "password_or_email": "Passwort oder Email Adresse sind möglicherweise falsch!",
+        "undefined": "Es ist ein unbekannter Fehler aufgetreten!"
+      },
+      "register": {
+        "password_or_email": "Email oder Username sind möglicherweise schon vergeben!",
+        "undefined": "Es ist ein unbekannter Fehler aufgetreten!"
+      },
+      "request-password-reset": {},
+      "request-password": {
+        "email": "Zu dieser Email Adresse gehört kein Account!",
+        "undefined": "Es ist ein unbekannter Fehler aufgetreten!"
+      },
+      "reset-password": {
+        "code": "Code zur Wiederherstellung ist abgelaufen oder ungültig!",
+        "undefined": "Es ist ein unbekannter Fehler aufgetreten!"
+      }
+    }
+  },
+  "auth": {
+    "change_password": {
+      "form": {
+        "button": {
+          "back_to": {
+            "text": "Zurück zum Login",
+            "title": "Registrieren"
+          },
+          "change_password": {
+            "title": "Password Ändern"
+          }
+        },
+        "input": {
+          "password": {
+            "label": "Neues Passwort:",
+            "min_length_message": "Das Passwort sollte zwischen {{min}} und {{max}} Zeichen enthalten.",
+            "placeholder": "Neues Passwort",
+            "required_message": "Ein Passwort wird benötigt!"
+          },
+          "password_confirmation": {
+            "label": "Passwort Wiederholen:",
+            "match_message": "Die Passwörter stimmen nicht überein!",
+            "placeholder": "Passwort Wiederholen",
+            "required_message": "Eine Bestätigung des Passwortes wird benötigt!"
+          }
+        }
+      },
+      "messages": {
+        "error": "Es ist ein Fehler aufgetreten!",
+        "success": "Passwort wurde erfolgreich geändert."
+      },
+      "subtitle": "Bitte gib dein neues Passwort ein.",
+      "title": "Password Ändern"
+    },
+    "login": {
+      "form": {
+        "button": {
+          "login": "Einloggen",
+          "register": {
+            "label": "Hast du noch keinen Account?",
+            "link": "Registrieren"
+          }
+        },
+        "input": {
+          "email": {
+            "label": "Email Adresse:",
+            "placeholder": "Email Adresse",
+            "required_message": "Eine Email Adresse wird benötigt!",
+            "valid_message": "Diese Email Adresse ist nicht valide!"
+          },
+          "password": {
+            "forgot_message": "Passwort vergessen?",
+            "label": "Passwort:",
+            "min_length_message": "Das Passwort sollte zwischen {{min}} und {{max}} Zeichen enthalten.",
+            "placeholder": "Passwort",
+            "required_message": "Ein Passwort wird benötigt!"
+          }
+        }
+      },
+      "messages": {
+        "error": "Es ist ein Fehler aufgetreten!",
+        "success": "Erfolgreich angemeldet!"
+      },
+      "subtitle": "Hallo! Bitte melde dich mit deiner Email an.",
+      "title": "Login"
+    },
+    "logout": {
+      "logout_text": "Du wirst abgemeldet, bitte warten ..."
+    },
+    "register": {
+      "form": {
+        "button": {
+          "existing_account": {
+            "text": "Hast du schon einen Account?",
+            "title": "Anmelden"
+          },
+          "register": {
+            "title": "Registrieren"
+          }
+        },
+        "input": {
+          "email": {
+            "label": "Email Adresse:",
+            "placeholder": "Email Adresse",
+            "required_message": "Eine Email Adresse wird benötigt!",
+            "valid_message": "Diese Email Adresse ist nicht valide!"
+          },
+          "firstname": {
+            "label": "Vorname:",
+            "min_length_message": "Der Vorname sollte zwischen {{min}} und {{max}} Zeichen enthalten.",
+            "placeholder": "Vorname",
+            "required_message": "Ein Vorname wird benötigt!"
+          },
+          "lastname": {
+            "label": "Nachname:",
+            "min_length_message": "Der Nachname sollte zwischen {{min}} und {{max}} Zeichen enthalten.",
+            "placeholder": "Nachname",
+            "required_message": "Ein Nachname wird benötigt!"
+          },
+          "password": {
+            "label": "Passwort:",
+            "min_length_message": "Das Passwort sollte zwischen {{min}} und {{max}} Zeichen enthalten.",
+            "placeholder": "Passwort",
+            "required_message": "Ein Passwort wird benötigt!"
+          },
+          "repeat_password": {
+            "label": "Passwort bestätigen:",
+            "match_message": "Beide Passwörter müssen übereinstimmen!",
+            "placeholder": "Passwort bestätigen",
+            "required_message": "Eine Passwort Bestätigten wird benötigt!"
+          },
+          "username": {
+            "label": "Username:",
+            "min_length_message": "Der Username sollte zwischen {{min}} und {{max}} Zeichen enthalten.",
+            "placeholder": "Username",
+            "required_message": "Ein Username wird benötigt!"
+          }
+        }
+      },
+      "messages": {
+        "error": "Es ist ein Fehler aufgetreten!",
+        "success": "Erfolgreich registriert!"
+      },
+      "title": "Registrieren"
+    },
+    "request_password": {
+      "form": {
+        "button": {
+          "back_to": {
+            "text": "Zurück zum Login",
+            "title": "Registrieren"
+          },
+          "request": {
+            "title": "Zurücksetzen"
+          }
+        },
+        "input": {
+          "email": {
+            "label": "Gib hier deine Email Adresse ein:",
+            "placeholder": "Email Adresse",
+            "required_message": "Eine Email Adresse wird benötigt!",
+            "valid_message": "Diese Email Adresse ist nicht valide!"
+          }
+        }
+      },
+      "messages": {
+        "error": "Es ist ein Fehler aufgetreten!",
+        "success": "Erfolgreich verschickt."
+      },
+      "subtitle": "Gib hier deine Email Adresse an und wir senden dir einen Link um dein Passwort zurückzusetzen.",
+      "title": "Passwort Zurücksetzen"
+    },
+    "restore": {
+      "form": {
+        "button": {
+          "register": {
+            "label": "Hast du noch keinen Account?",
+            "link": "Registrieren"
+          },
+          "restore": "Wiederherrstellen"
+        },
+        "input": {
+          "email": {
+            "label": "Email Adresse:",
+            "placeholder": "Email Adresse",
+            "required_message": "Eine Email Adresse wird benötigt!",
+            "valid_message": "Diese Email Adresse ist nicht valide!"
+          },
+          "password": {
+            "forgot_message": "Passwort vergessen?",
+            "label": "Passwort:",
+            "min_length_message": "Das Passwort sollte zwischen {{min}} und {{max}} Zeichen enthalten.",
+            "placeholder": "Passwort",
+            "required_message": "Ein Passwort wird benötigt!"
+          }
+        }
+      },
+      "messages": {
+        "error": "Es ist ein Fehler aufgetreten!",
+        "success": "Erfolgreich wiederherrgestellt!"
+      },
+      "subtitle": "Hallo! Hier kannst du deinen Account mit deiner Email wiederherrstellen.",
+      "title": "Wiederherrstellung"
+    },
+    "profile": {
+      "change_password": {
+        "title": "Passwort ändern"
+      },
+      "form": {
+        "button": {
+          "change_password": "Password ändern",
+          "save": "Speichern"
+        },
+        "input": {
+          "email": {
+            "label": "Email Adresse:",
+            "placeholder": "Email Adresse",
+            "required_message": "Eine Email Adresse wird benötigt!",
+            "valid_message": "Diese Email Adresse ist nicht valide!"
+          },
+          "firstname": {
+            "label": "Vorname:",
+            "min_length_message": "Der Vorname sollte zwischen {{min}} und {{max}} Zeichen enthalten.",
+            "placeholder": "Vorname",
+            "required_message": "Ein Vorname wird benötigt!"
+          },
+          "lastname": {
+            "label": "Nachname:",
+            "min_length_message": "Der Nachname sollte zwischen {{min}} und {{max}} Zeichen enthalten.",
+            "placeholder": "Nachname",
+            "required_message": "Ein Nachname wird benötigt!"
+          },
+          "password": {
+            "label": "Passwort:",
+            "min_length_message": "Das Passwort sollte zwischen {{min}} und {{max}} Zeichen enthalten.",
+            "placeholder": "Passwort",
+            "required_message": "Ein Passwort wird benötigt!"
+          },
+          "repeat_password": {
+            "label": "Passwort bestätigen:",
+            "match_message": "Beide Passwörter müssen übereinstimmen!",
+            "placeholder": "Passwort bestätigen",
+            "required_message": "Eine Passwort Bestätigten wird benötigt!"
+          },
+          "username": {
+            "label": "Username:",
+            "min_length_message": "Der Username sollte zwischen {{min}} und {{max}} Zeichen enthalten.",
+            "placeholder": "Username",
+            "required_message": "Ein Username wird benötigt!"
+          }
+        }
+      },
+      "general_information": {
+        "title": "Allgemeine Informationen"
+      },
+      "messages": {
+        "error": "Es ist ein Fehler aufgetreten!",
+        "success": "Erfolgreich registriert!"
+      }
+    }
+  }
+}
