@@ -4,6 +4,3 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### 0.0.1 (2021-03-13)
 
-# Changelog
-
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
