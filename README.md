@@ -324,9 +324,6 @@ export class ProfileComponent extends StrapiProfileComponent implements OnInit {
 
 ## Development guide
 
-* Alle pakete installieren
-* Strapi einrichten
-
 ### First start
 
 Install needed global packages:
