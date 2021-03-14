@@ -27,6 +27,7 @@ import { RequestPasswordComponent } from './components/auth-components/request-p
 import { ResetPasswordComponent } from './components/auth-components/reset-password/reset-password.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { StrapiAuthRoutingModule } from './routing/strapi-auth-routing.module';
 import { AuthService } from './services/auth.service';
 import { ConfigService } from './services/config.service';
 import { StrapiAuthConfig } from './types/StrapiAuthConfig';
@@ -46,6 +47,7 @@ import { StrapiAuthConfig } from './types/StrapiAuthConfig';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    StrapiAuthRoutingModule,
     RouterModule,
     NbCardModule,
     NbLayoutModule,

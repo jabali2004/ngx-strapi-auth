@@ -1,24 +1,51 @@
-# StrapiAuth
+# NgxStrapiAuth
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.4.
+[![build pipeline](https://github.com/jabali2004/ngx-strapi-auth/actions/workflows/build.yml/badge.svg)](https://github.com/jabali2004/ngx-strapi-auth/actions/workflows/build.yml)
 
-## Code scaffolding
+> NgxStrapiAuth is a Angular library that implements all standard operations like logging in or registering a user for the headless CMS Strapi.
 
-Run `ng generate component component-name --project strapi-auth` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project strapi-auth`.
-> Note: Don't forget to add `--project strapi-auth` or else it will be added to the default project in your `angular.json` file. 
+Services and guards are provided, as well as ready-made components.
 
-## Build
+The goal of this project is to implement standard functionalities so that a developer does not have to deal with these tasks unnecessarily.
 
-Run `ng build strapi-auth` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Features
 
-## Publishing
+Currently implemented functionalities:
 
-After building your library with `ng build strapi-auth`, go to the dist folder `cd dist/strapi-auth` and run `npm publish`.
+* login / logout user
+* register new user
+* update user
+* reset / request password reset
+* authenticating requests using interceptor
+* auth guard / token guard
+* ready to use routing module
+* translation using [ngx-translate](https://github.com/ngx-translate/core)  
+* authentifikation providers
+  * google
+  * github
+  * microsoft
+  * facebook
+  * twitter
 
-## Running unit tests
+Finished Angular components:
 
-Run `ng test strapi-auth` to execute the unit tests via [Karma](https://karma-runner.github.io).
+* login
+* logout
+* register
+* request password
+* reset password
+* profile (update password or user info)
 
-## Further help
+## Upcoming Features
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Currently planned functionalities:
+
+* add more auth providers
+* finish and enhance auth interceptor
+* add multiple styling options
+* making components more dynamic
+* add better error handling for services / components
+
+## More Information
+
+[Documentation / Repository](https://github.com/jabali2004/ngx-strapi-auth)

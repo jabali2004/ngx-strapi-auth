@@ -8,5 +8,9 @@
       "@nebular/theme": "@nebular/theme",
       "@ngx-translate/core": "@ngx-translate/core"
     }
-  }
+  },
+  "whitelistedNonPeerDependencies": [
+    "tslib",
+    "jwt-decode"
+  ]
 }
