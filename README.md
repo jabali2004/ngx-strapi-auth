@@ -48,9 +48,17 @@ Currently planned functionalities:
 
 ## Installation / Integration
 
+> NgxStrapiAuth uses Nebular, NgBootstrap for components and styling, and NgxTranslate for implementing multilingualism.
+
 ### Requirements
 
-> NgxStrapiAuth uses Nebular, NgBootstrap for components and styling, and NgxTranslate for implementing multilingualism.
+> The use of NodeJS v14 is highly recommended.
+
+Minimum requirements:
+
+* NodeJS v14
+* Angular 11.1.1
+* Strapi 3.4.0
 
 ### Install and set up NgxTranslate
 
@@ -252,45 +260,103 @@ Add profile component to specific route:
   }
 ````
 
-<!-- ------------------------------------------------------------------ -->
-
-<!-- TODO: Add override default components -->
-<!-- TODO: Add development guide -->
-
-<!-- 
-
 ### Override default components
 
-Komponente erstellen und eine vorhandene Komponente implementieren.
+The already implemented Angular components can be manually overridden by creating a custom component and extending it with a pre-implemented component.
 
-HTML wird automatisch nicht implementiert. Nur die TS Komponente wird implementiert.
-
-Bereits implementierte Funktionen können natürlich überschrieben werden.
+```` typescript
+export class ProfileComponent extends StrapiProfileComponent implements OnInit {}
+````
 
 ## Project structure
 
-Library Ordner: projects/strapi-auth
+```` bash
+└── projects
+    ├── strapi-auth library # library project
+    │   └── src
+    │       └── lib
+    │           ├── components # pre-implemented components
+    │           │   ├── auth-components
+    │           │   │   ├── auth-block
+    │           │   │   ├── login
+    │           │   │   ├── logout
+    │           │   │   ├── register
+    │           │   │   ├── request-password
+    │           │   │   └── reset-password
+    │           │   └── profile
+    │           ├── guards # auth and token guard
+    │           ├── i18n # language files
+    │           ├── interceptors
+    │           ├── routing
+    │           ├── services
+    │           ├── styles
+    │           └── types # interfaces and classes
+    └── strapi-auth-showcase # test and showcase project
+        ├── src
+        │   ├── app
+        │   │   ├── @core # core components
+        │   │   │   ├── components
+        │   │   │   ├── services
+        │   │   │   └── utils
+        │   │   ├── @theme # theme using nebular
+        │   │   │   ├── components
+        │   │   │   ├── directives
+        │   │   │   ├── layouts
+        │   │   │   ├── pipes
+        │   │   │   └── styles
+        │   │   └── pages # pages
+        │   │       ├── auth
+        │   │       ├── home
+        │   │       └── miscellaneous
+        │   │           └── not-found
+        │   ├── assets
+        │   └── environments
+        └── strapi_backend # example strapi backend
+            ├── api
+            ├── build
+            ├── config
+            ├── exports
+            ├── extensions
+            └── public
+````
 
-Test Projekt Ordner: projects/strapi-auth-showcase
-Strapi: projects/strapi-auth-showcase/strapi_backend
+<!-- TODO: Add development guide -->
 
 ## Development guide
 
 * Alle pakete installieren
 * Strapi einrichten
 
-## Erster Start
+### First start
 
-0. npm install -g strapi | Installiert die Strapi Cli
-1. npm install
-2. npm start -> startet strapi api und angular
+Install needed global packages:
 
-Sollte Angular und Strapi getrennt gestartet werden:
+```` bash
+   npm install -g strapi @angular/cli # install strapi, angular cli
+````
 
-* ng serve
-* strapi dev | Im strapi Ordner 
+Install local packages:
 
--->
+```` bash
+npm install # Install all needed packages in repo
+````
+
+Start frontend and backend:
+
+```` bash
+npm start
+````
+
+Should Angular and Strapi be started separately:
+
+```` bash
+ng serve
+````
+
+```` bash
+cd projects/strapi-auth-showcase/strapi_backend
+strapi dev
+````
 
 ## Contribute
 
