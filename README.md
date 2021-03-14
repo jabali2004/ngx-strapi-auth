@@ -177,6 +177,69 @@ export class AppModule {
 }
 ````
 
+Add routes for authentifikation and user handling to routing module:
+
+app.routing.module (example)
+```` typescript
+  {
+    path: '',
+    loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
+  },
+  {
+    path: 'profile',
+    canActivate: [AuthGuard],
+    component: ProfileComponent,
+  }
+````
+
+Routes registered in StrapiAuthRoutingModule:
+
+```` typescript
+const routes: Routes = [
+  {
+    path: '',
+    component: AuthComponentsComponent,
+    children: [
+      {
+        path: 'login',
+        component: LoginComponent
+      },
+      {
+        path: 'register',
+        component: RegisterComponent
+      },
+      {
+        path: 'logout',
+        component: LogoutComponent
+      },
+      {
+        path: 'request-password',
+        component: RequestPasswordComponent
+      },
+      {
+        path: 'reset-password',
+        component: ResetPasswordComponent
+      },
+      {
+        path: 'providers',
+        canActivateChild: [TokenGuard],
+        children: [
+          {
+            path: 'github'
+          },
+          {
+            path: 'google'
+          },
+          {
+            path: 'microsoft'
+          }
+        ]
+      }
+    ]
+  }
+];
+````
+
 Create AuthModule:
 
 ```` bash
@@ -193,7 +256,7 @@ import { TranslateService } from '@ngx-translate/core';
 
 @NgModule({
 declarations: [],
-imports: [CommonModule, StrapiAuthRoutingModule],
+imports: [CommonModule, StrapiAuthRoutingModule], // Import StrapiAuthRoutingModule
 })
 export class AuthModule {}
 ````
@@ -248,16 +311,6 @@ Activate proxy in angular.json:
       }
     }
   },
-````
-
-Add profile component to specific route:
-
-```` typescript
-  {
-    path: 'profile',
-    canActivate: [AuthGuard],
-    component: ProfileComponent,
-  }
 ````
 
 ### Override default components
