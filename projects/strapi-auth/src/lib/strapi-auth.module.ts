@@ -47,7 +47,6 @@ import { StrapiAuthConfig } from './types/StrapiAuthConfig';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    StrapiAuthRoutingModule,
     RouterModule,
     NbCardModule,
     NbLayoutModule,

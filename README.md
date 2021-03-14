@@ -224,7 +224,7 @@ proxy.conf.json
 ```` json
 {
   "/api/*": {
-    "target": "http://localhost:8080",
+    "target": "http://localhost:1337",
     "secure": false,
     "pathRewrite": {
       "^/api": ""
