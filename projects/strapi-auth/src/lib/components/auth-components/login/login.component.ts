@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     protected cd: ChangeDetectorRef,
     protected router: Router,
     protected translate: TranslateService,
-    @Inject(ConfigService) public strapiAuthconfig: StrapiAuthConfig
+    @Inject(ConfigService) public strapiAuthConfig: StrapiAuthConfig
   ) {}
 
   ngOnInit(): void {

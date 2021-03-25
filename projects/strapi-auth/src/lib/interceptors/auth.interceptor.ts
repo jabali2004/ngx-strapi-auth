@@ -1,4 +1,4 @@
-import { Injectable, Injector } from '@angular/core';
+import { Inject, Injectable, Injector } from '@angular/core';
 import {
   HttpEvent,
   HttpInterceptor,
@@ -9,10 +9,15 @@ import {
 import { throwError, Observable, BehaviorSubject, of } from 'rxjs';
 import { catchError, filter, take, switchMap } from 'rxjs/operators';
 import { AuthService } from '../services/auth.service';
+import { StrapiAuthConfig } from '../types/StrapiAuthConfig';
+import { ConfigService } from '../services/config.service';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
-  constructor(private injector: Injector) {}
+  constructor(
+    private injector: Injector,
+    @Inject(ConfigService) public strapiAuthConfig: StrapiAuthConfig
+  ) {}
 
   private AUTH_HEADER = 'Authorization';
   private token;
@@ -83,11 +88,10 @@ export class AuthInterceptor implements HttpInterceptor {
       return request;
     }
     // If you are calling an outside domain then do not add the token.
-    // TODO: Add check for token clone
-    // FIXME: Only add token to api domain
-    // if (!request.url.match(/www.mydomain.com\//)) {
-    //   return request;
-    // }
+    if (!request.url.match(this.strapiAuthConfig.strapi_base_url)) {
+      return request;
+    }
+
     return request.clone({
       headers: request.headers.set(this.AUTH_HEADER, 'Bearer ' + this.token)
     });
