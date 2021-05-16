@@ -2,15 +2,13 @@
   "types": [
     {
       "type": "feat",
-      "section": "Features"
+      "section": "Features",
+      "hidden": false
     },
     {
       "type": "fix",
-      "section": "Bug Fixes"
-    },
-    {
-      "type": "BREAKING CHANGE",
-      "section": "Breaking Changes:"
+      "section": "Bug Fixes",
+      "hidden": false
     },
     {
       "type": "chore",

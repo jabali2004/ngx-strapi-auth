@@ -53,7 +53,7 @@ jobs:
           npm install -g @angular/cli
       - name: Install project dependencies
         run: npm install
-      - name: Lint library project
+      - name: Lint library showcase project
         run: ng lint --project strapi-auth-showcase
       - name: Build showcase
         run: cd projects/strapi-auth-showcase && ng build --project strapi-auth-showcase
