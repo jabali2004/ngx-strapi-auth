@@ -49,7 +49,7 @@ export class RequestPasswordComponent implements OnInit, OnDestroy {
       .then(() => {
         this.submitted = false;
         this.resetCreateReq.email = '';
-        this.router.navigateByUrl('');
+        this.router.navigateByUrl(this.authService.RequestPasswordRedirectUrl);
       })
       .catch((error: HttpErrorResponse) => {
         this.submitted = false;

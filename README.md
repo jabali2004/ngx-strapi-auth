@@ -153,8 +153,12 @@ Register StrapiAuthModule in app.module:
   imports: [
     StrapiAuthModule.forRoot({
       strapi_base_url: 'http://localhost:1337', // environment.API_BASE_PATH
-      strapi_auth_providers: [], // github , microsoft , ....
-      login_redirect_url: '/profile', // redirected page after login
+      auth_providers: ['github'], // github , microsoft , ....
+      routes: { // override some default routing paths
+        login: '/auth/login',
+        register: '/auth/register',
+        logoutRedirect: '/'
+      }
     }),
   ],
     providers: [

@@ -58,8 +58,12 @@ const quillModules = {
     BrowserAnimationsModule,
     StrapiAuthModule.forRoot({
       strapi_base_url: environment.API_BASE_PATH || 'http://localhost:1337',
-      strapi_auth_providers: ['github'],
-      login_redirect_url: 'pages/profile'
+      auth_providers: ['github'],
+      routes: {
+        login: '/auth/login',
+        register: '/auth/register',
+        logoutRedirect: '/'
+      }
     }),
     NbThemeModule.forRoot({ name: 'default' }),
     NbLayoutModule,

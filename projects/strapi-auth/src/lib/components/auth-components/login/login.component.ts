@@ -75,7 +75,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       .then(() => {
         this.submitted = false;
         if (this.authService.isAuthenticated) {
-          this.router.navigateByUrl('/pages');
+          this.router.navigateByUrl(this.authService.LoginRedirectUrl);
         }
       })
       .catch((err: HttpErrorResponse) => {

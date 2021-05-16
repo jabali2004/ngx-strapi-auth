@@ -49,9 +49,8 @@ export class ResetPasswordComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     // get code from url
     this.route.queryParams.subscribe(() => {
-      this.passwordResetReq.code = this.route.snapshot.queryParamMap.get(
-        'code'
-      );
+      this.passwordResetReq.code =
+        this.route.snapshot.queryParamMap.get('code');
     });
 
     if (!this.passwordResetReq.code) {
@@ -70,7 +69,7 @@ export class ResetPasswordComponent implements OnInit, OnDestroy {
       .resetPassword(this.passwordResetReq)
       .then(() => {
         this.submitted = false;
-        this.router.navigateByUrl('/auth/login');
+        this.router.navigateByUrl(this.authService.LoginUrl);
       })
       .catch((error: HttpErrorResponse) => {
         this.submitted = false;

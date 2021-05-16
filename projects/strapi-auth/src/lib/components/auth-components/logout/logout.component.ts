@@ -20,7 +20,7 @@ export class LogoutComponent implements OnInit, OnDestroy {
 
   logout(): void {
     this.authService.logout().then(() => {
-      this.router.navigateByUrl('/');
+      this.router.navigateByUrl(this.authService.LogoutRedirectUrl);
     });
   }
 }

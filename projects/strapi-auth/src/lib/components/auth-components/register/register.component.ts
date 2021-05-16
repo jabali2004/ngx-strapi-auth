@@ -68,7 +68,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
         this.authRegisterReq.password
       )
       .then(() => {
-        this.router.navigateByUrl('/auth/login');
+        this.router.navigateByUrl(this.authService.LoginUrl);
       })
       .catch((error: HttpErrorResponse) => {
         this.submitted = false;

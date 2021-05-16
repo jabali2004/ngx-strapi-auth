@@ -79,10 +79,61 @@ export class AuthService {
   }
 
   /**
-   * Return external auth redirect url
+   * Return login redirect url
    */
   public get LoginRedirectUrl(): string {
-    return this.strapiAuthConfig.login_redirect_url || 'pages';
+    return this.strapiAuthConfig.routes.loginRedirect || '';
+  }
+
+  /**
+   * Return login url
+   */
+  public get LoginUrl(): string {
+    return this.strapiAuthConfig.routes.login || 'auth/login';
+  }
+
+  /**
+   * Return logout url
+   */
+  public get LogoutUrl(): string {
+    return this.strapiAuthConfig.routes.login || 'auth/logout';
+  }
+
+  /**
+   * Return logout redirect url
+   */
+  public get LogoutRedirectUrl(): string {
+    return this.strapiAuthConfig.routes.logoutRedirect || '';
+  }
+
+  /**
+   * Return register url
+   */
+  public get RegisterUrl(): string {
+    return this.strapiAuthConfig.routes.register || 'auth/register';
+  }
+
+  /**
+   * Return request password url
+   */
+  public get RequestPasswordUrl(): string {
+    return (
+      this.strapiAuthConfig.routes.requestPassword || 'auth/request-password'
+    );
+  }
+
+  /**
+   * Return request password redirect url
+   */
+  public get RequestPasswordRedirectUrl(): string {
+    return this.strapiAuthConfig.routes.requestPasswordRedirect || '';
+  }
+
+  /**
+   * Return reset password url
+   */
+  public get ResetPasswordUrl(): string {
+    return this.strapiAuthConfig.routes.resetPassword || 'auth/reset-password';
   }
 
   /**
@@ -200,9 +251,8 @@ export class AuthService {
    * Request password reset mail
    */
   public async requestPasswordReset(email: string): Promise<void> {
-    const res:
-      | IResRequestPasswordReset
-      | HttpErrorResponse = await this.postRequestPasswordReset(email);
+    const res: IResRequestPasswordReset | HttpErrorResponse =
+      await this.postRequestPasswordReset(email);
   }
 
   /**
@@ -211,9 +261,8 @@ export class AuthService {
   public async resetPassword(
     passwordResetReq: IReqPasswordReset
   ): Promise<void> {
-    const res:
-      | IResPasswordReset
-      | HttpErrorResponse = await this.postResetPassword(passwordResetReq);
+    const res: IResPasswordReset | HttpErrorResponse =
+      await this.postResetPassword(passwordResetReq);
   }
 
   /**
@@ -349,15 +398,14 @@ export class AuthService {
     registerReq: IReqAuthRegister
   ): Promise<IResAuthRegister | HttpErrorResponse> {
     try {
-      const res:
-        | IResAuthRegister
-        | HttpErrorResponse = (await this.authHttpClient
-        .post(this.apiUrl + '/auth/local/register', {
-          username: registerReq.username,
-          email: registerReq.email,
-          password: registerReq.password
-        })
-        .toPromise()) as IResAuthRegister | HttpErrorResponse;
+      const res: IResAuthRegister | HttpErrorResponse =
+        (await this.authHttpClient
+          .post(this.apiUrl + '/auth/local/register', {
+            username: registerReq.username,
+            email: registerReq.email,
+            password: registerReq.password
+          })
+          .toPromise()) as IResAuthRegister | HttpErrorResponse;
 
       return res;
     } catch (error) {
@@ -372,11 +420,10 @@ export class AuthService {
     email: string
   ): Promise<IResRequestPasswordReset | HttpErrorResponse> {
     try {
-      const res:
-        | IResRequestPasswordReset
-        | HttpErrorResponse = (await this.authHttpClient
-        .post(this.apiUrl + '/auth/forgot-password', { email })
-        .toPromise()) as IResRequestPasswordReset | HttpErrorResponse;
+      const res: IResRequestPasswordReset | HttpErrorResponse =
+        (await this.authHttpClient
+          .post(this.apiUrl + '/auth/forgot-password', { email })
+          .toPromise()) as IResRequestPasswordReset | HttpErrorResponse;
 
       return res;
     } catch (error) {
@@ -391,11 +438,10 @@ export class AuthService {
     passwordResetReq: IReqPasswordReset
   ): Promise<IResPasswordReset | HttpErrorResponse> {
     try {
-      const res:
-        | IResPasswordReset
-        | HttpErrorResponse = (await this.authHttpClient
-        .post(this.apiUrl + '/auth/reset-password', passwordResetReq)
-        .toPromise()) as IResPasswordReset | HttpErrorResponse;
+      const res: IResPasswordReset | HttpErrorResponse =
+        (await this.authHttpClient
+          .post(this.apiUrl + '/auth/reset-password', passwordResetReq)
+          .toPromise()) as IResPasswordReset | HttpErrorResponse;
 
       return res;
     } catch (error) {
