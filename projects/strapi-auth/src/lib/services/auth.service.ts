@@ -82,7 +82,7 @@ export class AuthService {
    * Return login redirect url
    */
   public get LoginRedirectUrl(): string {
-    return this.strapiAuthConfig.routes.loginRedirect || '';
+    return this.strapiAuthConfig.routes.loginRedirect || '/';
   }
 
   /**
@@ -103,7 +103,7 @@ export class AuthService {
    * Return logout redirect url
    */
   public get LogoutRedirectUrl(): string {
-    return this.strapiAuthConfig.routes.logoutRedirect || '';
+    return this.strapiAuthConfig.routes.logoutRedirect || '/';
   }
 
   /**
@@ -126,7 +126,7 @@ export class AuthService {
    * Return request password redirect url
    */
   public get RequestPasswordRedirectUrl(): string {
-    return this.strapiAuthConfig.routes.requestPasswordRedirect || '';
+    return this.strapiAuthConfig.routes.requestPasswordRedirect || '/';
   }
 
   /**
