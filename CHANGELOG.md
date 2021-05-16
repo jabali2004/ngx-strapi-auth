@@ -4,8 +4,11 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### 0.0.5 (2021-05-16)
 
-### 0.0.4 (2021-03-25)
+### Bug Fixes
 
+* Invalid token does not get cleared [#11](https://github.com/jabali2004/ngx-strapi-auth/issues/11) ([cf59b89](https://github.com/jabali2004/ngx-strapi-auth/commit/cf59b89420d8f5164cad26a728de398a827243d6))
+
+### 0.0.4 (2021-03-25)
 
 ### Bug Fixes
 
