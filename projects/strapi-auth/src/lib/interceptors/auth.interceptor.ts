@@ -11,20 +11,18 @@ import { catchError, filter, take, switchMap } from 'rxjs/operators';
 import { AuthService } from '../services/auth.service';
 import { StrapiAuthConfig } from '../types/StrapiAuthConfig';
 import { ConfigService } from '../services/config.service';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
   constructor(
     private injector: Injector,
+    private router: Router,
     @Inject(ConfigService) public strapiAuthConfig: StrapiAuthConfig
   ) {}
 
   private AUTH_HEADER = 'Authorization';
   private token;
-  private refreshTokenInProgress = false;
-  private refreshTokenSubject: BehaviorSubject<any> = new BehaviorSubject<any>(
-    null
-  );
   private authService: AuthService;
 
   intercept(
@@ -44,41 +42,18 @@ export class AuthInterceptor implements HttpInterceptor {
 
     return next.handle(req).pipe(
       catchError((error: HttpErrorResponse) => {
-        // if (error && error.status === 401) {
-        //   // 401 errors are most likely going to be because we have an expired token that we need to refresh.
-        //   if (this.refreshTokenInProgress) {
-        //     // If refreshTokenInProgress is true, we will wait until refreshTokenSubject has a non-null value
-        //     // which means the new token is ready and we can retry the request again
-        //     return this.refreshTokenSubject.pipe(
-        //       filter((result) => result !== null),
-        //       take(1),
-        //       switchMap(() => next.handle(this.addAuthenticationToken(req)))
-        //     );
-        //   } else {
-        //     this.refreshTokenInProgress = true;
-        //     // Set the refreshTokenSubject to null so that subsequent API calls will wait until the new token has been retrieved
-        //     this.refreshTokenSubject.next(null);
-        //     return this.refreshAccessToken().pipe(
-        //       switchMap((success: boolean) => {
-        //         this.refreshTokenSubject.next(success);
-        //         return next.handle(this.addAuthenticationToken(req));
-        //       }),
-        //       // When the call to refreshToken completes we reset the refreshTokenInProgress to false
-        //       // for the next time the token needs to be refreshed
-        //       finalize(() => (this.refreshTokenInProgress = false))
-        //     );
-        //   }
-        // } else {
-        //   return throwError(error);
-        // }
-        return throwError(error);
+        switch (error.status) {
+          // Intercept unauthorized request
+          case 401:
+            return this.authService.logout().then(() => {
+              this.router.navigateByUrl(this.authService.LoginUrl);
+            });
+
+          default:
+            return throwError(error);
+        }
       })
     ) as Observable<HttpEvent<any>>;
-  }
-
-  private refreshAccessToken(): Observable<any> {
-    // TODO: Add token refresh
-    return of('secret token');
   }
 
   private addAuthenticationToken(request: HttpRequest<any>): HttpRequest<any> {
