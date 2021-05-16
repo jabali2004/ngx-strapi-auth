@@ -56,6 +56,6 @@ jobs:
       - name: Lint library project
         run: ng lint --project strapi-auth-showcase
       - name: Build showcase
-        run: cd projects/strapi-auth-showcase && ng build
+        run: cd projects/strapi-auth-showcase && ng build --project strapi-auth-showcase
       - name: Build strapi
         run: cd projects/strapi-auth-showcase/strapi_backend && strapi build
