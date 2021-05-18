@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/jabali2004/ngx-strapi-auth.git"
+    "url": "https://github.com/jabali2004/ngx-strapi-auth.git"
   },
   "license": "Apache-2.0 License",
   "peerDependencies": {
