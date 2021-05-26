@@ -3,7 +3,9 @@
     "auth": {
       "login": {
         "password_or_email": "Password or email address may be wrong!",
-        "undefined": "An unknown error has occurred!"
+        "undefined": "An unknown error has occurred!",
+        "email_verification": "The email must be confirmed before! Please check your mailbox.",
+        "account_blocked": "Your account has been blocked! Therefore, registration is not possible."
       },
       "register": {
         "password_or_email": "Email or username are possibly already taken!",

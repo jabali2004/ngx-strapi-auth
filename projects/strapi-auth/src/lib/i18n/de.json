@@ -3,13 +3,14 @@
     "auth": {
       "login": {
         "password_or_email": "Passwort oder Email Adresse sind möglicherweise falsch!",
-        "undefined": "Es ist ein unbekannter Fehler aufgetreten!"
+        "undefined": "Es ist ein unbekannter Fehler aufgetreten!",
+        "email_verification": "Die Email muss zuvor bestätigt werden! Bitte überprüfen Sie ihr Mail Postfach.",
+        "account_blocked": "Ihr Account wurde geblockt! Eine Anmeldung ist deshalb nicht möglich."
       },
       "register": {
         "password_or_email": "Email oder Username sind möglicherweise schon vergeben!",
         "undefined": "Es ist ein unbekannter Fehler aufgetreten!"
       },
-      "request-password-reset": {},
       "request-password": {
         "email": "Zu dieser Email Adresse gehört kein Account!",
         "undefined": "Es ist ein unbekannter Fehler aufgetreten!"

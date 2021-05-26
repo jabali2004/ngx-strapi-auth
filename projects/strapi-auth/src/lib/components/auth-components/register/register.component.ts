@@ -52,7 +52,11 @@ export class RegisterComponent implements OnInit, OnDestroy {
     protected translate: TranslateService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (this.authService.AuthState) {
+      this.authService.logout();
+    }
+  }
 
   ngOnDestroy(): void {}
 
