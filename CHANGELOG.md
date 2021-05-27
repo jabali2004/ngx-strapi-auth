@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.6](https://github.com/jabali2004/ngx-strapi-auth/compare/v0.0.5...v0.0.6) (2021-05-27)
+
+
+### Features
+
+* Add error message for mail confirmation and blockage ([930c722](https://github.com/jabali2004/ngx-strapi-auth/commit/930c7223dda2ba9acd458149db89c47be1af8b13))
+
 ### 0.0.5 (2021-05-16)
 
 ### Breaking Changes
