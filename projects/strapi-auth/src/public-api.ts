@@ -28,7 +28,7 @@ export {
   StrapiAuthConfig,
   StrapiAuthProviders
 } from './lib/types/StrapiAuthConfig';
-export { Token } from './lib/types/Token';
+export { Token } from './lib/types/models/Token';
 export { User, IUser } from './lib/types/models/User';
 
 // Components

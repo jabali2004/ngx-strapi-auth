@@ -11,7 +11,7 @@ import { IResAuthRegister } from '../types/responses/ResAuthRegister';
 import { IReqAuthRegister } from '../types/requests/ReqAuthRegister';
 import { Router } from '@angular/router';
 import { IReqUserUpdate } from '../types/requests/ReqUserUpdate';
-import { Token } from '../types/Token';
+import { Token } from '../types/models/Token';
 import {
   StrapiAuthConfig,
   StrapiAuthProviders
