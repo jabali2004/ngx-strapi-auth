@@ -1,8 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Form, FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
-import { IReqUserUpdate } from '../../types/ReqUserUpdate';
-import { IUserDTO } from '../../types/UserDTO';
+import { IReqUserUpdate } from '../../types/requests/ReqUserUpdate';
+import { IUser } from '../../types/models/User';
 
 @Component({
   selector: 'strapi-auth-profile',
@@ -22,7 +22,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
     rePass: new FormControl()
   });
 
-  oldUserObj: IUserDTO;
+  oldUserObj: IUser;
 
   userObj = {
     firstname: null,

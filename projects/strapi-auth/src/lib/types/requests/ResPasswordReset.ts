@@ -1,6 +1,6 @@
-import { UserDTO } from './UserDTO';
+import { User } from '../models/User';
 
 export interface IResPasswordReset {
   jwt: string;
-  user: UserDTO;
+  user: User;
 }

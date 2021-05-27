@@ -13,7 +13,7 @@ import { map, takeUntil, filter } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { AuthService, IUserDTO } from 'projects/strapi-auth/src/public-api';
+import { AuthService, IUser } from 'projects/strapi-auth/src/public-api';
 
 @Component({
   selector: 'app-header',
@@ -23,7 +23,7 @@ import { AuthService, IUserDTO } from 'projects/strapi-auth/src/public-api';
 export class HeaderComponent implements OnInit, OnDestroy {
   private destroy$: Subject<void> = new Subject<void>();
   userPictureOnly = false;
-  user: IUserDTO;
+  user: IUser;
 
   themes = [
     {

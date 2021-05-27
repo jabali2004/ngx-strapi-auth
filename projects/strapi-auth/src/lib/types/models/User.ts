@@ -13,14 +13,14 @@ import { FormControl, FormGroup, FormArray, Validators } from '@angular/forms';
 /*
 https://github.com/swagger-api/swagger-codegen/wiki/Mustache-Template-Variables
 */
-import { BaseModel } from '../types/BaseModel';
+import { BaseModel } from './BaseModel';
 import { Role } from './Role';
 
 /**
- * Generated Model Interface for Model "UserDTO"
+ * Generated Model Interface for Model "User"
  *
  */
-export interface IUserDTO {
+export interface IUser {
   id: string;
   username: string;
   email: string;
@@ -32,12 +32,12 @@ export interface IUserDTO {
   updated_by?: any;
 }
 /**
- * Generated Model Class for Model "UserDTO"
+ * Generated Model Class for Model "User"
  *
  */
-export class UserDTO extends BaseModel implements IUserDTO {
-  public static readonly MODEL = 'UserDTO';
-  public MODEL = 'UserDTO';
+export class User extends BaseModel implements IUser {
+  public static readonly MODEL = 'User';
+  public MODEL = 'User';
 
   public id: string;
   public username: string;
@@ -66,7 +66,7 @@ export class UserDTO extends BaseModel implements IUserDTO {
     // define non enumerable properties so these are omitted in JSON.stringify.
     Object.defineProperty(this, 'MODEL', {
       enumerable: false,
-      writable: false,
+      writable: false
     });
   }
 
@@ -118,7 +118,7 @@ export class UserDTO extends BaseModel implements IUserDTO {
         blocked: new FormControl(this.blocked, []),
         role: new FormControl(this.role, []),
         created_by: new FormControl(this.created_by, []),
-        updated_by: new FormControl(this.updated_by, []),
+        updated_by: new FormControl(this.updated_by, [])
       });
     }
     return this._formGroup;

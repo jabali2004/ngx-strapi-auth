@@ -18,18 +18,18 @@ export { AuthGuard } from './lib/guards/auth.guard';
 export { StrapiAuthRoutingModule } from './lib/routing/strapi-auth-routing.module';
 
 // Types
-export { BaseModel } from './lib/types/BaseModel';
-export { IReqAuthRegister } from './lib/types/ReqAuthRegister';
-export { IReqUserUpdate } from './lib/types/ReqUserUpdate';
-export { IResAuthLogin } from './lib/types/ResAuthLogin';
-export { IResAuthRegister } from './lib/types/ResAuthRegister';
-export { Role } from './lib/types/Role';
+export { BaseModel } from './lib/types/models/BaseModel';
+export { IReqAuthRegister } from './lib/types/requests/ReqAuthRegister';
+export { IReqUserUpdate } from './lib/types/requests/ReqUserUpdate';
+export { IResAuthLogin } from './lib/types/responses/ResAuthLogin';
+export { IResAuthRegister } from './lib/types/responses/ResAuthRegister';
+export { Role } from './lib/types/models/Role';
 export {
   StrapiAuthConfig,
   StrapiAuthProviders
 } from './lib/types/StrapiAuthConfig';
 export { Token } from './lib/types/Token';
-export { UserDTO, IUserDTO } from './lib/types/UserDTO';
+export { User, IUser } from './lib/types/models/User';
 
 // Components
 export { AuthComponentsComponent } from './lib/components/auth-components/auth-components.component';

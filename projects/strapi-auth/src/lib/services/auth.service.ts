@@ -1,16 +1,16 @@
 import { Inject, Injectable } from '@angular/core';
-import { UserDTO, IUserDTO } from '../types/UserDTO';
+import { User, IUser } from '../types/models/User';
 import {
   HttpClient,
   HttpBackend,
   HttpErrorResponse
 } from '@angular/common/http';
-import { IResAuthLogin } from '../types/ResAuthLogin';
+import { IResAuthLogin } from '../types/responses/ResAuthLogin';
 import { Subject } from 'rxjs';
-import { IResAuthRegister } from '../types/ResAuthRegister';
-import { IReqAuthRegister } from '../types/ReqAuthRegister';
+import { IResAuthRegister } from '../types/responses/ResAuthRegister';
+import { IReqAuthRegister } from '../types/requests/ReqAuthRegister';
 import { Router } from '@angular/router';
-import { IReqUserUpdate } from '../types/ReqUserUpdate';
+import { IReqUserUpdate } from '../types/requests/ReqUserUpdate';
 import { Token } from '../types/Token';
 import {
   StrapiAuthConfig,
@@ -23,16 +23,16 @@ import { TranslateService } from '@ngx-translate/core';
 // Language files
 import deLang from '../i18n/de.json';
 import enLang from '../i18n/en.json';
-import { IResRequestPasswordReset } from '../types/ResRequestPasswordReset';
-import { IResPasswordReset } from '../types/ResPasswordReset';
-import { IReqPasswordReset } from '../types/ReqPasswordReset';
+import { IResRequestPasswordReset } from '../types/requests/ResRequestPasswordReset';
+import { IResPasswordReset } from '../types/requests/ResPasswordReset';
+import { IReqPasswordReset } from '../types/requests/ReqPasswordReset';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   private apiUrl: string;
-  private user: UserDTO;
+  private user: User;
   private token: string;
   private authHttpClient: HttpClient;
 
@@ -240,10 +240,10 @@ export class AuthService {
    * Update user profile
    */
   public async updateProfile(updateReq: IReqUserUpdate): Promise<void> {
-    const res: IUserDTO | HttpErrorResponse = await this.updateUser(updateReq);
+    const res: IUser | HttpErrorResponse = await this.updateUser(updateReq);
 
     if (res) {
-      this.user = new UserDTO(res);
+      this.user = new User(res);
       this.userState.next();
     }
   }
@@ -284,7 +284,7 @@ export class AuthService {
   /**
    * return user obj
    */
-  public getUser(): IUserDTO {
+  public getUser(): IUser {
     return this.user;
   }
 
@@ -294,7 +294,7 @@ export class AuthService {
   public async loadUser(): Promise<void> {
     this.requestUser().then((user) => {
       if (user) {
-        this.user = new UserDTO(user);
+        this.user = new User(user);
         this.userState.next();
       }
     });
@@ -328,7 +328,7 @@ export class AuthService {
   private setTokenResponse(res: IResAuthRegister | IResAuthLogin): void {
     if (res.jwt && res.user) {
       this.token = res.jwt;
-      this.user = new UserDTO(res.user);
+      this.user = new User(res.user);
 
       this.isAuthenticated = true;
       this.authState.next();
@@ -342,11 +342,11 @@ export class AuthService {
    * Call API for own user obj
    * and return it
    */
-  private async requestUser(): Promise<IUserDTO | HttpErrorResponse> {
+  private async requestUser(): Promise<IUser | HttpErrorResponse> {
     try {
-      const res: IUserDTO | HttpErrorResponse = (await this.httpClient
+      const res: IUser | HttpErrorResponse = (await this.httpClient
         .get(this.apiUrl + '/users/me', {})
-        .toPromise()) as IUserDTO | HttpErrorResponse;
+        .toPromise()) as IUser | HttpErrorResponse;
 
       return res;
     } catch (error) {
@@ -359,11 +359,11 @@ export class AuthService {
    */
   private async updateUser(
     updateReq: IReqUserUpdate
-  ): Promise<IUserDTO | HttpErrorResponse> {
+  ): Promise<IUser | HttpErrorResponse> {
     try {
-      const res: IUserDTO | HttpErrorResponse = (await this.httpClient
+      const res: IUser | HttpErrorResponse = (await this.httpClient
         .put(this.apiUrl + '/users/me', updateReq)
-        .toPromise()) as IUserDTO | HttpErrorResponse;
+        .toPromise()) as IUser | HttpErrorResponse;
 
       return res;
     } catch (error) {
