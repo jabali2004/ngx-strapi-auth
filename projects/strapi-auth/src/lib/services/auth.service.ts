@@ -44,6 +44,7 @@ export class AuthService {
   public readonly strapiAuthConfig: StrapiAuthConfig;
 
   // TODO: Add error handling for login and register post
+  // TODO: Cleanup AuthService
 
   constructor(
     private httpClient: HttpClient,

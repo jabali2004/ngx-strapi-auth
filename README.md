@@ -36,15 +36,19 @@ Finished Angular components:
 * reset password
 * profile (update password or user info)
 
-## Upcoming Features
+## Roadmap
 
-Currently planned functionalities:
+### Version 1.0:
 
-* add more auth providers
-* finish and enhance auth interceptor
-* add multiple styling options
-* making components more dynamic
-* add better error handling for services / components
+* add abstraction for auth providers
+* enhance auth interceptor
+  * better error handling
+  * token refresh
+* add modular and customizable styling options
+* add modular component / form creation using model definitions
+* add captcha option for registration
+* add support for older angular versions
+* enhance documentation
 
 ## Installation / Integration
 
