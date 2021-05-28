@@ -62,7 +62,8 @@
           "register": {
             "label": "Hast du noch keinen Account?",
             "link": "Registrieren"
-          }
+          },
+          "login_with": "Einloggen mit"
         },
         "input": {
           "email": {

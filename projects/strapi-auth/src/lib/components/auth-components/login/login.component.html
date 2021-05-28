@@ -70,41 +70,13 @@
 </form>
 
 <div *ngIf="strapiAuthConfig.auth_providers">
-  <button *ngIf="strapiAuthConfig.auth_providers.includes('github')" class="mt-2" (click)="loginProvider('github')"
-    nbButton fullWidth status="primary" size="large">
-    <nb-icon icon="github-outline"></nb-icon>
-    {{ 'auth.login.form.button.login' | translate }} Github
-  </button>
-
-  <button *ngIf="strapiAuthConfig.auth_providers.includes('google')" class="mt-2" (click)="loginProvider('google')"
-    nbButton fullWidth status="primary" size="large">
-    <nb-icon icon="google-outline"></nb-icon>
-    {{ 'auth.login.form.button.login' | translate }} Google
-  </button>
-
-  <button *ngIf="strapiAuthConfig.auth_providers.includes('microsoft')" class="mt-2"
-    (click)="loginProvider('microsoft')" nbButton fullWidth status="primary" size="large">
-    <!-- <nb-icon icon="microsoft-outline"></nb-icon> -->
-    {{ 'auth.login.form.button.login' | translate }} Microsoft
-  </button>
-
-  <button *ngIf="strapiAuthConfig.auth_providers.includes('twitter')" class="mt-2" (click)="loginProvider('twitter')"
-    nbButton fullWidth status="primary" size="large">
-    <nb-icon icon="twitter-outline"></nb-icon>
-    {{ 'auth.login.form.button.login' | translate }} Twitter
-  </button>
-
-  <button *ngIf="strapiAuthConfig.auth_providers.includes('facebook')" class="mt-2" (click)="loginProvider('facebook')"
-    nbButton fullWidth status="primary" size="large">
-    <nb-icon icon="facebook-outline"></nb-icon>
-    {{ 'auth.login.form.button.login' | translate }} Facebook
-  </button>
-  <!-- TODO: Finish provider list -->
-  <!-- TODO: Create abstract provider component / Abstract -->
+  <div *ngFor="let provider of strapiAuthConfig.auth_providers">
+    <button class="mt-2" (click)="loginProvider(provider)" nbButton fullWidth status="primary" size="large">
+      <nb-icon *ngIf="iconPack.getIcon(provider + '-outline')" icon="{{provider}}-outline"></nb-icon>
+      {{ 'auth.login.form.button.login_with' | translate }} {{ provider }}
+    </button>
+  </div>
 </div>
-
-
-
 
 <section class="another-action" aria-label="Register">
   {{ 'auth.login.form.button.register.label' | translate }}

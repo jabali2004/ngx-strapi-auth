@@ -23,7 +23,9 @@
     <nb-card>
       <nb-card-header>
         {{ 'auth.profile.general_information.title' | translate }}
-        <nb-icon class="float-right" style="width: 2rem; height: 2rem;" [icon]="oldUserObj?.provider + '-outline'">
+        <nb-icon class="float-right" style="width: 2rem; height: 2rem;"
+          *ngIf="oldUserObj.provider && iconPack.getIcon(oldUserObj?.provider + '-outline')"
+          [icon]="oldUserObj?.provider + '-outline'">
         </nb-icon>
       </nb-card-header>
       <nb-card-body *ngIf="form">

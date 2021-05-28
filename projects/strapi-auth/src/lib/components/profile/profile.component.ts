@@ -3,6 +3,7 @@ import { Form, FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { IReqUserUpdate } from '../../types/requests/ReqUserUpdate';
 import { IUser } from '../../types/models/User';
+import { NbIconLibraries } from '@nebular/theme';
 
 @Component({
   selector: 'strapi-auth-profile',
@@ -58,7 +59,10 @@ export class ProfileComponent implements OnInit, OnDestroy {
     passwordMaxLength: 60
   };
 
-  constructor(protected authService: AuthService) {}
+  constructor(
+    protected authService: AuthService,
+    public iconPack: NbIconLibraries
+  ) {}
 
   ngOnInit(): void {
     // Import existing user obj

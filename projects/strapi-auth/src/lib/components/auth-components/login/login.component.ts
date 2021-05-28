@@ -15,6 +15,7 @@ import {
   StrapiAuthProviders
 } from '../../../types/StrapiAuthConfig';
 import { ConfigService } from '../../../services/config.service';
+import { NbIconLibraries } from '@nebular/theme';
 
 @Component({
   selector: 'strapi-auth-login',
@@ -49,6 +50,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     protected cd: ChangeDetectorRef,
     protected router: Router,
     protected translate: TranslateService,
+    public iconPack: NbIconLibraries,
     @Inject(ConfigService) public strapiAuthConfig: StrapiAuthConfig
   ) {}
 

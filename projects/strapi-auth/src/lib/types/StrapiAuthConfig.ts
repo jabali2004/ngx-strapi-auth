@@ -1,9 +1,16 @@
 export type StrapiAuthProviders =
   | 'github'
-  | 'google'
-  | 'microsoft'
   | 'facebook'
-  | 'twitter';
+  | 'google'
+  | 'cognito'
+  | 'twitter'
+  | 'discord'
+  | 'twitch'
+  | 'instagram'
+  | 'vk'
+  | 'linkedin'
+  | 'reddit'
+  | 'auth0';
 
 export type StrapiAuthRoutes = {
   // default: /auth/login

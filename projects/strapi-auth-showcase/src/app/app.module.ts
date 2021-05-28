@@ -82,7 +82,7 @@ const quillModules = {
         useFactory: createTranslateLoader,
         deps: [HttpClient]
       },
-      defaultLanguage: 'de'
+      defaultLanguage: 'en'
     }),
     NgbModule,
     QuillModule.forRoot({

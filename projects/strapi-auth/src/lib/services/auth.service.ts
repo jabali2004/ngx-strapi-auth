@@ -143,8 +143,15 @@ export class AuthService {
   public async setDefaultTranslation(
     translate: TranslateService
   ): Promise<void> {
-    // TODO: decrease loading time
+    // TODO: decrease loading time && load only specified languages
     // Currently all files are loaded
+    await translate
+      .getTranslation('en')
+      .toPromise()
+      .then(() => {
+        translate.setTranslation('en', enLang, true);
+      });
+
     await translate
       .getTranslation('de')
       .toPromise()
@@ -152,12 +159,7 @@ export class AuthService {
         translate.setTranslation('de', deLang, true);
       });
 
-    await translate
-      .getTranslation('en')
-      .toPromise()
-      .then(() => {
-        translate.setTranslation('en', enLang, true);
-      });
+    translate.setDefaultLang(translate.getDefaultLang());
 
     return;
   }
