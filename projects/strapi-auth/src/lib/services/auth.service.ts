@@ -202,7 +202,7 @@ export class AuthService {
   }
 
   /**
-   * Register neu user with given data
+   * Register new user with given data
    *
    * If registration has jwt token and user data in response
    * then store token and show user as logged in
@@ -269,7 +269,7 @@ export class AuthService {
   }
 
   /**
-   * return token if given
+   * Return token if given
    */
   public getToken(): string {
     return this.token !== null ? this.token : this.readToken();
