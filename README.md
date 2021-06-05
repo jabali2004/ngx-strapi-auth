@@ -114,7 +114,7 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,
-                useFactory: HttpLoaderFactory,
+                useFactory: createTranslateLoader,
                 deps: [HttpClient]
             }
         })
