@@ -45,9 +45,13 @@ export class AuthInterceptor implements HttpInterceptor {
         switch (error.status) {
           // Intercept unauthorized request
           case 401:
-            return this.authService.logout().then(() => {
-              this.router.navigateByUrl(this.authService.LoginUrl);
-            });
+            if (error.error.message === 'Invalid token.') {
+              return this.authService.logout().then(() => {
+                this.router.navigateByUrl('/auth/login');
+              });
+            } else {
+              return throwError(error);
+            }
 
           default:
             return throwError(error);
