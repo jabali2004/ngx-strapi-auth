@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.0.7 (2021-07-18)
+
+
+### Bug Fixes
+
+* Add better error handling [#18](https://github.com/jabali2004/ngx-strapi-auth/issues/18) ([d526ff6](https://github.com/jabali2004/ngx-strapi-auth/commit/d526ff678bb53c6b5163c729bc3b0f9bfa230fa3))
+
 ### [0.0.6](https://github.com/jabali2004/ngx-strapi-auth/compare/v0.0.5...v0.0.6) (2021-05-27)
 
 
