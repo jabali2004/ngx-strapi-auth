@@ -12,12 +12,12 @@ All notable changes to this project will be documented in this file. See [standa
 * **deps:** bump thomaseizinger/create-pull-request from 1.0.0 to 1.2.1 ([fab7505](https://github.com/jabali2004/ngx-strapi-auth/commit/fab7505b138a4b24dabc5a590cd4831450720796))
 * **deps:** bump tslib from 2.1.0 to 2.3.1 ([c056d9c](https://github.com/jabali2004/ngx-strapi-auth/commit/c056d9c7dec73274465e6fbe19af1f86f97351f0))
 
+### Chores
 
 * **deps-dev:** bump @types/jasminewd2 from 2.0.8 to 2.0.10 ([abb5120](https://github.com/jabali2004/ngx-strapi-auth/commit/abb51202555cc18031107194df14fb83dd0329f1))
 * **deps-dev:** bump @types/node from 14.14.22 to 16.7.1 ([7357f85](https://github.com/jabali2004/ngx-strapi-auth/commit/7357f856cfbf961443de8689f0b5c53a6ebae0f7))
 * **deps-dev:** bump jasmine-core from 3.6.0 to 3.8.0 ([7ab4e04](https://github.com/jabali2004/ngx-strapi-auth/commit/7ab4e041a559c2180384609764a125d4f11349f8))
 * **deps-dev:** bump strapi from 3.4.5 to 3.6.7 ([7174c01](https://github.com/jabali2004/ngx-strapi-auth/commit/7174c01d9b8babf709a642828c7cfbc3443dc81b))
-* **release:** 0.0.8 ([eb1291e](https://github.com/jabali2004/ngx-strapi-auth/commit/eb1291ec4ef4819b106da18650bd6ffef3598b84))
 
 ### 0.0.7 (2021-07-18)
 
