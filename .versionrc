@@ -12,23 +12,24 @@
     },
     {
       "type": "chore",
-      "hidden": true
+      "section":"Chores"
+      "hidden": false
     },
     {
       "type": "docs",
-      "hidden": true
+      "hidden": false
     },
     {
       "type": "style",
-      "hidden": true
+      "hidden": false
     },
     {
       "type": "refactor",
-      "hidden": true
+      "hidden": false
     },
     {
       "type": "perf",
-      "hidden": true
+      "hidden": false
     },
     {
       "type": "test",
