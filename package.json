@@ -43,7 +43,7 @@
     "@angular/router": "~12.1.2",
     "@nebular/eva-icons": "8.0.0",
     "@nebular/theme": "^8.0.0",
-    "@ng-bootstrap/ng-bootstrap": "^9.0.2",
+    "@ng-bootstrap/ng-bootstrap": "^10.0.0",
     "@ng-select/ng-select": "^7.2.0",
     "@ngx-translate/core": "^13.0.0",
     "@ngx-translate/http-loader": "^6.0.0",
