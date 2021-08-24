@@ -69,7 +69,7 @@
     "@angular/cli": "~12.1.2",
     "@angular/compiler-cli": "~12.1.2",
     "@commitlint/cli": "^12.0.1",
-    "@commitlint/config-conventional": "^12.0.1",
+    "@commitlint/config-conventional": "^13.1.0",
     "@types/jasmine": "~3.6.3",
     "@types/jasminewd2": "~2.0.8",
     "@types/jwt-decode": "^2.2.1",
