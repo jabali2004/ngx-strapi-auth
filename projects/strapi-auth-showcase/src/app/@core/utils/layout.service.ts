@@ -4,10 +4,10 @@ import { delay, share } from 'rxjs/operators';
 
 @Injectable()
 export class LayoutService {
-  protected layoutSize$ = new Subject();
+  protected layoutSize$: Subject<null> = new Subject();
 
   changeLayoutSize(): void {
-    this.layoutSize$.next();
+    this.layoutSize$.next(null);
   }
 
   onChangeLayoutSize(): Observable<any> {

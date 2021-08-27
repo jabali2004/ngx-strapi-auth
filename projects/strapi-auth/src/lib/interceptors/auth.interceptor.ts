@@ -6,7 +6,7 @@ import {
   HttpRequest,
   HttpErrorResponse
 } from '@angular/common/http';
-import { throwError, Observable} from 'rxjs';
+import { throwError, Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { AuthService } from '../services/auth.service';
 import { StrapiAuthConfig } from '../types/StrapiAuthConfig';
@@ -47,22 +47,25 @@ export class AuthInterceptor implements HttpInterceptor {
           // Intercept unauthorized request
           case 401:
             // Check if error response is caused by invalid token
-            if (error.error.message === 'Invalid token.' && error.error.error === 'Unauthorized') {
+            if (
+              error.error.message === 'Invalid token.' &&
+              error.error.error === 'Unauthorized'
+            ) {
               return this.authService.logout().then(() => {
                 this.router.navigateByUrl('/auth/login');
               });
             } else {
-              return throwError(error);
+              return throwError(() => error);
             }
 
           case 403:
-            return throwError(error);
+            return throwError(() => error);
 
           case 404:
-            return throwError(error);
+            return throwError(() => error);
 
           default:
-            return throwError(error);
+            return throwError(() => error);
         }
       })
     ) as Observable<HttpEvent<any>>;

@@ -6,7 +6,7 @@ import {
   HttpErrorResponse
 } from '@angular/common/http';
 import { IResAuthLogin } from '../types/responses/ResAuthLogin';
-import { Subject } from 'rxjs';
+import { lastValueFrom, Subject } from 'rxjs';
 import { IResAuthRegister } from '../types/responses/ResAuthRegister';
 import { IReqAuthRegister } from '../types/requests/ReqAuthRegister';
 import { Router } from '@angular/router';
@@ -145,19 +145,13 @@ export class AuthService {
   ): Promise<void> {
     // TODO: decrease loading time && load only specified languages
     // Currently all files are loaded
-    await translate
-      .getTranslation('en')
-      .toPromise()
-      .then(() => {
-        translate.setTranslation('en', enLang, true);
-      });
+    await lastValueFrom(translate.getTranslation('en')).then(() => {
+      translate.setTranslation('en', enLang, true);
+    });
 
-    await translate
-      .getTranslation('de')
-      .toPromise()
-      .then(() => {
-        translate.setTranslation('de', deLang, true);
-      });
+    await lastValueFrom(translate.getTranslation('de')).then(() => {
+      translate.setTranslation('de', deLang, true);
+    });
 
     translate.setDefaultLang(translate.getDefaultLang());
 
@@ -188,9 +182,11 @@ export class AuthService {
     provider: StrapiAuthProviders
   ): Promise<void> {
     try {
-      const res: IResAuthLogin | void = (await this.authHttpClient
-        .get(this.apiUrl + '/auth/' + provider + '/callback?' + params)
-        .toPromise()) as IResAuthLogin | void;
+      const res: IResAuthLogin | void = (await lastValueFrom(
+        this.authHttpClient.get(
+          this.apiUrl + '/auth/' + provider + '/callback?' + params
+        )
+      )) as IResAuthLogin | void;
 
       if (res) {
         this.setTokenResponse(res);
@@ -346,9 +342,9 @@ export class AuthService {
    */
   private async requestUser(): Promise<IUser | HttpErrorResponse> {
     try {
-      const res: IUser | HttpErrorResponse = (await this.httpClient
-        .get(this.apiUrl + '/users/me', {})
-        .toPromise()) as IUser | HttpErrorResponse;
+      const res: IUser | HttpErrorResponse = (await lastValueFrom(
+        this.httpClient.get(this.apiUrl + '/users/me', {})
+      )) as IUser | HttpErrorResponse;
 
       return res;
     } catch (error) {
@@ -363,9 +359,9 @@ export class AuthService {
     updateReq: IReqUserUpdate
   ): Promise<IUser | HttpErrorResponse> {
     try {
-      const res: IUser | HttpErrorResponse = (await this.httpClient
-        .put(this.apiUrl + '/users/me', updateReq)
-        .toPromise()) as IUser | HttpErrorResponse;
+      const res: IUser | HttpErrorResponse = (await lastValueFrom(
+        this.httpClient.put(this.apiUrl + '/users/me', updateReq)
+      )) as IUser | HttpErrorResponse;
 
       return res;
     } catch (error) {
@@ -381,12 +377,12 @@ export class AuthService {
     password: string
   ): Promise<IResAuthLogin | HttpErrorResponse> {
     try {
-      const res: IResAuthLogin | HttpErrorResponse = (await this.authHttpClient
-        .post(this.apiUrl + '/auth/local', {
+      const res: IResAuthLogin | HttpErrorResponse = (await lastValueFrom(
+        this.authHttpClient.post(this.apiUrl + '/auth/local', {
           identifier,
           password
         })
-        .toPromise()) as IResAuthLogin | HttpErrorResponse;
+      )) as IResAuthLogin | HttpErrorResponse;
 
       return res;
     } catch (error) {
@@ -401,14 +397,13 @@ export class AuthService {
     registerReq: IReqAuthRegister
   ): Promise<IResAuthRegister | HttpErrorResponse> {
     try {
-      const res: IResAuthRegister | HttpErrorResponse =
-        (await this.authHttpClient
-          .post(this.apiUrl + '/auth/local/register', {
-            username: registerReq.username,
-            email: registerReq.email,
-            password: registerReq.password
-          })
-          .toPromise()) as IResAuthRegister | HttpErrorResponse;
+      const res: IResAuthRegister | HttpErrorResponse = (await lastValueFrom(
+        this.authHttpClient.post(this.apiUrl + '/auth/local/register', {
+          username: registerReq.username,
+          email: registerReq.email,
+          password: registerReq.password
+        })
+      )) as IResAuthRegister | HttpErrorResponse;
 
       return res;
     } catch (error) {
@@ -424,9 +419,11 @@ export class AuthService {
   ): Promise<IResRequestPasswordReset | HttpErrorResponse> {
     try {
       const res: IResRequestPasswordReset | HttpErrorResponse =
-        (await this.authHttpClient
-          .post(this.apiUrl + '/auth/forgot-password', { email })
-          .toPromise()) as IResRequestPasswordReset | HttpErrorResponse;
+        (await lastValueFrom(
+          this.authHttpClient.post(this.apiUrl + '/auth/forgot-password', {
+            email
+          })
+        )) as IResRequestPasswordReset | HttpErrorResponse;
 
       return res;
     } catch (error) {
@@ -441,10 +438,12 @@ export class AuthService {
     passwordResetReq: IReqPasswordReset
   ): Promise<IResPasswordReset | HttpErrorResponse> {
     try {
-      const res: IResPasswordReset | HttpErrorResponse =
-        (await this.authHttpClient
-          .post(this.apiUrl + '/auth/reset-password', passwordResetReq)
-          .toPromise()) as IResPasswordReset | HttpErrorResponse;
+      const res: IResPasswordReset | HttpErrorResponse = (await lastValueFrom(
+        this.authHttpClient.post(
+          this.apiUrl + '/auth/reset-password',
+          passwordResetReq
+        )
+      )) as IResPasswordReset | HttpErrorResponse;
 
       return res;
     } catch (error) {
