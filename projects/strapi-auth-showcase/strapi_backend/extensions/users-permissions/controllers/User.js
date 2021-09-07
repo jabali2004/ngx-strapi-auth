@@ -22,6 +22,16 @@ module.exports = {
     const userService = strapi.plugins['users-permissions'].services.user;
     const userModel = strapi.plugins['users-permissions'].models.user;
 
+    if (ctx.request.body.email === null) {
+      delete ctx.request.body.email;
+    } else {
+      ctx.request.body.email = ctx.request.body.email.toLowerCase();
+    }
+
+    if (ctx.request.body.username === null) {
+      delete ctx.request.body.username;
+    }
+
     const emailExists = await userService.findOne(
       {
         email: ctx.request.body.email
@@ -36,15 +46,15 @@ module.exports = {
       []
     );
 
-    if (ctx.request.body.email === null) {
-      delete ctx.request.body.email;
-    } else if (emailExists && emailExists.id !== id) {
+    if (ctx.request.body.email && emailExists && emailExists.id !== id) {
       return ctx.throw(403, 'Email already exists!');
     }
 
-    if (ctx.request.body.username === null) {
-      delete ctx.request.body.username;
-    } else if (usernameExists && usernameExists.id !== id) {
+    if (
+      ctx.request.body.username &&
+      usernameExists &&
+      usernameExists.id !== id
+    ) {
       return ctx.throw(403, 'Username already exists!');
     }
 
