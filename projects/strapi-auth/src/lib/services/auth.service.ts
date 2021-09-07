@@ -358,6 +358,8 @@ export class AuthService {
   private async updateUser(
     updateReq: IReqUserUpdate
   ): Promise<IUser | HttpErrorResponse> {
+    // TODO: Check if functionality is given
+    // Updating a user (authenticated user) profile is currently not built into strapi (in that way)
     try {
       const res: IUser | HttpErrorResponse = (await lastValueFrom(
         this.httpClient.put(this.apiUrl + '/users/me', updateReq)
