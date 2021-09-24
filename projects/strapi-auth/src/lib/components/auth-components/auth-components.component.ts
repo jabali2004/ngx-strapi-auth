@@ -19,6 +19,7 @@ export class AuthComponentsComponent implements OnInit, OnDestroy {
   constructor(
     protected location: Location // private themeService: NbThemeService
   ) {
+    // TODO: Remove later
     // const savedTheme = localStorage.getItem('theme');
     // if (savedTheme) {
     //   this.themeService.changeTheme(savedTheme);

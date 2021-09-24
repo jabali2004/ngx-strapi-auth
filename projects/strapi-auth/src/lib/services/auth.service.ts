@@ -302,21 +302,21 @@ export class AuthService {
    * Write token to local storage
    */
   private writeToken(token: string): void {
-    localStorage.setItem('token', token);
+    sessionStorage.setItem('token', token);
   }
 
   /**
    * Read token from local storage
    */
   private readToken(): string {
-    return localStorage.getItem('token');
+    return sessionStorage.getItem('token');
   }
 
   /**
    * Delete token in local storage
    */
   private deleteToken(): void {
-    localStorage.removeItem('token');
+    sessionStorage.removeItem('token');
   }
 
   /**
