@@ -18,6 +18,13 @@
       "reset-password": {
         "code": "Code zur Wiederherstellung ist abgelaufen oder ungültig!",
         "undefined": "Es ist ein unbekannter Fehler aufgetreten!"
+      },
+      "profile": {
+        "username_existence": "Der Benutzername existiert bereits!",
+        "email_existence": "Die Email existiert bereits!",
+        "wrong_current_password": "Das eingegebene aktuelle Passwort ist falsch!",
+        "password_requirements": "Das Passwort entspricht nicht der Passwortrichtlinie!",
+        "password_change_error": "Das Passwort konnte nicht geändert werden!"
       }
     }
   },
@@ -125,7 +132,8 @@
             "label": "Passwort:",
             "min_length_message": "Das Passwort sollte zwischen {{min}} und {{max}} Zeichen enthalten.",
             "placeholder": "Passwort",
-            "required_message": "Ein Passwort wird benötigt!"
+            "required_message": "Ein Passwort wird benötigt!",
+            "pattern_message": "Das Passwort muss mindestens ein Sonderzeichen, Groß- und Kleinbuchstaben sowie eine Zahl enthalten."
           },
           "repeat_password": {
             "label": "Passwort bestätigen:",
@@ -238,7 +246,8 @@
             "label": "Passwort:",
             "min_length_message": "Das Passwort sollte zwischen {{min}} und {{max}} Zeichen enthalten.",
             "placeholder": "Passwort",
-            "required_message": "Ein Passwort wird benötigt!"
+            "required_message": "Ein Passwort wird benötigt!",
+            "pattern_message": "Das Passwort muss mindestens ein Sonderzeichen, Groß- und Kleinbuchstaben sowie eine Zahl enthalten."
           },
           "repeat_password": {
             "label": "Passwort bestätigen:",
@@ -251,6 +260,11 @@
             "min_length_message": "Der Username sollte zwischen {{min}} und {{max}} Zeichen enthalten.",
             "placeholder": "Username",
             "required_message": "Ein Username wird benötigt!"
+          },
+          "oldPassword": {
+            "label": "Aktuelles Passwort:",
+            "placeholder": "Aktuelles Passwort",
+            "required_message": "Es wird das aktuelle Passwort benötigt!"
           }
         }
       },

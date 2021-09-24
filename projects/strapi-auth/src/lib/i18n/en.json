@@ -18,6 +18,13 @@
       "reset-password": {
         "code": "Recovery code has expired or is invalid!",
         "undefined": "An unknown error has occurred!"
+      },
+      "profile": {
+        "username_existence": "Username already exists!",
+        "email_existence": "Email already exists!",
+        "wrong_current_password": "The given current password does not match!",
+        "password_requirements": "Password does not fulfill requirements!",
+        "password_change_error": "Password could not be changed!"
       }
     }
   },
@@ -125,7 +132,8 @@
             "label": "Password:",
             "min_length_message": "Password should contain from {{min}} to {{max}} characters",
             "placeholder": "Password",
-            "required_message": "Password is required!"
+            "required_message": "Password is required!",
+            "pattern_message": "The password must contain at least one special character, upper and lower case letters and a number."
           },
           "repeat_password": {
             "label": "Repeat password:",
@@ -238,7 +246,8 @@
             "label": "Password:",
             "min_length_message": "Password should contain from {{min}} to {{max}} characters",
             "placeholder": "Password",
-            "required_message": "Password is required!"
+            "required_message": "Password is required!",
+            "pattern_message": "The password must contain at least one special character, upper and lower case letters and a number."
           },
           "repeat_password": {
             "label": "Repeat password:",
@@ -251,6 +260,11 @@
             "min_length_message": "Username should contain from {{min}} to {{max}} characters",
             "placeholder": "Username",
             "required_message": "Username is required!"
+          },
+          "oldPassword": {
+            "label": "Current password:",
+            "placeholder": "Current password",
+            "required_message": "Current password is required!"
           }
         }
       },

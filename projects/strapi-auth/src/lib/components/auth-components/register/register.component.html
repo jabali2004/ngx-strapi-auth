@@ -124,11 +124,15 @@
     <input nbInput [(ngModel)]="authRegisterReq.password" #password="ngModel" type="password" id="input-password"
       name="password" placeholder="{{ 'auth.register.form.input.password.placeholder' | translate }}" fullWidth
       fieldSize="large" [status]="password.dirty ? (password.invalid ? 'danger' : 'success') : 'basic'"
+      pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\\d$@$!%*?&].{8,}"
       [required]="config.passwordRequired" [minlength]="config.passwordMinLength" [maxlength]="config.passwordMaxLength"
       [attr.aria-invalid]="password.invalid && password.touched ? true : null" />
     <ng-container *ngIf="password.invalid && password.touched">
       <p class="caption status-danger" *ngIf="password.errors?.required">
         {{ 'auth.register.form.input.password.required_message' | translate }}
+      </p>
+      <p class="caption status-danger" *ngIf="password.errors?.pattern">
+        {{ 'auth.register.form.input.password.pattern_message' | translate }}
       </p>
       <p class="caption status-danger" *ngIf="password.errors?.minlength || password.errors?.maxlength">
         {{

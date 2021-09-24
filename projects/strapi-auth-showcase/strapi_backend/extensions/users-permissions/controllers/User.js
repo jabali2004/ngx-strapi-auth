@@ -7,7 +7,7 @@ const { parseMultipartData, sanitizeEntity } = require('strapi-utils');
  */
 
 module.exports = {
-  async updateme(ctx) {
+  async updateMe(ctx) {
     const { id } = ctx.state.user;
 
     // Remove all unaccepted data from request
@@ -58,11 +58,33 @@ module.exports = {
       return ctx.throw(403, 'Username already exists!');
     }
 
+    const passwordRegex =
+      '(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\\d$@$!%*?&].{8,}';
+
     if (ctx.request.body.password === null) {
       delete ctx.request.body.password;
+    } else if (!ctx.request.body.password.match(passwordRegex)) {
+      return ctx.throw(403, 'Password does not fulfill requirements!');
     }
 
     if (ctx.request.body.password) {
+      const user = await userService.findOne(id, []);
+
+      if (!ctx.request.body.oldPassword) {
+        return ctx.throw(403, 'Old user password is not given!');
+      }
+
+      const oldPasswordHash = await strapi.plugins[
+        'users-permissions'
+      ].services.user.validatePassword(
+        ctx.request.body.oldPassword,
+        user.password
+      );
+
+      if (!oldPasswordHash) {
+        return ctx.throw(403, 'Old user password does not match!');
+      }
+
       const passwordHashed = await strapi.plugins[
         'users-permissions'
       ].services.user.hashPassword({

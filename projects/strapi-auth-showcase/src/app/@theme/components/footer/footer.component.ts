@@ -11,7 +11,7 @@ import { Component } from '@angular/core';
           <b>
             <a href="https://example.com" target="_blank">Example</a>
           </b>
-          2020
+          2021
         </span>
       </div>
 
