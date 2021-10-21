@@ -12,7 +12,6 @@
   },
   "license": "Apache-2.0 License",
   "scripts": {
-    "postinstall": "npm install projects/strapi-auth-showcase/strapi_backend",
     "ng": "ng",
     "start": "concurrently --kill-others \"npm run develop --prefix projects/strapi-auth-showcase/strapi_backend\" \"ng serve\"",
     "build": "ng build",
