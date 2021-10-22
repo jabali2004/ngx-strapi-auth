@@ -24,7 +24,6 @@ import {
   HttpClientModule
 } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { QuillModule } from 'ngx-quill';
 import {
   AuthInterceptor,
   StrapiAuthModule
@@ -35,19 +34,6 @@ import { environment } from '../environments/environment';
 export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
-
-const quillModules = {
-  toolbar: [
-    ['bold', 'italic', 'underline', 'strike'], // toggled buttons
-    [{ list: 'ordered' }, { list: 'bullet' }],
-    [{ indent: '-1' }, { indent: '+1' }], // outdent/indent
-    [{ direction: 'rtl' }], // text direction
-    [{ header: [1, 2, 3, 4, 5, 6, false] }],
-    [{ align: [] }],
-    ['clean'], // remove formatting button
-    ['link', 'image'] // link and image
-  ]
-};
 
 @NgModule({
   declarations: [AppComponent],
@@ -84,13 +70,7 @@ const quillModules = {
       },
       defaultLanguage: 'en'
     }),
-    NgbModule,
-    QuillModule.forRoot({
-      modules: {
-        syntax: false,
-        toolbar: quillModules.toolbar
-      }
-    })
+    NgbModule
   ],
   providers: [
     Title,

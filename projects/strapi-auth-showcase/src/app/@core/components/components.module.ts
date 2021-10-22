@@ -12,7 +12,6 @@ import {
 } from '@nebular/theme';
 import { TranslateModule } from '@ngx-translate/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { QuillModule } from 'ngx-quill';
 import { AbstractDialogComponent } from './dialogs/abstract-dialog/abstract-dialog.component';
 
 @NgModule({
@@ -30,7 +29,6 @@ import { AbstractDialogComponent } from './dialogs/abstract-dialog/abstract-dial
     NbCheckboxModule,
     NbStepperModule,
     NbTooltipModule,
-    QuillModule
   ],
   exports: [AbstractDialogComponent],
   entryComponents: []
