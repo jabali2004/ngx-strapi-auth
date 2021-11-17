@@ -2,6 +2,67 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.10](https://github.com/jabali2004/ngx-strapi-auth/compare/v0.0.9...v0.0.10) (2021-11-17)
+
+
+### Bug Fixes
+
+* add TokenGuard to public-api.ts ([de8b301](https://github.com/jabali2004/ngx-strapi-auth/commit/de8b3019a8d045780dd762909f7e855e952cc9f2))
+* **deps:** bump actions/setup-node from 2.4.0 to 2.4.1 ([f5a12f0](https://github.com/jabali2004/ngx-strapi-auth/commit/f5a12f08d6bcc083eec4365bf8d741ac7c51f748))
+* **deps:** bump bootstrap from 5.1.1 to 5.1.2 ([08cf81e](https://github.com/jabali2004/ngx-strapi-auth/commit/08cf81eda317d166f546a0f2b7f4e497d65df7f9))
+* **deps:** bump bootstrap from 5.1.2 to 5.1.3 ([29ceeab](https://github.com/jabali2004/ngx-strapi-auth/commit/29ceeab3ea662928d9143edb74f0f822773cc99c))
+* **deps:** bump knex in /projects/strapi-auth-showcase/strapi_backend ([d868f57](https://github.com/jabali2004/ngx-strapi-auth/commit/d868f57597e73e2ac60c530c4c2e3ba6cab8da81))
+* **deps:** bump knex in /projects/strapi-auth-showcase/strapi_backend ([6054ade](https://github.com/jabali2004/ngx-strapi-auth/commit/6054ade35d5aba7ab0435fb754cb73643db2e164))
+* **deps:** bump knex in /projects/strapi-auth-showcase/strapi_backend ([209ee6c](https://github.com/jabali2004/ngx-strapi-auth/commit/209ee6cf26b91fec54243c9820d713052e99f548))
+* **deps:** bump rxjs from 7.3.0 to 7.3.1 ([f63524e](https://github.com/jabali2004/ngx-strapi-auth/commit/f63524e52f167926522653ef82cf5e13c35429d4))
+* **deps:** bump rxjs from 7.3.1 to 7.4.0 ([f45a432](https://github.com/jabali2004/ngx-strapi-auth/commit/f45a432c0f310f97c6529b889e2527962fb7a287))
+
+
+### Chores
+
+* **deps-dev:** bump @commitlint/cli from 13.1.0 to 13.2.0 ([6f71620](https://github.com/jabali2004/ngx-strapi-auth/commit/6f716204a1c1dd2ab923e4c4d87196c041b9e0e1))
+* **deps-dev:** bump @commitlint/cli from 13.2.0 to 13.2.1 ([ba6e5e1](https://github.com/jabali2004/ngx-strapi-auth/commit/ba6e5e1d5e4b8c82a4bd07b3ad752812dc89bd14))
+* **deps-dev:** bump @commitlint/cli from 13.2.1 to 14.1.0 ([215ad8e](https://github.com/jabali2004/ngx-strapi-auth/commit/215ad8e17d900810c9e30672a77e5e5e44e8321d))
+* **deps-dev:** bump @commitlint/config-conventional ([4c30d0d](https://github.com/jabali2004/ngx-strapi-auth/commit/4c30d0db3c8d1351c7edd1324f5a96fba5d5427b))
+* **deps-dev:** bump @commitlint/config-conventional ([4cfe3f8](https://github.com/jabali2004/ngx-strapi-auth/commit/4cfe3f844b9b8a6ba7157882cf8b999eb6190d4d))
+* **deps-dev:** bump @types/jasmine from 3.10.0 to 3.10.1 ([2e6b22b](https://github.com/jabali2004/ngx-strapi-auth/commit/2e6b22bdda3744dba31f61d1e553b170cc78f678))
+* **deps-dev:** bump @types/jasmine from 3.10.1 to 3.10.2 ([71efce2](https://github.com/jabali2004/ngx-strapi-auth/commit/71efce217b2692f23d5178c5ccfb6fd8d9537497))
+* **deps-dev:** bump @types/jasmine from 3.9.1 to 3.10.0 ([09f121f](https://github.com/jabali2004/ngx-strapi-auth/commit/09f121f367ee5ce7e8535ed20a10cc82f59714f6))
+* **deps-dev:** bump @types/node from 16.10.1 to 16.10.2 ([842affc](https://github.com/jabali2004/ngx-strapi-auth/commit/842affc471e6941feb3491f34674f903082a38d0))
+* **deps-dev:** bump @types/node from 16.10.2 to 16.10.3 ([d0b18ed](https://github.com/jabali2004/ngx-strapi-auth/commit/d0b18ed8aed15d5217283d9b5447fdfa78a2077a))
+* **deps-dev:** bump @types/node from 16.10.3 to 16.10.4 ([efff6db](https://github.com/jabali2004/ngx-strapi-auth/commit/efff6db4d4b780d685378766de30849cdbdcde7b))
+* **deps-dev:** bump @types/node from 16.10.4 to 16.10.9 ([825b681](https://github.com/jabali2004/ngx-strapi-auth/commit/825b6816dabe9c03cd21ee6b991e2bd69ea6a977))
+* **deps-dev:** bump @types/node from 16.10.9 to 16.11.0 ([817b547](https://github.com/jabali2004/ngx-strapi-auth/commit/817b547bfcf8db69cbd39ef6e894dec4054e8b76))
+* **deps-dev:** bump @types/node from 16.11.0 to 16.11.1 ([bff9a32](https://github.com/jabali2004/ngx-strapi-auth/commit/bff9a326aeedc88deb0437e20ef4a4ce4029ed3d))
+* **deps-dev:** bump @types/node from 16.11.3 to 16.11.4 ([1bfea4f](https://github.com/jabali2004/ngx-strapi-auth/commit/1bfea4fffba499af54ba7d9f0b856594327b80b9))
+* **deps-dev:** bump @types/node from 16.11.4 to 16.11.6 ([042937c](https://github.com/jabali2004/ngx-strapi-auth/commit/042937c711f636d3561fed70e96524a9b1b96e33))
+* **deps-dev:** bump @types/node from 16.11.6 to 16.11.7 ([12afe38](https://github.com/jabali2004/ngx-strapi-auth/commit/12afe382b3c313ee3bf17243de1846f29f546e3c))
+* **deps-dev:** bump @types/node from 16.9.6 to 16.10.1 ([cde431e](https://github.com/jabali2004/ngx-strapi-auth/commit/cde431ed3f58cc4f4fa7736508931bec2ff9ff04))
+* **deps-dev:** bump concurrently from 6.2.1 to 6.2.2 ([ecf788c](https://github.com/jabali2004/ngx-strapi-auth/commit/ecf788ceaf9dd2e0a1e01fcd955c636cfc3a759c))
+* **deps-dev:** bump concurrently from 6.2.2 to 6.3.0 ([3069dce](https://github.com/jabali2004/ngx-strapi-auth/commit/3069dcea550534f360064347e149a96647576d0b))
+* **deps-dev:** bump concurrently from 6.3.0 to 6.4.0 ([e3b5c0f](https://github.com/jabali2004/ngx-strapi-auth/commit/e3b5c0fbaf0b39af8459148e84ee4f1d95ad11dc))
+* **deps-dev:** bump husky from 7.0.2 to 7.0.4 ([5fa7d77](https://github.com/jabali2004/ngx-strapi-auth/commit/5fa7d777ff7594d65d800147074f9269080c8222))
+* **deps-dev:** bump jasmine-core from 3.10.0 to 3.10.1 ([36405ef](https://github.com/jabali2004/ngx-strapi-auth/commit/36405eff96b1c22e2ad0031e82d98f1d6861cb43))
+* **deps-dev:** bump jasmine-core from 3.9.0 to 3.10.0 ([353f9f0](https://github.com/jabali2004/ngx-strapi-auth/commit/353f9f0cf45a67a337893b95fa337cec2f86a750))
+* **deps-dev:** bump karma from 6.3.4 to 6.3.5 ([67108d0](https://github.com/jabali2004/ngx-strapi-auth/commit/67108d0852e87a6349c8a0181ebf466d4138ca6d))
+* **deps-dev:** bump karma from 6.3.5 to 6.3.6 ([bf22640](https://github.com/jabali2004/ngx-strapi-auth/commit/bf226402ebef65bba5c141cc416465824bc03e27))
+* **deps-dev:** bump karma from 6.3.6 to 6.3.7 ([27a4b64](https://github.com/jabali2004/ngx-strapi-auth/commit/27a4b64210a3b1ab1642c2f0a3e34ccf4aa0b50b))
+* **deps-dev:** bump karma from 6.3.7 to 6.3.8 ([6ee6b70](https://github.com/jabali2004/ngx-strapi-auth/commit/6ee6b707d1a896081d2152403aecf7b8bde7344a))
+* **deps-dev:** bump karma from 6.3.8 to 6.3.9 ([ed0b1c8](https://github.com/jabali2004/ngx-strapi-auth/commit/ed0b1c88d5ebaab4192a28df30639f2afae055f9))
+* **deps-dev:** bump ng-packagr from 12.2.2 to 12.2.3 ([4d16b71](https://github.com/jabali2004/ngx-strapi-auth/commit/4d16b71007f068bcd71894d9d221acb0950c8c44))
+* **deps-dev:** bump ng-packagr from 12.2.3 to 12.2.4 ([21398c2](https://github.com/jabali2004/ngx-strapi-auth/commit/21398c29e1f6bd6c9a0b348b4d6a584d505acd08))
+* **deps-dev:** bump ng-packagr from 12.2.4 to 12.2.5 ([3a6a768](https://github.com/jabali2004/ngx-strapi-auth/commit/3a6a768fd9039d82d45432bde84162272e7123f6))
+* **deps-dev:** bump standard-version from 9.3.1 to 9.3.2 ([d2ca0b2](https://github.com/jabali2004/ngx-strapi-auth/commit/d2ca0b260e4f0e554a4fe454be04f99c159f9634))
+* **deps-dev:** bump ts-node from 10.2.1 to 10.3.0 ([7ddcc77](https://github.com/jabali2004/ngx-strapi-auth/commit/7ddcc77e3ac1cb6d6f3c6c4abcf996e1911ee9d0))
+* **deps-dev:** bump ts-node from 10.3.0 to 10.3.1 ([246ae4b](https://github.com/jabali2004/ngx-strapi-auth/commit/246ae4ba3644666092ff86f6e30d3bb911dd0696))
+* **deps-dev:** bump ts-node from 10.3.1 to 10.4.0 ([610bcbc](https://github.com/jabali2004/ngx-strapi-auth/commit/610bcbc4ef34cffaed463d3c743065bddc663710))
+* **deps:** Remove unused deps [#4](https://github.com/jabali2004/ngx-strapi-auth/issues/4) ([e1e3a56](https://github.com/jabali2004/ngx-strapi-auth/commit/e1e3a56bf45adb8c897ab742bf11d5c60ec75204))
+* **deps:** update agnular to version 12.2.10 ([cde8f95](https://github.com/jabali2004/ngx-strapi-auth/commit/cde8f95fb8eb50339f36f68fb89e0bebaa29caf9))
+* **deps:** Update showcase project to angular version 12.2.9 ([040501a](https://github.com/jabali2004/ngx-strapi-auth/commit/040501a291ce4e2aab2bb468180551291ecef626))
+* **pnpm:** add pnpm lock files ([62401d2](https://github.com/jabali2004/ngx-strapi-auth/commit/62401d2520a7509813b8c697a28b86314808f66f))
+* **pnpm:** remove pnpm lock because strapi does not work with pnpm ([45223db](https://github.com/jabali2004/ngx-strapi-auth/commit/45223dbdb7c7b196aba3685e48da5143ccb3604e))
+* **ua-parser-js:** update deps ([0e17319](https://github.com/jabali2004/ngx-strapi-auth/commit/0e173194b229d27d169c279fdea9147b2a9f0c8a))
+
 ### [0.0.9](https://github.com/jabali2004/ngx-strapi-auth/compare/v0.0.8...v0.0.9) (2021-09-24)
 
 
