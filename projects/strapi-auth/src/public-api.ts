@@ -13,6 +13,7 @@ export { AuthInterceptor } from './lib/interceptors/auth.interceptor';
 
 // Guards
 export { AuthGuard } from './lib/guards/auth.guard';
+export { TokenGuard } from './lib/guards/token.guard';
 
 // Routing
 export { StrapiAuthRoutingModule } from './lib/routing/strapi-auth-routing.module';
