@@ -8,6 +8,7 @@ All notable changes to this project will be documented in this file. See [standa
 ### Bug Fixes
 
 * move from User to IUser ([fe2505b](https://github.com/jabali2004/ngx-strapi-auth/commit/fe2505baf039ee786f838f0be0dd33d42cf404c1))
+* profile.component fix override problem ([448df6a](https://github.com/jabali2004/ngx-strapi-auth/commit/448df6a2dfd1c0204e7fb0011d8d68fea95f4448))
 
 ### [0.0.10](https://github.com/jabali2004/ngx-strapi-auth/compare/v0.0.9...v0.0.10) (2021-11-17)
 
