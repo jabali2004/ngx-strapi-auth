@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.0.10 (2021-11-17)
+
+
+### Bug Fixes
+
+* add TokenGuard to public-api.ts ([de8b301](https://github.com/jabali2004/ngx-strapi-auth/commit/de8b3019a8d045780dd762909f7e855e952cc9f2))
+
 ### [0.0.9](https://github.com/jabali2004/ngx-strapi-auth/compare/v0.0.8...v0.0.9) (2021-09-24)
 
 
