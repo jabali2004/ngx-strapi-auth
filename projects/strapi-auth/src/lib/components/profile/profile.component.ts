@@ -84,7 +84,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
 
   constructor(
     protected authService: AuthService,
-    private translate: TranslateService,
+    protected translate: TranslateService,
     public iconPack: NbIconLibraries
   ) {}
 
