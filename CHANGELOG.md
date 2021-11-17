@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.0.11 (2021-11-17)
+
+
+### Bug Fixes
+
+* move from User to IUser ([fe2505b](https://github.com/jabali2004/ngx-strapi-auth/commit/fe2505baf039ee786f838f0be0dd33d42cf404c1))
+
 ### [0.0.10](https://github.com/jabali2004/ngx-strapi-auth/compare/v0.0.9...v0.0.10) (2021-11-17)
 
 
