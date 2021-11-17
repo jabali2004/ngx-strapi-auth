@@ -32,7 +32,7 @@ import { IReqPasswordReset } from '../types/requests/ReqPasswordReset';
 })
 export class AuthService {
   private apiUrl: string;
-  private user: User;
+  private user: IUser;
   private token: string;
   private authHttpClient: HttpClient;
 
@@ -241,7 +241,7 @@ export class AuthService {
     const res: IUser | HttpErrorResponse = await this.updateUser(updateReq);
 
     if (res) {
-      this.user = new User(res);
+      this.user = res as IUser;
       this.userState.next();
     }
   }
@@ -292,7 +292,7 @@ export class AuthService {
   public async loadUser(): Promise<void> {
     this.requestUser().then((user) => {
       if (user) {
-        this.user = new User(user);
+        this.user = user as IUser;
         this.userState.next();
       }
     });
@@ -326,7 +326,7 @@ export class AuthService {
   private setTokenResponse(res: IResAuthRegister | IResAuthLogin): void {
     if (res.jwt && res.user) {
       this.token = res.jwt;
-      this.user = new User(res.user);
+      this.user = res.user as IUser;
 
       this.isAuthenticated = true;
       this.authState.next();
