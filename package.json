@@ -18,7 +18,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build_lib": "ng build strapi-auth --prod",
+    "build_lib": "ng build strapi-auth --configuration production",
     "update_version": "cd projects/strapi-auth && npm version patch",
     "npm_pack": "cd dist/strapi-auth && npm pack",
     "package": "npm run build_lib && npm run npm_pack",
