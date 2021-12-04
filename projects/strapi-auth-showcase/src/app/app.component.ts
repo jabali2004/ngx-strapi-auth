@@ -37,5 +37,7 @@ export class AppComponent implements OnDestroy, OnInit {
     this.titleService.setTitle(newTitle);
   }
 
-  ngOnDestroy(): void {}
+  ngOnDestroy(): void {
+    const test = 't';
+  }
 }

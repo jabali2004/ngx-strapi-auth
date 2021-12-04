@@ -8,6 +8,14 @@
       "root": "projects/strapi-auth",
       "sourceRoot": "projects/strapi-auth/src",
       "prefix": "strapi",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        },
+        "@schematics/angular:application": {
+          "strict": false
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",

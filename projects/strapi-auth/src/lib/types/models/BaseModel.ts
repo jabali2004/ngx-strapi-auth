@@ -93,6 +93,7 @@ export abstract class BaseModel {
     }
   }
 
+  // eslint-disable-next-line @typescript-eslint/ban-types
   protected getAddedFormControls(): {} {
     return this._addedFormControls;
   }
@@ -149,7 +150,7 @@ export abstract class BaseModel {
   protected fillModelArray<T>(
     object: BaseModel,
     key: string,
-    values: Array<T>,
+    values: T[],
     useFormGroupValuesToModel: boolean,
     // eslint-disable-next-line @typescript-eslint/ban-types
     subTypeFactoryFn: Function,
@@ -179,6 +180,7 @@ export abstract class BaseModel {
   }
 
   protected isSubType(value: any): boolean {
+    // eslint-disable-next-line no-prototype-builtins
     return value.hasOwnProperty('$type') && value.$type;
   }
 
@@ -201,6 +203,7 @@ export abstract class BaseModel {
     return !!values.$formGroup;
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   protected fillFormArray<T>(
     key: string,
     modelValues: any,
@@ -281,7 +284,8 @@ export abstract class BaseModel {
         }
 
         // nein? dann mach zu Date!
-        const pattern = /^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])(\.[0-9]+)?(Z){1}$/g;
+        const pattern =
+          /^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])(\.[0-9]+)?(Z){1}$/g;
         if ((value as string).match && (value as string).match(pattern)) {
           return Date.parse(value);
         } else {

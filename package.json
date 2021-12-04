@@ -13,7 +13,7 @@
   "license": "Apache-2.0 License",
   "scripts": {
     "ng": "ng",
-    "start": "concurrently --kill-others \"npm run develop --prefix projects/strapi-auth-showcase/strapi_backend\" \"ng serve\"",
+    "start": "concurrently --kill-others \"npm run develop --prefix ./backend\" \"ng serve\"",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -73,6 +73,8 @@
     "browserlist": "^1.0.1",
     "concurrently": "^6.2.1",
     "eslint": "^8.2.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
     "husky": "7.0.4",
     "jasmine-core": "~3.10.0",
     "jasmine-spec-reporter": "~7.0.0",
