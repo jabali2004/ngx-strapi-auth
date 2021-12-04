@@ -30,14 +30,12 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@angular-eslint/builder:lint",
           "options": {
-            "tsConfig": [
-              "projects/strapi-auth/tsconfig.lib.json",
-              "projects/strapi-auth/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
+            "eslintConfig": ".eslintrc.json",
+            "lintFilePatterns": [
+              "**/*.spec.ts",
+              "**/*.ts"
             ]
           }
         }
@@ -86,7 +84,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
@@ -142,15 +139,12 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@angular-eslint/builder:lint",
           "options": {
-            "tsConfig": [
-              "projects/strapi-auth-showcase/tsconfig.app.json",
-              "projects/strapi-auth-showcase/tsconfig.spec.json",
-              "projects/strapi-auth-showcase/e2e/tsconfig.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
+            "eslintConfig": ".eslintrc.json",
+            "lintFilePatterns": [
+              "**/*.spec.ts",
+              "**/*.ts"
             ]
           }
         },
@@ -169,5 +163,8 @@
       }
     }
   },
-  "defaultProject": "strapi-auth"
+  "defaultProject": "strapi-auth",
+  "cli": {
+    "defaultCollection": "@angular-eslint/schematics"
+  }
 }

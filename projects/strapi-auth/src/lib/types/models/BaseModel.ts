@@ -1,6 +1,6 @@
 import { ValidatorFn, FormControl, FormGroup, FormArray } from '@angular/forms';
 
-// tslint:disable-next-line:class-name
+// eslint-disable-next-line @typescript-eslint/naming-convention
 export abstract class BaseModel {
   constructor() {
     // define non enumerable properties so these are omitted in JSON.stringify.
@@ -30,11 +30,11 @@ export abstract class BaseModel {
    */
   $formGroup: FormGroup;
 
-  // tslint:disable-next-line:variable-name
+  // eslint-disable-next-line @typescript-eslint/naming-convention,no-underscore-dangle,id-blacklist,id-match
   protected _formGroup: FormGroup;
 
   addedFormControls;
-  // tslint:disable-next-line:variable-name
+  // eslint-disable-next-line @typescript-eslint/naming-convention, no-underscore-dangle, id-blacklist, id-match
   private _addedFormControls = {};
   private static clearFormArray(formGroup: FormGroup, key: string): FormArray {
     if (formGroup) {
@@ -131,7 +131,7 @@ export abstract class BaseModel {
    * Note: arrays (FormArray) are not supported.
    */
   protected setFormGroupValuesInAddedFormControls(): void {
-    // tslint:disable-next-line:forin
+    // eslint-disable-next-line guard-for-in
     for (const key in this.addedFormControls) {
       const control = this.addedFormControls[key];
       if (control instanceof FormControl) {
@@ -151,9 +151,9 @@ export abstract class BaseModel {
     key: string,
     values: Array<T>,
     useFormGroupValuesToModel: boolean,
-    // tslint:disable-next-line:ban-types
+    // eslint-disable-next-line @typescript-eslint/ban-types
     subTypeFactoryFn: Function,
-    // tslint:disable-next-line:no-unnecessary-initializer
+    // eslint-disable-next-line no-undef-init
     type = undefined
   ): void {
     if (values) {
@@ -204,7 +204,7 @@ export abstract class BaseModel {
   protected fillFormArray<T>(
     key: string,
     modelValues: any,
-    // tslint:disable-next-line:no-unnecessary-initializer
+    // eslint-disable-next-line no-undef-init
     type = undefined
   ): void {
     const formArray = BaseModel.clearFormArray(this.$formGroup, key);
@@ -224,9 +224,9 @@ export abstract class BaseModel {
    * => Es bleibt ein Delta-Objekt mit allen Neuerungen übrig
    */
   public generateDelta(): any {
-    // tslint:disable-next-line:ban-types
+    // eslint-disable-next-line @typescript-eslint/ban-types
     function getDirtyState(form: FormGroup): Object {
-      // tslint:disable-next-line:ban-types
+      // eslint-disable-next-line @typescript-eslint/ban-types
       return Object.keys(form.controls).reduce<Object>(
         (dirtyState, controlKey) => {
           const control = form.controls[controlKey];

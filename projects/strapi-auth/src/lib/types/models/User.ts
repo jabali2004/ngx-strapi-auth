@@ -46,9 +46,9 @@ export class User extends BaseModel implements IUser {
   public confirmed?: boolean;
   public blocked?: boolean;
   public role?: Role;
-  // tslint:disable-next-line:variable-name
+  // eslint-disable-next-line @typescript-eslint/naming-convention,no-underscore-dangle,id-blacklist,id-match
   public created_by?: any;
-  // tslint:disable-next-line:variable-name
+  // eslint-disable-next-line @typescript-eslint/naming-convention, no-underscore-dangle, id-blacklist, id-match
   public updated_by?: any;
 
   /**
