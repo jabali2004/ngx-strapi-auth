@@ -412,7 +412,7 @@ ng serve
 ````
 
 ```` bash
-cd projects/strapi-auth-showcase/strapi_backend
+cd backend
 strapi dev
 ````
 
