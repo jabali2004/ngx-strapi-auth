@@ -89,7 +89,14 @@
                   "with": "projects/strapi-auth-showcase/src/environments/environment.prod.ts"
                 }
               ],
-              "optimization": false,
+              "optimization": {
+                "scripts": true,
+                "styles": {
+                  "minify": false,
+                  "inlineCritical": false
+                },
+                "fonts": true
+              },
               "outputHashing": "all",
               "sourceMap": false,
               "namedChunks": false,
@@ -108,8 +115,13 @@
                   "maximumError": "2mb"
                 }
               ]
+            },
+            "development": {
+              "optimization": false,
+              "buildOptimizer": false
             }
-          }
+          },
+          "defaultConfiguration": "production"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -120,8 +132,12 @@
           "configurations": {
             "production": {
               "browserTarget": "strapi-auth-showcase:build:production"
+            },
+            "development": {
+              "browserTarget": "strapi-auth-showcase:build:development"
             }
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",

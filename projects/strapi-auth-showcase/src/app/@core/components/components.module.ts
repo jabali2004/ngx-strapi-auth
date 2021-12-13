@@ -15,22 +15,21 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AbstractDialogComponent } from './dialogs/abstract-dialog/abstract-dialog.component';
 
 @NgModule({
-  declarations: [AbstractDialogComponent],
-  imports: [
-    CommonModule,
-    NbCardModule,
-    TranslateModule,
-    NbInputModule,
-    NbButtonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    NbSelectModule,
-    NbToggleModule,
-    NbCheckboxModule,
-    NbStepperModule,
-    NbTooltipModule,
-  ],
-  exports: [AbstractDialogComponent],
-  entryComponents: []
+    declarations: [AbstractDialogComponent],
+    imports: [
+        CommonModule,
+        NbCardModule,
+        TranslateModule,
+        NbInputModule,
+        NbButtonModule,
+        FormsModule,
+        ReactiveFormsModule,
+        NbSelectModule,
+        NbToggleModule,
+        NbCheckboxModule,
+        NbStepperModule,
+        NbTooltipModule,
+    ],
+    exports: [AbstractDialogComponent]
 })
 export class ComponentsModule {}
