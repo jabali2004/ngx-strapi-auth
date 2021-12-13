@@ -1,6 +1,6 @@
 {
   "name": "ngx-strapi-auth",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "NgxStrapiAuth is a Angular library that implements all standard operations like logging in or registering a user for the headless CMS Strapi",
   "author": {
     "name": "jabali2004",
