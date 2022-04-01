@@ -1,0 +1,4 @@
+{
+  "include": ["projects/strapi-auth/src/**/*.ts"],
+  "exclude": ["projects/strapi-auth/src/**/*.spec.ts"]
+}
