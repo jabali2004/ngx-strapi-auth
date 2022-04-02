@@ -22,7 +22,7 @@
     "update_version": "cd projects/strapi-auth && npm version patch",
     "npm_pack": "cd dist/strapi-auth && npm pack",
     "package": "npm run build_lib && npm run npm_pack",
-    "extract-translations": "ngx-translate-extract --input ./projects/strapi-auth-showcase/src --output ./projects/strapi-auth-showcase/src/assets/i18n/en.json --output ./projects/strapi-auth-showcase/src/assets/i18n/de.json --format namespaced-json  --marker . --sort",
+    "extract-translations": "ngx-translate-extract --input ./projects/strapi-auth-example/src --output ./projects/strapi-auth-example/src/assets/i18n/en.json --output ./projects/strapi-auth-example/src/assets/i18n/de.json --format namespaced-json  --marker . --sort",
     "release": "standard-version",
     "release:minor": "standard-version --release-as minor",
     "release:patch": "standard-version --release-as patch",

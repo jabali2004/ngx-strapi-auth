@@ -56,8 +56,8 @@ jobs:
       - name: Install strapi dependencies
         run: cd backend && npm install
       - name: Lint library showcase project
-        run: ng lint --project strapi-auth-showcase
+        run: ng lint --project strapi-auth-example
       - name: Build showcase
-        run: cd projects/strapi-auth-showcase && ng build --project strapi-auth-showcase
+        run: cd projects/strapi-auth-example && ng build --project strapi-auth-example
       - name: Build strapi
         run: cd backend && strapi build
