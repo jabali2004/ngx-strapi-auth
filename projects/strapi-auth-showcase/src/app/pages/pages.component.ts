@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import type { OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MENU_ITEMS_SUBJECT, MENU_ITEMS } from './pages-menu';
-import { NbMenuItem } from '@nebular/theme';
-import { AuthService } from 'projects/strapi-auth/src/public-api';
+import type { NbMenuItem } from '@nebular/theme';
+import type { AuthService } from 'projects/strapi-auth/src/public-api';
 
 @Component({
   selector: 'app-pages',

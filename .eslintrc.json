@@ -1,7 +1,7 @@
 {
   "root": true,
   "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint"],
+  "plugins": ["@typescript-eslint", "@angular-eslint/eslint-plugin"],
   "env": {
     "node": true
   },
@@ -21,6 +21,5 @@
     "@typescript-eslint/array-type": "error",
     "@typescript-eslint/consistent-type-imports": "off",
     "@typescript-eslint/no-explicit-any": "off"
-
   }
 }

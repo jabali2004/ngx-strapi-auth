@@ -1,4 +1,4 @@
-import { NbMenuItem } from '@nebular/theme';
+import type { NbMenuItem } from '@nebular/theme';
 import { Subject } from 'rxjs';
 
 export const MENU_ITEMS_SUBJECT: Subject<NbMenuItem[]> = new Subject();

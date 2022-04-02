@@ -1,8 +1,9 @@
-import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
-import { Router } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
-import { AuthService } from '../../../services/auth.service';
+import type { HttpErrorResponse } from '@angular/common/http';
+import type { OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
+import { Component } from '@angular/core';
+import type { Router } from '@angular/router';
+import type { TranslateService } from '@ngx-translate/core';
+import type { AuthService } from '../../../services/auth/auth.service';
 
 @Component({
   selector: 'strapi-request-password',

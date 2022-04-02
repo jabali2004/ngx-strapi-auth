@@ -1,6 +1,7 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import type { OnInit, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { Subject } from 'rxjs';
-import { Location } from '@angular/common';
+import type { Location } from '@angular/common';
 
 @Component({
   selector: 'strapi-auth-components',

@@ -1,4 +1,5 @@
-import { ValidatorFn, FormControl, FormGroup, FormArray } from '@angular/forms';
+import type { ValidatorFn} from '@angular/forms';
+import { FormControl, FormGroup, FormArray } from '@angular/forms';
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
 export abstract class BaseModel {

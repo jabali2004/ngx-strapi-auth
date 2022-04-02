@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { ModuleWithProviders, NgModule } from '@angular/core';
+import type { ModuleWithProviders} from '@angular/core';
+import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
@@ -28,9 +29,10 @@ import { ResetPasswordComponent } from './components/auth-components/reset-passw
 import { ProfileComponent } from './components/profile/profile.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { StrapiAuthRoutingModule } from './routing/strapi-auth-routing.module';
-import { AuthService } from './services/auth.service';
+import { AuthService } from './services/auth/auth.service';
 import { ConfigService } from './services/config.service';
-import { StrapiAuthConfig } from './types/StrapiAuthConfig';
+import { LanguageService } from './services/language/language.service';
+import type { StrapiAuthConfig } from './types/StrapiAuthConfig';
 
 @NgModule({
   declarations: [
@@ -84,6 +86,7 @@ export class StrapiAuthModule {
       providers: [
         AuthService,
         AuthInterceptor,
+        LanguageService,
         {
           provide: ConfigService,
           useValue: config

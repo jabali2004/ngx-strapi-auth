@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { NbDialogRef } from '@nebular/theme';
+import type { OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import type { NbDialogRef } from '@nebular/theme';
 
 @Component({
   selector: 'app-abstract-dialog',

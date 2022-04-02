@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {
+import type {
   CanActivate,
   CanActivateChild,
   ActivatedRouteSnapshot,
@@ -7,9 +7,9 @@ import {
   UrlTree,
   Router
 } from '@angular/router';
-import { Observable } from 'rxjs';
-import { AuthService } from '../services/auth.service';
-import { StrapiAuthProviders } from '../types/StrapiAuthConfig';
+import type { Observable } from 'rxjs';
+import type { AuthService } from '../../services/auth/auth.service';
+import type { StrapiAuthProviders } from '../../types/StrapiAuthConfig';
 
 @Injectable({
   providedIn: 'root'

@@ -31,8 +31,13 @@ export type StrapiAuthRoutes = {
   requestPasswordRedirect?: string;
 };
 
+export type StrapiAuthTranslations = {
+  [key: string]: string;
+};
+
 export interface StrapiAuthConfig {
   strapi_base_url: string;
   auth_providers?: StrapiAuthProviders[];
   routes?: StrapiAuthRoutes;
+  translations?: StrapiAuthTranslations;
 }

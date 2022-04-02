@@ -1,6 +1,7 @@
+import type {
+  ModuleWithProviders} from '@angular/core';
 import {
   NgModule,
-  ModuleWithProviders,
   SkipSelf,
   Optional
 } from '@angular/core';

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import type { Routes} from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { TokenGuard } from 'projects/strapi-auth/src/lib/guards/token.guard';
 
 const routes: Routes = [

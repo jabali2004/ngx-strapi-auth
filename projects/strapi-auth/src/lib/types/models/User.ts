@@ -14,7 +14,7 @@ import { FormControl, FormGroup, FormArray, Validators } from '@angular/forms';
 https://github.com/swagger-api/swagger-codegen/wiki/Mustache-Template-Variables
 */
 import { BaseModel } from './BaseModel';
-import { Role } from './Role';
+import type { Role } from './Role';
 
 /**
  * Generated Model Interface for Model "User"

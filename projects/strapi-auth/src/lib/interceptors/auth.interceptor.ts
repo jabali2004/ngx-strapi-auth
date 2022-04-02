@@ -1,17 +1,19 @@
-import { Inject, Injectable, Injector } from '@angular/core';
-import {
+import type { Injector } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
+import type {
   HttpEvent,
   HttpInterceptor,
   HttpHandler,
   HttpRequest,
   HttpErrorResponse
 } from '@angular/common/http';
-import { throwError, Observable } from 'rxjs';
+import type { Observable } from 'rxjs';
+import { throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { AuthService } from '../services/auth.service';
-import { StrapiAuthConfig } from '../types/StrapiAuthConfig';
-import { ConfigService } from '../services/config.service';
-import { Router } from '@angular/router';
+import { AuthService } from '../services/auth/auth.service';
+import type { StrapiAuthConfig } from '../types/StrapiAuthConfig';
+import type { Router } from '@angular/router';
+import { ConfigService } from '../services/config/config.service';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {

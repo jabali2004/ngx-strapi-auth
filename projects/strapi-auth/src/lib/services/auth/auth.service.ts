@@ -1,31 +1,28 @@
 import { Inject, Injectable } from '@angular/core';
-import { User, IUser } from '../types/models/User';
+import type { IUser } from '../../types/models/User';
+import { User } from '../../types/models/User';
+import type {
+  HttpBackend} from '@angular/common/http';
 import {
   HttpClient,
-  HttpBackend,
   HttpErrorResponse
 } from '@angular/common/http';
-import { IResAuthLogin } from '../types/responses/ResAuthLogin';
+import type { IResAuthLogin } from '../../types/responses/ResAuthLogin';
 import { lastValueFrom, Subject } from 'rxjs';
-import { IResAuthRegister } from '../types/responses/ResAuthRegister';
-import { IReqAuthRegister } from '../types/requests/ReqAuthRegister';
-import { Router } from '@angular/router';
-import { IReqUserUpdate } from '../types/requests/ReqUserUpdate';
-import { Token } from '../types/models/Token';
-import {
+import type { IResAuthRegister } from '../../types/responses/ResAuthRegister';
+import type { IReqAuthRegister } from '../../types/requests/ReqAuthRegister';
+import type { Router } from '@angular/router';
+import type { IReqUserUpdate } from '../../types/requests/ReqUserUpdate';
+import type { Token } from '../../types/models/Token';
+import type {
   StrapiAuthConfig,
   StrapiAuthProviders
-} from '../types/StrapiAuthConfig';
-import { ConfigService } from './config.service';
+} from '../../types/StrapiAuthConfig';
 import jwt_decode from 'jwt-decode';
-import { TranslateService } from '@ngx-translate/core';
-
-// Language files
-import deLang from '../i18n/de.json';
-import enLang from '../i18n/en.json';
-import { IResRequestPasswordReset } from '../types/requests/ResRequestPasswordReset';
-import { IResPasswordReset } from '../types/requests/ResPasswordReset';
-import { IReqPasswordReset } from '../types/requests/ReqPasswordReset';
+import type { IResRequestPasswordReset } from '../../types/requests/ResRequestPasswordReset';
+import type { IResPasswordReset } from '../../types/requests/ResPasswordReset';
+import type { IReqPasswordReset } from '../../types/requests/ReqPasswordReset';
+import { ConfigService } from '../config/config.service';
 
 @Injectable({
   providedIn: 'root'
@@ -135,27 +132,6 @@ export class AuthService {
    */
   public get ResetPasswordUrl(): string {
     return this.strapiAuthConfig.routes.resetPassword || 'auth/reset-password';
-  }
-
-  /**
-   * Set default translation for StrapiAuthModule
-   */
-  public async setDefaultTranslation(
-    translate: TranslateService
-  ): Promise<void> {
-    // TODO: decrease loading time && load only specified languages
-    // Currently all files are loaded
-    await lastValueFrom(translate.getTranslation('en')).then(() => {
-      translate.setTranslation('en', enLang, true);
-    });
-
-    await lastValueFrom(translate.getTranslation('de')).then(() => {
-      translate.setTranslation('de', deLang, true);
-    });
-
-    translate.setDefaultLang(translate.getDefaultLang());
-
-    return;
   }
 
   /**

@@ -1,5 +1,5 @@
 import { InjectionToken } from '@angular/core';
-import { StrapiAuthConfig } from '../types/StrapiAuthConfig';
+import type { StrapiAuthConfig } from '../../types/StrapiAuthConfig';
 
 /**
  * This is not a real service, but it looks like it from the outside.

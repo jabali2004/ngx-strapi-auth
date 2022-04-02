@@ -6,14 +6,15 @@
 export { StrapiAuthModule } from './lib/strapi-auth.module';
 
 // Services
-export { AuthService } from './lib/services/auth.service';
+export { AuthService } from './lib/services/auth/auth.service';
+export { LanguageService } from './lib/services/language/language.service';
 
 // Interceptors
 export { AuthInterceptor } from './lib/interceptors/auth.interceptor';
 
 // Guards
-export { AuthGuard } from './lib/guards/auth.guard';
-export { TokenGuard } from './lib/guards/token.guard';
+export { AuthGuard } from './lib/guards/auth/auth.guard';
+export { TokenGuard } from './lib/guards/token/token.guard';
 
 // Routing
 export { StrapiAuthRoutingModule } from './lib/routing/strapi-auth-routing.module';

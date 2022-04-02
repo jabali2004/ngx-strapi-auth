@@ -1,6 +1,7 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Router } from '@angular/router';
-import { AuthService } from '../../../services/auth.service';
+import type { OnInit, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
+import type { Router } from '@angular/router';
+import type { AuthService } from '../../../services/auth/auth.service';
 
 @Component({
   selector: 'strapi-logout',

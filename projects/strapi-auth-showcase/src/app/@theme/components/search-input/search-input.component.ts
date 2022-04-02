@@ -1,6 +1,7 @@
+import type {
+  ElementRef} from '@angular/core';
 import {
   Component,
-  ElementRef,
   EventEmitter,
   Output,
   ViewChild,

@@ -1,21 +1,22 @@
-import {
-  Component,
+import type {
   OnInit,
   OnDestroy,
-  ChangeDetectorRef,
+  ChangeDetectorRef} from '@angular/core';
+import {
+  Component,
   Inject
 } from '@angular/core';
-import { Router } from '@angular/router';
+import type { Router } from '@angular/router';
 
-import { HttpErrorResponse } from '@angular/common/http';
-import { TranslateService } from '@ngx-translate/core';
-import { AuthService } from '../../../services/auth.service';
-import {
+import type { HttpErrorResponse } from '@angular/common/http';
+import type { TranslateService } from '@ngx-translate/core';
+import type { AuthService } from '../../../services/auth/auth.service';
+import type {
   StrapiAuthConfig,
   StrapiAuthProviders
 } from '../../../types/StrapiAuthConfig';
 import { ConfigService } from '../../../services/config.service';
-import { NbIconLibraries } from '@nebular/theme';
+import type { NbIconLibraries } from '@nebular/theme';
 
 @Component({
   selector: 'strapi-auth-login',

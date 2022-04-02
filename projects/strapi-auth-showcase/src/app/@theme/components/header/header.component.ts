@@ -1,5 +1,6 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import {
+import type { OnDestroy, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import type {
   NbMediaBreakpointsService,
   NbMenuService,
   NbSidebarService,
@@ -8,12 +9,12 @@ import {
   NbMenuBag
 } from '@nebular/theme';
 
-import { LayoutService } from '../../../@core/utils';
+import type { LayoutService } from '../../../@core/utils';
 import { map, takeUntil, filter } from 'rxjs/operators';
 import { Subject } from 'rxjs';
-import { Router } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
-import { AuthService, IUser } from 'projects/strapi-auth/src/public-api';
+import type { Router } from '@angular/router';
+import type { TranslateService } from '@ngx-translate/core';
+import type { AuthService, IUser } from 'projects/strapi-auth/src/public-api';
 
 @Component({
   selector: 'app-header',

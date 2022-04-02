@@ -1,7 +1,8 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
-import { TranslateService } from '@ngx-translate/core';
-import { AuthService } from 'projects/strapi-auth/src/public-api';
+import type { OnDestroy, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import type { Title } from '@angular/platform-browser';
+import type { TranslateService } from '@ngx-translate/core';
+import type { AuthService } from 'projects/strapi-auth/src/public-api';
 import { Subscription } from 'rxjs';
 
 @Component({
