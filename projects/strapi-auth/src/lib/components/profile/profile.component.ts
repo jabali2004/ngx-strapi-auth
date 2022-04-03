@@ -1,18 +1,11 @@
-import type { OnInit, OnDestroy } from '@angular/core';
+import { OnInit, OnDestroy } from '@angular/core';
 import { Component } from '@angular/core';
-import type {
-  FormGroup} from '@angular/forms';
-import {
-  Form,
-  FormBuilder,
-  FormControl,
-  Validators
-} from '@angular/forms';
-import type { AuthService } from '../../services/auth/auth.service';
-import type { IReqUserUpdate } from '../../types/requests/ReqUserUpdate';
-import type { IUser } from '../../types/models/User';
-import type { NbIconLibraries } from '@nebular/theme';
-import type { TranslateService } from '@ngx-translate/core';
+import { FormGroup } from '@angular/forms';
+import { Form, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { AuthService } from '../../services/auth/auth.service';
+import { IReqUserUpdate } from '../../types/requests/ReqUserUpdate';
+import { IUser } from '../../types/models/User';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'strapi-auth-profile',
@@ -86,8 +79,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
 
   constructor(
     protected authService: AuthService,
-    protected translate: TranslateService,
-    public iconPack: NbIconLibraries
+    protected translate: TranslateService
   ) {}
 
   ngOnInit(): void {

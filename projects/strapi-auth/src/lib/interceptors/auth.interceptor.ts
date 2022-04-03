@@ -1,18 +1,14 @@
-import type { Injector } from '@angular/core';
-import { Inject, Injectable } from '@angular/core';
-import type {
+import {
+  HttpErrorResponse,
   HttpEvent,
-  HttpInterceptor,
   HttpHandler,
-  HttpRequest,
-  HttpErrorResponse
+  HttpInterceptor,
+  HttpRequest
 } from '@angular/common/http';
-import type { Observable } from 'rxjs';
-import { throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
-import { AuthService } from '../services/auth/auth.service';
-import type { StrapiAuthConfig } from '../types/StrapiAuthConfig';
-import type { Router } from '@angular/router';
+import { Inject, Injectable, Injector } from '@angular/core';
+import { Router } from '@angular/router';
+import { catchError, Observable, throwError } from 'rxjs';
+import { AuthService, StrapiAuthConfig } from '../../public-api';
 import { ConfigService } from '../services/config/config.service';
 
 @Injectable()

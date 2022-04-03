@@ -1,28 +1,26 @@
-import { Inject, Injectable } from '@angular/core';
-import type { IUser } from '../../types/models/User';
-import { User } from '../../types/models/User';
-import type {
-  HttpBackend} from '@angular/common/http';
 import {
+  HttpBackend,
   HttpClient,
   HttpErrorResponse
 } from '@angular/common/http';
-import type { IResAuthLogin } from '../../types/responses/ResAuthLogin';
+import { Inject, Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { lastValueFrom, Subject } from 'rxjs';
-import type { IResAuthRegister } from '../../types/responses/ResAuthRegister';
-import type { IReqAuthRegister } from '../../types/requests/ReqAuthRegister';
-import type { Router } from '@angular/router';
-import type { IReqUserUpdate } from '../../types/requests/ReqUserUpdate';
-import type { Token } from '../../types/models/Token';
-import type {
+import { Token } from '../../types/models/Token';
+import { IUser } from '../../types/models/User';
+import { IReqAuthRegister } from '../../types/requests/ReqAuthRegister';
+import { IReqPasswordReset } from '../../types/requests/ReqPasswordReset';
+import { IReqUserUpdate } from '../../types/requests/ReqUserUpdate';
+import { IResPasswordReset } from '../../types/responses/ResPasswordReset';
+import { IResRequestPasswordReset } from '../../types/responses/ResRequestPasswordReset';
+import { IResAuthLogin } from '../../types/responses/ResAuthLogin';
+import { IResAuthRegister } from '../../types/responses/ResAuthRegister';
+import {
   StrapiAuthConfig,
   StrapiAuthProviders
 } from '../../types/StrapiAuthConfig';
-import jwt_decode from 'jwt-decode';
-import type { IResRequestPasswordReset } from '../../types/requests/ResRequestPasswordReset';
-import type { IResPasswordReset } from '../../types/requests/ResPasswordReset';
-import type { IReqPasswordReset } from '../../types/requests/ReqPasswordReset';
 import { ConfigService } from '../config/config.service';
+import jwt_decode from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'

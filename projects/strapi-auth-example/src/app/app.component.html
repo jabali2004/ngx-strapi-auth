@@ -2,9 +2,15 @@
   <h1>NgxStrapiAuth</h1>
 
   <div class="mt-4">
-    <button type="button" class="btn btn-primary m-2">Login</button>
-    <button type="button" class="btn btn-primary m-2">Register</button>
-    <button type="button" class="btn btn-primary m-2">Profile</button>
+    <button routerLink="auth/login" type="button" class="btn btn-primary m-2">Login</button>
+    <button routerLink="auth/register" type="button" class="btn btn-primary m-2">Register</button>
+    <button routerLink="auth/logout" type="button" class="btn btn-primary m-2">Logout</button>
+    <button routerLink="auth/profile" type="button" class="btn btn-primary m-2">Profile</button>
+    <button routerLink="auth/request-password" type="button" class="btn btn-primary m-2">Request Password Reset</button>
+  </div>
+
+  <div>
+    <router-outlet></router-outlet>
   </div>
 
 </div>

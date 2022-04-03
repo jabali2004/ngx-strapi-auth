@@ -1,4 +1,4 @@
-<div class="row">
+<!-- <div class="row">
   <div class="col-lg-12">
     <nb-alert *ngIf="showMessages.error && errors?.length && !submitted" outline="danger" role="alert">
       <p class="alert-title">
@@ -30,84 +30,6 @@
       </nb-card-header>
       <nb-card-body *ngIf="form">
         <form (ngSubmit)="update()" [formGroup]="form" aria-labelledby="title">
-          <!-- <div class="form-control-group">
-            <label class="label" for="input-firstname">
-              {{ 'auth.profile.form.input.firstname.label' | translate }}
-            </label>
-            <input
-              nbInput
-              [(ngModel)]="userObj.firstname"
-              #firstname
-              formControlName="firstname"
-              id="input-firstname"
-              name="firstname"
-              placeholder="{{ 'auth.profile.form.input.firstname.placeholder' | translate }}"
-              autofocus
-              fullWidth
-              fieldSize="large"
-              [status]="
-                form.controls.firstname.dirty ? (form.controls.firstname.invalid ? 'danger' : 'success') : 'basic'
-              "
-              [required]="config.firstnameRequired"
-              [minlength]="config.firstnameMinLength"
-              [maxlength]="config.firstnameMaxLength"
-              [attr.aria-invalid]="form.controls.firstname.invalid && form.controls.firstname.touched ? true : null"
-            />
-            <ng-container *ngIf="form.controls.firstname.invalid && form.controls.firstname.touched">
-              <p class="caption status-danger" *ngIf="form.controls.firstname.errors?.required">
-                {{ 'auth.profile.form.input.firstname.required_message' | translate }}
-              </p>
-              <p
-                class="caption status-danger"
-                *ngIf="form.controls.firstname.errors?.minlength || form.controls.firstname.errors?.maxlength"
-              >
-                {{
-                  'auth.profile.form.input.firstname.min_length_message'
-                    | translate: { min: config.firstnameMinLength, max: config.firstnameMaxLength }
-                }}
-              </p>
-            </ng-container>
-          </div>
-
-          <div class="form-control-group">
-            <label class="label" for="input-lastname">
-              {{ 'auth.profile.form.input.lastname.label' | translate }}
-            </label>
-            <input
-              nbInput
-              [(ngModel)]="userObj.lastname"
-              #lastname
-              formControlName="lastname"
-              id="input-lastname"
-              name="lastname"
-              placeholder="{{ 'auth.profile.form.input.lastname.placeholder' | translate }}"
-              autofocus
-              fullWidth
-              fieldSize="large"
-              [status]="
-                form.controls.lastname.dirty ? (form.controls.lastname.invalid ? 'danger' : 'success') : 'basic'
-              "
-              [required]="config.lastnameRequired"
-              [minlength]="config.lastnameMinLength"
-              [maxlength]="config.lastnameMaxLength"
-              [attr.aria-invalid]="form.controls.lastname.invalid && form.controls.lastname.touched ? true : null"
-            />
-            <ng-container *ngIf="form.controls.lastname.invalid && form.controls.lastname.touched">
-              <p class="caption status-danger" *ngIf="form.controls.lastname.errors?.required">
-                {{ 'auth.profile.form.input.lastname.required_message' | translate }}
-              </p>
-              <p
-                class="caption status-danger"
-                *ngIf="form.controls.lastname.errors?.minlength || form.controls.lastname.errors?.maxlength"
-              >
-                {{
-                  'auth.profile.form.input.lastname.min_length_message'
-                    | translate: { min: config.lastnameMinLength, max: config.lastnameMaxLength }
-                }}
-              </p>
-            </ng-container>
-          </div> -->
-
           <div class="form-control-group">
             <label class="label" for="input-username">
               {{ 'auth.profile.form.input.username.label' | translate }}
@@ -273,4 +195,4 @@
       </nb-card-body>
     </nb-card>
   </div>
-</div>
+</div> -->

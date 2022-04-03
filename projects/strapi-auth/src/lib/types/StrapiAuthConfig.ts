@@ -1,3 +1,6 @@
+import { Component } from '@angular/core';
+import { AuthComponents } from './enums/AuthComponents';
+
 export type StrapiAuthProviders =
   | 'github'
   | 'facebook'
@@ -32,7 +35,11 @@ export type StrapiAuthRoutes = {
 };
 
 export type StrapiAuthTranslations = {
-  [key: string]: string;
+  [key in AuthComponents]: string;
+};
+
+export type StrapiAuthTemplates = {
+  [key: string]: Component;
 };
 
 export interface StrapiAuthConfig {
@@ -40,4 +47,5 @@ export interface StrapiAuthConfig {
   auth_providers?: StrapiAuthProviders[];
   routes?: StrapiAuthRoutes;
   translations?: StrapiAuthTranslations;
+  templates?: StrapiAuthTemplates;
 }

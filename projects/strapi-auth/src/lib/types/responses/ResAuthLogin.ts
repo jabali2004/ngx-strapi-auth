@@ -1,4 +1,4 @@
-import type { User } from '../models/User';
+import { User } from '../models/User';
 
 export interface IResAuthLogin {
   jwt: string;

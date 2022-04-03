@@ -1,4 +1,4 @@
-import type { ValidatorFn} from '@angular/forms';
+import { ValidatorFn } from '@angular/forms';
 import { FormControl, FormGroup, FormArray } from '@angular/forms';
 
 // eslint-disable-next-line @typescript-eslint/naming-convention

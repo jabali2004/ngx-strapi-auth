@@ -1,80 +1,65 @@
 import { CommonModule } from '@angular/common';
-import type { ModuleWithProviders} from '@angular/core';
+import { ModuleWithProviders } from '@angular/core';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { NbEvaIconsModule } from '@nebular/eva-icons';
-import {
-  NbCardModule,
-  NbLayoutModule,
-  NbInputModule,
-  NbButtonModule,
-  NbIconModule,
-  NbCheckboxModule,
-  NbSpinnerModule,
-  NbAlertModule,
-  NbActionsModule,
-  NbListModule,
-  NbRadioModule,
-  NbSelectModule
-} from '@nebular/theme';
 import { TranslateModule } from '@ngx-translate/core';
-import { AuthBlockComponent } from './components/auth-components/auth-block/auth-block.component';
-import { AuthComponentsComponent } from './components/auth-components/auth-components.component';
-import { LoginComponent } from './components/auth-components/login/login.component';
-import { LogoutComponent } from './components/auth-components/logout/logout.component';
-import { RegisterComponent } from './components/auth-components/register/register.component';
-import { RequestPasswordComponent } from './components/auth-components/request-password/request-password.component';
-import { ResetPasswordComponent } from './components/auth-components/reset-password/reset-password.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { StrapiAuthRoutingModule } from './routing/strapi-auth-routing.module';
 import { AuthService } from './services/auth/auth.service';
-import { ConfigService } from './services/config.service';
+import { ConfigService } from './services/config/config.service';
 import { LanguageService } from './services/language/language.service';
-import type { StrapiAuthConfig } from './types/StrapiAuthConfig';
+import { StrapiAuthConfig } from './types/StrapiAuthConfig';
+import { ValidationComponent } from './components/validation/validation.component';
+import { DynamicComponentDirective } from './directives/dynamic-component.directive';
+import { DefaultLoginComponent } from './components/default-components/default-login/default-login.component';
+import { DefaultRegisterComponent } from './components/default-components/default-register/default-register.component';
+import { DefaultLogoutComponent } from './components/default-components/default-logout/default-logout.component';
+import { DefaultRequestPasswordComponent } from './components/default-components/default-request-password/default-request-password.component';
+import { DefaultResetPasswordComponent } from './components/default-components/default-reset-password/default-reset-password.component';
+import { LoginBaseComponent } from './components/base-components/login-base/login-base.component';
+import { RegisterBaseComponent } from './components/base-components/register-base/register-base.component';
+import { LogoutBaseComponent } from './components/base-components/logout-base/logout-base.component';
+import { RequestPasswordBaseComponent } from './components/base-components/request-password-base/request-password-base.component';
+import { ResetPasswordBaseComponent } from './components/base-components/reset-password-base/reset-password-base.component';
 
 @NgModule({
   declarations: [
-    AuthComponentsComponent,
-    LoginComponent,
-    LogoutComponent,
-    RegisterComponent,
-    RequestPasswordComponent,
-    ResetPasswordComponent,
-    AuthBlockComponent,
-    ProfileComponent
+    ProfileComponent,
+    ValidationComponent,
+    DynamicComponentDirective,
+    DefaultLoginComponent,
+    DefaultRegisterComponent,
+    DefaultLogoutComponent,
+    DefaultRequestPasswordComponent,
+    DefaultResetPasswordComponent,
+    LoginBaseComponent,
+    RegisterBaseComponent,
+    LogoutBaseComponent,
+    RequestPasswordBaseComponent,
+    ResetPasswordBaseComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-    NbCardModule,
-    NbLayoutModule,
-    NbInputModule,
-    NbButtonModule,
-    NbCardModule,
-    NbIconModule,
-    NbCheckboxModule,
-    NbSpinnerModule,
-    NbAlertModule,
-    NbSpinnerModule,
-    NbActionsModule,
-    NbRadioModule,
-    NbSelectModule,
-    NbListModule,
     TranslateModule
   ],
   exports: [
-    AuthComponentsComponent,
-    LoginComponent,
-    LogoutComponent,
-    RegisterComponent,
-    RequestPasswordComponent,
-    ResetPasswordComponent,
-    AuthBlockComponent,
-    ProfileComponent
+    ProfileComponent,
+    ValidationComponent,
+    DefaultLoginComponent,
+    DefaultRegisterComponent,
+    DefaultLogoutComponent,
+    DefaultRequestPasswordComponent,
+    DefaultResetPasswordComponent,
+    LoginBaseComponent,
+    RegisterBaseComponent,
+    LogoutBaseComponent,
+    RequestPasswordBaseComponent,
+    ResetPasswordBaseComponent
   ]
 })
 export class StrapiAuthModule {
