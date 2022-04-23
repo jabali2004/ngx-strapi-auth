@@ -8,8 +8,10 @@ import {
 import { Inject, Injectable, Injector } from '@angular/core';
 import { Router } from '@angular/router';
 import { catchError, Observable, throwError } from 'rxjs';
-import { AuthService, StrapiAuthConfig } from '../../public-api';
+import { AuthService } from '../services/auth/auth.service';
 import { ConfigService } from '../services/config/config.service';
+import { TokenService } from '../services/token/token.service';
+import { StrapiAuthConfig } from '../types/StrapiAuthConfig';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
@@ -23,13 +25,15 @@ export class AuthInterceptor implements HttpInterceptor {
 
   private token;
   private authService: AuthService;
+  private tokenService: TokenService;
 
   intercept(
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     this.authService = this.injector.get(AuthService);
-    this.token = this.authService.getToken();
+    this.tokenService = this.injector.get(TokenService);
+    this.token = this.tokenService.getToken();
 
     if (!req.headers.has('Content-Type')) {
       req = req.clone({

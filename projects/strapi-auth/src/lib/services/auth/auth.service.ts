@@ -20,7 +20,7 @@ import {
   StrapiAuthProviders
 } from '../../types/StrapiAuthConfig';
 import { ConfigService } from '../config/config.service';
-import jwt_decode from 'jwt-decode';
+import { TokenService } from '../token/token.service';
 
 @Injectable({
   providedIn: 'root'
@@ -28,7 +28,6 @@ import jwt_decode from 'jwt-decode';
 export class AuthService {
   private apiUrl: string;
   private user: IUser;
-  private token: string;
   private authHttpClient: HttpClient;
 
   private authState: Subject<void> = new Subject();
@@ -45,6 +44,7 @@ export class AuthService {
     private httpClient: HttpClient,
     private handler: HttpBackend,
     private router: Router,
+    private tokenService: TokenService,
     @Inject(ConfigService) private config: StrapiAuthConfig
   ) {
     this.strapiAuthConfig = config;
@@ -53,8 +53,8 @@ export class AuthService {
     // Requests wont get intercepted
     this.authHttpClient = new HttpClient(handler);
 
-    this.token = this.readToken();
-    if (this.token) {
+    const token = this.tokenService.getToken();
+    if (token) {
       this.isAuthenticated = true;
       this.authState.next();
     }
@@ -205,7 +205,7 @@ export class AuthService {
     this.isAuthenticated = false;
     this.user = null;
     this.authState.next();
-    this.deleteToken();
+    this.tokenService.deleteToken();
   }
 
   /**
@@ -239,21 +239,6 @@ export class AuthService {
   }
 
   /**
-   * Return token if given
-   */
-  public getToken(): string {
-    return this.token !== null ? this.token : this.readToken();
-  }
-
-  /**
-   * Set token variable and write token to local storage
-   */
-  public setToken(token: string): void {
-    this.token = token;
-    this.writeToken(token);
-  }
-
-  /**
    * return user obj
    */
   public getUser(): IUser {
@@ -273,40 +258,18 @@ export class AuthService {
   }
 
   /**
-   * Write token to local storage
-   */
-  private writeToken(token: string): void {
-    sessionStorage.setItem('token', token);
-  }
-
-  /**
-   * Read token from local storage
-   */
-  private readToken(): string {
-    return sessionStorage.getItem('token');
-  }
-
-  /**
-   * Delete token in local storage
-   */
-  private deleteToken(): void {
-    sessionStorage.removeItem('token');
-  }
-
-  /**
    * Write token to store and
    * call auth state subject
    */
   private setTokenResponse(res: IResAuthRegister | IResAuthLogin): void {
     if (res.jwt && res.user) {
-      this.token = res.jwt;
       this.user = res.user as IUser;
 
       this.isAuthenticated = true;
       this.authState.next();
       this.userState.next();
 
-      this.writeToken(this.token);
+      this.tokenService.setToken(res.jwt);
     }
   }
 
@@ -424,17 +387,6 @@ export class AuthService {
       return res;
     } catch (error) {
       throw new HttpErrorResponse(error);
-    }
-  }
-
-  /**
-   * Decode token
-   */
-  private decodeToken(token: string): Token | void {
-    try {
-      return jwt_decode(token) as Token;
-    } catch (error) {
-      return;
     }
   }
 }

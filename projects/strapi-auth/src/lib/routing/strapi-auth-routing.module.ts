@@ -6,6 +6,8 @@ import { DefaultLogoutComponent } from '../components/default-components/default
 import { DefaultRegisterComponent } from '../components/default-components/default-register/default-register.component';
 import { DefaultRequestPasswordComponent } from '../components/default-components/default-request-password/default-request-password.component';
 import { DefaultResetPasswordComponent } from '../components/default-components/default-reset-password/default-reset-password.component';
+import { ProfileComponent } from '../components/profile/profile.component';
+import { AuthGuard } from '../guards/auth/auth.guard';
 import { TokenGuard } from '../guards/token/token.guard';
 
 const routes: Routes = [
@@ -47,6 +49,11 @@ const routes: Routes = [
           }
           // TODO: Add more providers
         ]
+      },
+      {
+        path: 'profile',
+        canActivateChild: [AuthGuard],
+        component: ProfileComponent
       }
     ]
   }

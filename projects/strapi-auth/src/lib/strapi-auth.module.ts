@@ -23,6 +23,7 @@ import { RegisterBaseComponent } from './components/base-components/register-bas
 import { LogoutBaseComponent } from './components/base-components/logout-base/logout-base.component';
 import { RequestPasswordBaseComponent } from './components/base-components/request-password-base/request-password-base.component';
 import { ResetPasswordBaseComponent } from './components/base-components/reset-password-base/reset-password-base.component';
+import { TokenService } from './services/token/token.service';
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ export class StrapiAuthModule {
       ngModule: StrapiAuthModule,
       providers: [
         AuthService,
+        TokenService,
         AuthInterceptor,
         LanguageService,
         {
