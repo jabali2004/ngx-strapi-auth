@@ -57,11 +57,15 @@ export class TemplateService {
    */
   private setDefaultTemplates(): void {
     this.templates[AuthComponents.Login] = DefaultLoginComponent as Component;
+
     this.templates[AuthComponents.Logout] = DefaultLogoutComponent as Component;
+
     this.templates[AuthComponents.Register] =
       DefaultRegisterComponent as Component;
+
     this.templates[AuthComponents.RequestPassword] =
       DefaultRequestPasswordComponent as Component;
+
     this.templates[AuthComponents.ResetPassword] =
       DefaultResetPasswordComponent as Component;
   }

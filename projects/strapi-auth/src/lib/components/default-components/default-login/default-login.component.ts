@@ -1,8 +1,8 @@
 import { ChangeDetectorRef, Component, Inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { ConfigService } from 'dist/strapi-auth/lib/services/config.service';
 import { AuthService } from '../../../services/auth/auth.service';
+import { ConfigService } from '../../../services/config/config.service';
 import { StrapiAuthConfig } from '../../../types/StrapiAuthConfig';
 import { LoginBaseComponent } from '../../base-components/login-base/login-base.component';
 
