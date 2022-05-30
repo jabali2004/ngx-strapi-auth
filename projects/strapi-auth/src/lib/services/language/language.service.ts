@@ -21,6 +21,17 @@ export class LanguageService {
   public async setDefaultTranslation(
     translate: TranslateService
   ): Promise<void> {
+    await this.loadTranslationFiles(translate);
+
+    const defaultLang = this.getDefaultLanguage(translate);
+    translate.setDefaultLang(defaultLang);
+  }
+
+  /**
+   * Load translation files
+   * @param translate
+   */
+  private async loadTranslationFiles(translate: TranslateService) {
     // TODO: decrease loading time && load only specified languages
     // Currently all files are loaded
     await lastValueFrom(translate.getTranslation('en')).then(() => {
@@ -30,9 +41,15 @@ export class LanguageService {
     await lastValueFrom(translate.getTranslation('de')).then(() => {
       translate.setTranslation('de', deLang, true);
     });
+  }
 
-    translate.setDefaultLang(translate.getDefaultLang());
-
-    return;
+  /**
+   * Get default language
+   * @param translate
+   * @returns string
+   */
+  private getDefaultLanguage(translate: TranslateService): string {
+    const defaultLang = translate.getDefaultLang();
+    return defaultLang || 'en';
   }
 }
