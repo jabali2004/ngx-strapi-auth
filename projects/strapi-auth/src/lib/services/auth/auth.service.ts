@@ -21,6 +21,7 @@ import {
 } from '../../types/StrapiAuthConfig';
 import { ConfigService } from '../config/config.service';
 import { TokenService } from '../token/token.service';
+import { IReqAuthLogin } from '../../types/requests/ReqAuthLogin';
 
 @Injectable({
   providedIn: 'root'
@@ -136,10 +137,9 @@ export class AuthService {
    * Login user with given credentials
    * and store jwt token and user data
    */
-  public async login(email: string, password: string): Promise<void> {
+  public async login(loginReq: IReqAuthLogin): Promise<void> {
     const res: IResAuthLogin | HttpErrorResponse = await this.postLogin(
-      email,
-      password
+      loginReq
     );
 
     if (res) {
@@ -312,15 +312,11 @@ export class AuthService {
    * Login user and request token
    */
   private async postLogin(
-    identifier: string,
-    password: string
+    loginReq: IReqAuthLogin
   ): Promise<IResAuthLogin | HttpErrorResponse> {
     try {
       const res: IResAuthLogin | HttpErrorResponse = (await lastValueFrom(
-        this.authHttpClient.post(this.apiUrl + '/auth/local', {
-          identifier,
-          password
-        })
+        this.authHttpClient.post(this.apiUrl + '/auth/local', loginReq)
       )) as IResAuthLogin | HttpErrorResponse;
 
       return res;

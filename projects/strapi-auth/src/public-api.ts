@@ -38,6 +38,7 @@ export { Token } from './lib/types/models/Token';
 export { User, IUser } from './lib/types/models/User';
 
 // Requests
+export { IReqAuthLogin } from './lib/types/requests/ReqAuthLogin';
 export { IReqAuthRegister } from './lib/types/requests/ReqAuthRegister';
 export { IReqPasswordReset } from './lib/types/requests/ReqPasswordReset';
 export { IReqUserUpdate } from './lib/types/requests/ReqUserUpdate';
