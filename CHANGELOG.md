@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 0.2.0 (2022-06-01)
+
+
+### Chores
+
+* update strapi to version 3.6.10 ([0cbe8c9](https://github.com/jabali2004/ngx-strapi-auth/commit/0cbe8c9790913c45c84ee4b55d57f9a57885a96a))
+
 ### 0.1.1 (2021-12-13)
 
 ## [0.1.0](https://github.com/jabali2004/ngx-strapi-auth/compare/v0.0.11...v0.1.0) (2021-12-13)
