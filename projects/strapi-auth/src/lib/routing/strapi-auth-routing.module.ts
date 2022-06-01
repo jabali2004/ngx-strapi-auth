@@ -1,37 +1,38 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { AuthComponentsComponent } from '../components/auth-components/auth-components.component';
-import { LoginComponent } from '../components/auth-components/login/login.component';
-import { LogoutComponent } from '../components/auth-components/logout/logout.component';
-import { RegisterComponent } from '../components/auth-components/register/register.component';
-import { RequestPasswordComponent } from '../components/auth-components/request-password/request-password.component';
-import { ResetPasswordComponent } from '../components/auth-components/reset-password/reset-password.component';
-import { TokenGuard } from '../guards/token.guard';
+import { Routes } from '@angular/router';
+import { RouterModule } from '@angular/router';
+import { DefaultLoginComponent } from '../components/default-components/default-login/default-login.component';
+import { DefaultLogoutComponent } from '../components/default-components/default-logout/default-logout.component';
+import { DefaultRegisterComponent } from '../components/default-components/default-register/default-register.component';
+import { DefaultRequestPasswordComponent } from '../components/default-components/default-request-password/default-request-password.component';
+import { DefaultResetPasswordComponent } from '../components/default-components/default-reset-password/default-reset-password.component';
+import { ProfileComponent } from '../components/profile/profile.component';
+import { AuthGuard } from '../guards/auth/auth.guard';
+import { TokenGuard } from '../guards/token/token.guard';
 
 const routes: Routes = [
   {
     path: '',
-    component: AuthComponentsComponent,
     children: [
       {
         path: 'login',
-        component: LoginComponent
+        component: DefaultLoginComponent
       },
       {
         path: 'register',
-        component: RegisterComponent
+        component: DefaultRegisterComponent
       },
       {
         path: 'logout',
-        component: LogoutComponent
+        component: DefaultLogoutComponent
       },
       {
         path: 'request-password',
-        component: RequestPasswordComponent
+        component: DefaultRequestPasswordComponent
       },
       {
         path: 'reset-password',
-        component: ResetPasswordComponent
+        component: DefaultResetPasswordComponent
       },
       {
         path: 'providers',
@@ -48,6 +49,11 @@ const routes: Routes = [
           }
           // TODO: Add more providers
         ]
+      },
+      {
+        path: 'profile',
+        canActivateChild: [AuthGuard],
+        component: ProfileComponent
       }
     ]
   }

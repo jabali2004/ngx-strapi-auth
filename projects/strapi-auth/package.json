@@ -16,9 +16,7 @@
     "@angular/core": ">11.1.1",
     "@angular/router": ">11.1.1",
     "@angular/forms": ">11.1.1",
-    "@ngx-translate/core": ">13.0.0",
-    "@nebular/theme": ">7.0.0",
-    "@ng-bootstrap/ng-bootstrap": "^9.0.2",
+    "bootstrap": "^5.1.0",
     "jwt-decode": "^3.1.2"
   },
   "dependencies": {

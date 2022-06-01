@@ -1,37 +1,40 @@
-import { Inject, Injectable, Injector } from '@angular/core';
 import {
+  HttpErrorResponse,
   HttpEvent,
-  HttpInterceptor,
   HttpHandler,
-  HttpRequest,
-  HttpErrorResponse
+  HttpInterceptor,
+  HttpRequest
 } from '@angular/common/http';
-import { throwError, Observable } from 'rxjs';
-import { catchError } from 'rxjs/operators';
-import { AuthService } from '../services/auth.service';
-import { StrapiAuthConfig } from '../types/StrapiAuthConfig';
-import { ConfigService } from '../services/config.service';
+import { Inject, Injectable, Injector } from '@angular/core';
 import { Router } from '@angular/router';
+import { catchError, Observable, throwError } from 'rxjs';
+import { IAuthError } from '../../public-api';
+import { AuthService } from '../services/auth/auth.service';
+import { ConfigServiceInjector } from '../services/config/config.service';
+import { TokenService } from '../services/token/token.service';
+import { StrapiAuthConfig } from '../types/StrapiAuthConfig';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
   constructor(
     private injector: Injector,
     private router: Router,
-    @Inject(ConfigService) public strapiAuthConfig: StrapiAuthConfig
+    @Inject(ConfigServiceInjector) public strapiAuthConfig: StrapiAuthConfig
   ) {}
 
   private AUTH_HEADER = 'Authorization';
 
   private token;
   private authService: AuthService;
+  private tokenService: TokenService;
 
   intercept(
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     this.authService = this.injector.get(AuthService);
-    this.token = this.authService.getToken();
+    this.tokenService = this.injector.get(TokenService);
+    this.token = this.tokenService.getToken();
 
     if (!req.headers.has('Content-Type')) {
       req = req.clone({
@@ -43,14 +46,13 @@ export class AuthInterceptor implements HttpInterceptor {
 
     return next.handle(req).pipe(
       catchError((error: HttpErrorResponse) => {
+        const authError: IAuthError = error.error as IAuthError;
+
         switch (error.status) {
           // Intercept unauthorized request
           case 401:
             // Check if error response is caused by invalid token
-            if (
-              error.error.message === 'Invalid token.' &&
-              error.error.error === 'Unauthorized'
-            ) {
+            if (authError.error.name === 'UnauthorizedError') {
               return this.authService.logout().then(() => {
                 this.router.navigateByUrl('/auth/login');
               });

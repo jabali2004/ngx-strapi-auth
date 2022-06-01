@@ -1,15 +1,10 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import {
-  Form,
-  FormGroup,
-  FormBuilder,
-  FormControl,
-  Validators
-} from '@angular/forms';
-import { AuthService } from '../../services/auth.service';
+import { OnInit, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { Form, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { AuthService } from '../../services/auth/auth.service';
 import { IReqUserUpdate } from '../../types/requests/ReqUserUpdate';
 import { IUser } from '../../types/models/User';
-import { NbIconLibraries } from '@nebular/theme';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -84,8 +79,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
 
   constructor(
     protected authService: AuthService,
-    protected translate: TranslateService,
-    public iconPack: NbIconLibraries
+    protected translate: TranslateService
   ) {}
 
   ngOnInit(): void {

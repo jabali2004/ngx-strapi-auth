@@ -2,6 +2,8 @@
 
 [![build pipeline](https://github.com/jabali2004/ngx-strapi-auth/actions/workflows/build.yml/badge.svg)](https://github.com/jabali2004/ngx-strapi-auth/actions/workflows/build.yml)
 
+> NgxStrapiAuth in Version 0.2 is currently in alpha and not stable.
+
 > NgxStrapiAuth is a Angular library that implements all standard operations like logging in or registering a user for the headless CMS Strapi.
 
 Services and guards are provided, as well as ready-made components.

@@ -1,2 +1,4 @@
 node_modules/*
 dist/
+# TODO: Fix html linting
+*.html

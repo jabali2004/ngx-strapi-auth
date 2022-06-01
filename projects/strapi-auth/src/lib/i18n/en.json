@@ -274,7 +274,8 @@
       "messages": {
         "error": "Oh snap!",
         "success": "Hooray!"
-      }
+      },
+      "title": "Profile"
     }
   }
 }
