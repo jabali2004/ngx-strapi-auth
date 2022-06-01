@@ -14,6 +14,6 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - run: npm install
       - run: npm run build_lib
-      - run: npm publish dist/strapi-auth
+      - run: npm publish ./dist/strapi-auth
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
