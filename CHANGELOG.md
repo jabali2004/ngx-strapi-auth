@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.2.1 (2022-06-01)
+
+
+### Chores
+
+* update package-lock to version 2 ([55d1d7c](https://github.com/jabali2004/ngx-strapi-auth/commit/55d1d7c1305afe451ec57c94130fae55c108d1b4))
+
 ## [0.2.0](https://github.com/jabali2004/ngx-strapi-auth/compare/v0.1.1...v0.2.0) (2022-06-01)
 
 
