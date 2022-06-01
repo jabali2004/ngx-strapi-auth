@@ -55,6 +55,10 @@ export { IStrapiError, IAuthError } from './lib/types/responses/AuthError';
 // Routing
 export { StrapiAuthRoutingModule } from './lib/routing/strapi-auth-routing.module';
 
+// Components
+export { ValidationComponent } from './lib/components/validation/validation.component';
+export { ProfileComponent } from './lib/components/profile/profile.component';
+
 // BaseComponents
 export { LoginBaseComponent } from './lib/components/base-components/login-base/login-base.component';
 export { RegisterBaseComponent } from './lib/components/base-components/register-base/register-base.component';
