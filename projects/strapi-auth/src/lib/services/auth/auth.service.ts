@@ -52,9 +52,6 @@ export class AuthService {
     this.strapiAuthConfig = config;
 
     this.configService.applyRoutesConfig(this.strapiAuthConfig);
-
-    console.log(this.strapiAuthConfig);
-
     this.apiUrl = this.config.strapi_base_url || 'http://localhost:1337';
 
     // Requests wont get intercepted
