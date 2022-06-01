@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.2.2 (2022-06-01)
+
+
+### Chores
+
+* update npm-publish.yml ([2e65adb](https://github.com/jabali2004/ngx-strapi-auth/commit/2e65adbe7f5c092f2c0e0afa8dc2ca25a167cc4a))
+
 ### 0.2.1 (2022-06-01)
 
 
