@@ -19,7 +19,7 @@ import {
   StrapiAuthConfig,
   StrapiAuthProviders
 } from '../../types/StrapiAuthConfig';
-import { ConfigService } from '../config/config.service';
+import { ConfigService, ConfigServiceInjector } from '../config/config.service';
 import { TokenService } from '../token/token.service';
 import { IReqAuthLogin } from '../../types/requests/ReqAuthLogin';
 
@@ -46,11 +46,17 @@ export class AuthService {
     private handler: HttpBackend,
     private router: Router,
     private tokenService: TokenService,
-    @Inject(ConfigService) private config: StrapiAuthConfig
+    private configService: ConfigService,
+    @Inject(ConfigServiceInjector) private config: StrapiAuthConfig
   ) {
     this.strapiAuthConfig = config;
 
+    this.configService.applyRoutesConfig(this.strapiAuthConfig);
+
+    console.log(this.strapiAuthConfig);
+
     this.apiUrl = this.config.strapi_base_url || 'http://localhost:1337';
+
     // Requests wont get intercepted
     this.authHttpClient = new HttpClient(handler);
 
@@ -178,17 +184,7 @@ export class AuthService {
    * then store token and show user as logged in
    *
    */
-  public async register(
-    email: string,
-    username: string,
-    password: string
-  ): Promise<void> {
-    const req: IReqAuthRegister = {
-      username,
-      email,
-      password
-    };
-
+  public async register(req: IReqAuthRegister): Promise<void> {
     const res: IResAuthRegister | HttpErrorResponse = await this.postRegister(
       req
     );

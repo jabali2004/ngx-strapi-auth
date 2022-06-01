@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 import { catchError, Observable, throwError } from 'rxjs';
 import { IAuthError } from '../../public-api';
 import { AuthService } from '../services/auth/auth.service';
-import { ConfigService } from '../services/config/config.service';
+import { ConfigServiceInjector } from '../services/config/config.service';
 import { TokenService } from '../services/token/token.service';
 import { StrapiAuthConfig } from '../types/StrapiAuthConfig';
 
@@ -19,7 +19,7 @@ export class AuthInterceptor implements HttpInterceptor {
   constructor(
     private injector: Injector,
     private router: Router,
-    @Inject(ConfigService) public strapiAuthConfig: StrapiAuthConfig
+    @Inject(ConfigServiceInjector) public strapiAuthConfig: StrapiAuthConfig
   ) {}
 
   private AUTH_HEADER = 'Authorization';

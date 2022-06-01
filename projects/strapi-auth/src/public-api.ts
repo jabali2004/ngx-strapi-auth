@@ -10,7 +10,7 @@ export { AuthService } from './lib/services/auth/auth.service';
 export { TokenService } from './lib/services/token/token.service';
 export { LanguageService } from './lib/services/language/language.service';
 export { TemplateService } from './lib/services/template/template.service';
-export { ConfigService } from './lib/services/config/config.service';
+export { ConfigServiceInjector as ConfigService } from './lib/services/config/config.service';
 
 // Interceptors
 export { AuthInterceptor } from './lib/interceptors/auth.interceptor';

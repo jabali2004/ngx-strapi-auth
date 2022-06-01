@@ -274,7 +274,8 @@
       "messages": {
         "error": "Es ist ein Fehler aufgetreten!",
         "success": "Erfolgreich registriert!"
-      }
+      },
+      "title": "Profil"
     }
   }
 }

@@ -8,7 +8,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { StrapiAuthRoutingModule } from './routing/strapi-auth-routing.module';
 import { AuthService } from './services/auth/auth.service';
-import { ConfigService } from './services/config/config.service';
+import { ConfigServiceInjector } from './services/config/config.service';
 import { LanguageService } from './services/language/language.service';
 import { StrapiAuthConfig } from './types/StrapiAuthConfig';
 import { ValidationComponent } from './components/validation/validation.component';
@@ -75,7 +75,7 @@ export class StrapiAuthModule {
         AuthInterceptor,
         LanguageService,
         {
-          provide: ConfigService,
+          provide: ConfigServiceInjector,
           useValue: config
         }
       ]

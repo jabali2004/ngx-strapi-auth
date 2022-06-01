@@ -1,7 +1,7 @@
 import type { Component } from '@angular/core';
 import { Inject } from '@angular/core';
 import { Injectable } from '@angular/core';
-import { ConfigService } from '../config/config.service';
+import { ConfigServiceInjector } from '../config/config.service';
 import AuthComponents from '../../types/enums/AuthComponents';
 import { StrapiAuthConfig } from '../../types/StrapiAuthConfig';
 import { DefaultLoginComponent } from '../../components/default-components/default-login/default-login.component';
@@ -18,7 +18,9 @@ export class TemplateService {
 
   public readonly config: StrapiAuthConfig;
 
-  constructor(@Inject(ConfigService) private _config: StrapiAuthConfig) {
+  constructor(
+    @Inject(ConfigServiceInjector) private _config: StrapiAuthConfig
+  ) {
     this.config = this._config;
 
     this.setDefaultTemplates();

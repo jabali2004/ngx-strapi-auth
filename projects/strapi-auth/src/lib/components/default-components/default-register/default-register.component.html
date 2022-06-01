@@ -1,5 +1,56 @@
-<!-- <h1 id="title" class="title">{{ 'auth.register.title' | translate }}</h1>
+<h1 id="title" class="title">{{ 'auth.register.title' | translate }}</h1>
 
+<p>{{ 'auth.login.subtitle' | translate }}</p>
+
+<form [formGroup]="formGroup">
+
+
+  <!-- Email -->
+  <div class="form-group">
+    <label class="label" for="input-email">{{ 'auth.register.form.input.email.label' | translate }}</label>
+    <input type="email" class="form-control" id="email" formControlName="email"
+      placeholder="{{ 'auth.register.form.input.email.placeholder' | translate }}" pattern=".+@.+\..+" />
+  </div>
+
+  <!-- Username -->
+  <div class="form-group">
+    <label class="label" for="input-username">{{ 'auth.register.form.input.username.label' | translate }}</label>
+    <input type="text" class="form-control" id="username" formControlName="username"
+      placeholder="{{ 'auth.register.form.input.username.placeholder' | translate }}" />
+  </div>
+
+  <!-- Password -->
+  <div class="form-group">
+    <label class="label" for="input-password">{{ 'auth.register.form.input.password.label' | translate }}</label>
+    <input type="password" class="form-control" id="password" formControlName="password"
+      placeholder="{{ 'auth.register.form.input.password.placeholder' | translate }}" />
+  </div>
+
+  <!-- Password confirmation -->
+  <div class="form-group">
+    <label class="label"
+      for="input-password-confirmation">{{ 'auth.register.form.input.repeat_password.label' | translate }}</label>
+    <input type="password" class="form-control" id="password-confirmation" formControlName="passwordConfirmation"
+      placeholder="{{ 'auth.register.form.input.repeat_password.placeholder' | translate }}" />
+  </div>
+
+  <div class="mt-2">
+    <button type="submit" class="btn btn-primary" (click)="register()" [disabled]="!formGroup.valid">
+      {{ 'auth.register.form.button.register.title' | translate }}
+    </button>
+
+  </div>
+
+  <section class="mt-2" aria-label="Sign in">
+    {{ 'auth.register.form.button.existing_account.text' | translate }}
+    <a class="text-link" routerLink="../login">
+      {{ 'auth.register.form.button.existing_account.title' | translate }}
+    </a>
+  </section>
+
+</form>
+
+<!--
 <nb-alert *ngIf="showMessages.error && errors?.length && !submitted" outline="danger" role="alert">
   <p class="alert-title">
     <b>{{ 'auth.register.messages.error' | translate }}</b>

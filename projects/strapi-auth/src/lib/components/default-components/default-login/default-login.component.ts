@@ -2,7 +2,7 @@ import { ChangeDetectorRef, Component, Inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from '../../../services/auth/auth.service';
-import { ConfigService } from '../../../services/config/config.service';
+import { ConfigServiceInjector } from '../../../services/config/config.service';
 import { StrapiAuthConfig } from '../../../types/StrapiAuthConfig';
 import { LoginBaseComponent } from '../../base-components/login-base/login-base.component';
 
@@ -11,19 +11,13 @@ import { LoginBaseComponent } from '../../base-components/login-base/login-base.
   templateUrl: './default-login.component.html',
   styleUrls: ['./default-login.component.scss']
 })
-export class DefaultLoginComponent
-  extends LoginBaseComponent
-  implements OnInit
-{
+export class DefaultLoginComponent extends LoginBaseComponent {
   constructor(
     protected authService: AuthService,
-    protected cd: ChangeDetectorRef,
     protected router: Router,
     protected translate: TranslateService,
-    @Inject(ConfigService) public strapiAuthConfig: StrapiAuthConfig
+    @Inject(ConfigServiceInjector) public strapiAuthConfig: StrapiAuthConfig
   ) {
-    super(authService, cd, router, translate, strapiAuthConfig);
+    super(authService, router, translate, strapiAuthConfig);
   }
-
-  ngOnInit(): void {}
 }

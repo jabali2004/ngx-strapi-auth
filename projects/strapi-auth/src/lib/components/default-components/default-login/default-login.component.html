@@ -1,4 +1,35 @@
-<h1 id="title" class="title">{{ 'auth.login.title' | translate }}</h1>
+<h1>{{ 'auth.login.title' | translate }}</h1>
+<p>{{ 'auth.login.subtitle' | translate }}</p>
+
+<form [formGroup]="formGroup">
+
+  <div class="form-group">
+    <label class="label" for="input-email">{{ 'auth.login.form.input.email.label' | translate }}</label>
+    <input type="email" class="form-control" id="email" formControlName="identifier"
+      placeholder="{{ 'auth.login.form.input.email.placeholder' | translate }}" />
+  </div>
+
+  <div class="form-group">
+    <label class="label" for="input-password">{{ 'auth.login.form.input.password.label' | translate }}</label>
+    <input type="password" class="form-control" id="password" formControlName="password"
+      placeholder="{{ 'auth.login.form.input.password.placeholder' | translate }}" />
+  </div>
+
+  <div class="mt-2">
+    <button type="submit" class="btn btn-primary" (click)="login()" [disabled]="!formGroup.valid">
+      {{ 'auth.login.form.button.login' | translate }}
+    </button>
+  </div>
+
+  <section class="mt-2" aria-label="Register">
+    {{ 'auth.login.form.button.register.label' | translate }}
+    <a class="text-link" routerLink="../register">
+      {{ 'auth.login.form.button.register.link' | translate }}
+    </a>
+  </section>
+</form>
+
+<!-- <h1 id="title" class="title">{{ 'auth.login.title' | translate }}</h1>
 <p class="sub-title">{{ 'auth.login.subtitle' | translate }}</p>
 
 <nb-alert *ngIf="showMessages.error && errors?.length && !submitted" outline="danger" role="alert">
@@ -81,4 +112,4 @@
   <a class="text-link" routerLink="../register">
     {{ 'auth.login.form.button.register.link' | translate }}
   </a>
-</section>
+</section> -->

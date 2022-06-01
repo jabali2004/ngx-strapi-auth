@@ -7,17 +7,13 @@ import { AuthService } from '../../../services/auth/auth.service';
   template: ''
 })
 export class LogoutBaseComponent implements OnInit {
-  redirectDelay = 0;
-
   constructor(protected authService: AuthService, protected router: Router) {}
 
   ngOnInit(): void {
     this.logout();
   }
 
-  ngOnDestroy(): void {}
-
-  logout(): void {
+  public logout(): void {
     this.authService.logout().then(() => {
       this.router.navigateByUrl(this.authService.LogoutRedirectUrl);
     });

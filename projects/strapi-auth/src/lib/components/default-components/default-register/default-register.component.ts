@@ -9,18 +9,12 @@ import { RegisterBaseComponent } from '../../base-components/register-base/regis
   templateUrl: './default-register.component.html',
   styleUrls: ['./default-register.component.scss']
 })
-export class DefaultRegisterComponent
-  extends RegisterBaseComponent
-  implements OnInit
-{
+export class DefaultRegisterComponent extends RegisterBaseComponent {
   constructor(
-    protected cd: ChangeDetectorRef,
     protected router: Router,
     protected authService: AuthService,
     protected translate: TranslateService
   ) {
-    super(cd, router, authService, translate);
+    super(router, authService, translate);
   }
-
-  ngOnInit(): void {}
 }
