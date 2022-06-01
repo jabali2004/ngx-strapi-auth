@@ -49,6 +49,9 @@ export { IResAuthRegister } from './lib/types/responses/ResAuthRegister';
 export { IResPasswordReset } from './lib/types/responses/ResPasswordReset';
 export { IResRequestPasswordReset } from './lib/types/responses/ResRequestPasswordReset';
 
+// Errors
+export { IStrapiError, IAuthError } from './lib/types/responses/AuthError';
+
 // Routing
 export { StrapiAuthRoutingModule } from './lib/routing/strapi-auth-routing.module';
 

@@ -12,8 +12,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import {
   AuthInterceptor,
   StrapiAuthConfig,
-  StrapiAuthModule,
-  StrapiAuthRoutingModule
+  StrapiAuthModule
 } from 'projects/strapi-auth/src/public-api';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -47,7 +46,8 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
         provide: TranslateLoader,
         useFactory: createTranslateLoader,
         deps: [HttpClient]
-      }
+      },
+      defaultLanguage: 'en'
     })
   ],
   providers: [

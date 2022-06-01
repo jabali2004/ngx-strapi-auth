@@ -8,6 +8,7 @@ import {
 import { Inject, Injectable, Injector } from '@angular/core';
 import { Router } from '@angular/router';
 import { catchError, Observable, throwError } from 'rxjs';
+import { IAuthError } from '../../public-api';
 import { AuthService } from '../services/auth/auth.service';
 import { ConfigService } from '../services/config/config.service';
 import { TokenService } from '../services/token/token.service';
@@ -45,14 +46,13 @@ export class AuthInterceptor implements HttpInterceptor {
 
     return next.handle(req).pipe(
       catchError((error: HttpErrorResponse) => {
+        const authError: IAuthError = error.error as IAuthError;
+
         switch (error.status) {
           // Intercept unauthorized request
           case 401:
             // Check if error response is caused by invalid token
-            if (
-              error.error.message === 'Invalid token.' &&
-              error.error.error === 'Unauthorized'
-            ) {
+            if (authError.error.name === 'UnauthorizedError') {
               return this.authService.logout().then(() => {
                 this.router.navigateByUrl('/auth/login');
               });
