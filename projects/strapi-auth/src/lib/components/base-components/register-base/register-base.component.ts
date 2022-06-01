@@ -32,8 +32,8 @@ export class RegisterBaseComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    if (this.authService.AuthState) {
-      this.authService.logout();
+    if (this.authService.isAuthenticated) {
+      this.router.navigateByUrl(this.authService.LoginRedirectUrl);
     }
   }
 
