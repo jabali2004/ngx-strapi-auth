@@ -22,6 +22,7 @@ import {
 import { ConfigService, ConfigServiceInjector } from '../config/config.service';
 import { TokenService } from '../token/token.service';
 import { IReqAuthLogin } from '../../types/requests/ReqAuthLogin';
+import { BrowserCheckService } from '../browser-check/browser-check.service';
 
 @Injectable({
   providedIn: 'root'
@@ -47,8 +48,13 @@ export class AuthService {
     private router: Router,
     private tokenService: TokenService,
     private configService: ConfigService,
+    private browserCheck: BrowserCheckService,
     @Inject(ConfigServiceInjector) private config: StrapiAuthConfig
   ) {
+    if (this.browserCheck.isServer) {
+      return;
+    }
+
     this.strapiAuthConfig = config;
 
     this.configService.applyRoutesConfig(this.strapiAuthConfig);
@@ -63,6 +69,8 @@ export class AuthService {
       this.authState.next();
     }
   }
+
+  public init(): void {}
 
   /**
    * Return AuthState Promise
