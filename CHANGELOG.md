@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.2.3 (2022-06-04)
+
+
+### Chores
+
+* add handling for platformId in auth service ([5282db9](https://github.com/jabali2004/ngx-strapi-auth/commit/5282db93766ddd34e2c3c45d4244a3a216889e13))
+
 ### 0.2.2 (2022-06-01)
 
 
