@@ -16,8 +16,7 @@ export class DefaultLoginComponent extends LoginBaseComponent {
     protected authService: AuthService,
     protected router: Router,
     protected translate: TranslateService,
-    @Inject(ConfigServiceInjector) public strapiAuthConfig: StrapiAuthConfig
   ) {
-    super(authService, router, translate, strapiAuthConfig);
+    super(authService, router, translate);
   }
 }

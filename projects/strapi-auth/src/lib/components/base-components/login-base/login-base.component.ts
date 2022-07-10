@@ -1,10 +1,9 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { ChangeDetectorRef, Component, Inject, OnInit } from '@angular/core';
+import {  Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from '../../../services/auth/auth.service';
-import { ConfigServiceInjector } from '../../../services/config/config.service';
 import { IReqAuthLogin } from '../../../types/requests/ReqAuthLogin';
 import { IAuthError } from '../../../types/responses/AuthError';
 import {
@@ -26,8 +25,7 @@ export class LoginBaseComponent implements OnInit {
   constructor(
     protected authService: AuthService,
     protected router: Router,
-    protected translate: TranslateService,
-    @Inject(ConfigServiceInjector) public strapiAuthConfig: StrapiAuthConfig
+    protected translate: TranslateService
   ) {}
 
   ngOnInit(): void {
