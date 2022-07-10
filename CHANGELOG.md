@@ -2,11 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### 0.2.4 (2022-07-10)
+### [0.2.4](https://github.com/jabali2004/ngx-strapi-auth/compare/v0.2.3...v0.2.4) (2022-07-10)
+
+
+### Bug Fixes
+
+* **deps:** bump actions/setup-node from 3.2.0 to 3.3.0 ([2be2b04](https://github.com/jabali2004/ngx-strapi-auth/commit/2be2b0437c6333f3c284ba503a166672fa90b1f6))
 
 
 ### Chores
 
+* **deps-dev:** bump @types/node from 17.0.21 to 17.0.42 ([ecd5298](https://github.com/jabali2004/ngx-strapi-auth/commit/ecd5298f8af38e82bb2a2ff6bd10b2ac3981b4e2))
+* **deps-dev:** bump karma from 6.3.16 to 6.4.0 ([f28d29d](https://github.com/jabali2004/ngx-strapi-auth/commit/f28d29d8a901fcfc870fbfb5c857a3195c2fbc91))
+* remove strapiAuthConfig from base login component ([7573df4](https://github.com/jabali2004/ngx-strapi-auth/commit/7573df45de0486d94288d0e8d574dafa37507448))
+* update pnpm lock ([3b8e268](https://github.com/jabali2004/ngx-strapi-auth/commit/3b8e2688143d79328473254dbc5a9c52c6b10a3f))
 * upgrade to angular v14 ([040db5a](https://github.com/jabali2004/ngx-strapi-auth/commit/040db5aef9f420037712c4580937f033779792d5))
 
 ### 0.2.3 (2022-06-04)
