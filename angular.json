@@ -86,7 +86,8 @@
           },
           "configurations": {
             "production": {
-              "budgets": [{
+              "budgets": [
+                {
                   "type": "initial",
                   "maximumWarning": "500kb",
                   "maximumError": "1mb"
@@ -97,10 +98,12 @@
                   "maximumError": "4kb"
                 }
               ],
-              "fileReplacements": [{
-                "replace": "projects/strapi-auth-example/src/environments/environment.ts",
-                "with": "projects/strapi-auth-example/src/environments/environment.prod.ts"
-              }],
+              "fileReplacements": [
+                {
+                  "replace": "projects/strapi-auth-example/src/environments/environment.ts",
+                  "with": "projects/strapi-auth-example/src/environments/environment.prod.ts"
+                }
+              ],
               "outputHashing": "all"
             },
             "development": {
@@ -165,8 +168,9 @@
       }
     }
   },
-  "defaultProject": "strapi-auth",
   "cli": {
-    "defaultCollection": "@angular-eslint/schematics"
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }

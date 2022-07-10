@@ -1,6 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import {  Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from '../../../services/auth/auth.service';
@@ -17,9 +17,9 @@ import {
 })
 export class LoginBaseComponent implements OnInit {
   public loginReq: IReqAuthLogin;
-  public formGroup: FormGroup = new FormGroup({
-    identifier: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', [Validators.required])
+  public formGroup: UntypedFormGroup = new UntypedFormGroup({
+    identifier: new UntypedFormControl('', [Validators.required, Validators.email]),
+    password: new UntypedFormControl('', [Validators.required])
   });
 
   constructor(

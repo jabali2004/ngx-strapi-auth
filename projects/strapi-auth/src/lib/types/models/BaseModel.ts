@@ -1,5 +1,5 @@
 import { ValidatorFn } from '@angular/forms';
-import { FormControl, FormGroup, FormArray } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, UntypedFormArray } from '@angular/forms';
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
 export abstract class BaseModel {
@@ -29,17 +29,17 @@ export abstract class BaseModel {
    *       pet: this.pet.$formGroup,
    *   });
    */
-  $formGroup: FormGroup;
+  $formGroup: UntypedFormGroup;
 
   // eslint-disable-next-line @typescript-eslint/naming-convention,no-underscore-dangle,id-blacklist,id-match
-  protected _formGroup: FormGroup;
+  protected _formGroup: UntypedFormGroup;
 
   addedFormControls;
   // eslint-disable-next-line @typescript-eslint/naming-convention, no-underscore-dangle, id-blacklist, id-match
   private _addedFormControls = {};
-  private static clearFormArray(formGroup: FormGroup, key: string): FormArray {
+  private static clearFormArray(formGroup: UntypedFormGroup, key: string): UntypedFormArray {
     if (formGroup) {
-      const formArray = formGroup.controls[key] as FormArray;
+      const formArray = formGroup.controls[key] as UntypedFormArray;
       for (let i = formArray.length - 1; i >= 0; i--) {
         formArray.removeAt(i);
       }
@@ -57,7 +57,7 @@ export abstract class BaseModel {
    * set the FormGroup values to the model values.
    */
   abstract setFormGroupValues(): void;
-  protected abstract getFormGroup(): FormGroup;
+  protected abstract getFormGroup(): UntypedFormGroup;
 
   /**
    * add one or more additional validators to the control
@@ -82,7 +82,7 @@ export abstract class BaseModel {
    */
   protected addFormControl(
     key: string,
-    control: FormGroup | FormControl
+    control: UntypedFormGroup | UntypedFormControl
   ): void {
     const existingControl = this.$formGroup.controls[key];
     if (!existingControl) {
@@ -112,11 +112,11 @@ export abstract class BaseModel {
       if (rawValues[key]) {
         if (useFormGroupValuesToModel) {
           const control = this.addedFormControls[key];
-          if (control instanceof FormControl) {
+          if (control instanceof UntypedFormControl) {
             this[key] = rawValues[key];
-          } else if (control instanceof FormGroup) {
+          } else if (control instanceof UntypedFormGroup) {
             this[key].setValues(rawValues[key], useFormGroupValuesToModel);
-          } else if (control instanceof FormArray) {
+          } else if (control instanceof UntypedFormArray) {
             throw new Error(`control of type FormArray not supported here`);
           } else {
             throw new Error(`control of type ${control} not supported here`);
@@ -136,11 +136,11 @@ export abstract class BaseModel {
     // eslint-disable-next-line guard-for-in
     for (const key in this.addedFormControls) {
       const control = this.addedFormControls[key];
-      if (control instanceof FormControl) {
-        (control as FormControl).setValue(this[key]);
-      } else if (control instanceof FormGroup) {
+      if (control instanceof UntypedFormControl) {
+        (control as UntypedFormControl).setValue(this[key]);
+      } else if (control instanceof UntypedFormGroup) {
         this[key].setFormGroupValues();
-      } else if (control instanceof FormArray) {
+      } else if (control instanceof UntypedFormArray) {
         throw new Error(`control of type FormArray not supported here`);
       } else {
         throw new Error(`control of type ${control} not supported here`);
@@ -193,8 +193,8 @@ export abstract class BaseModel {
     if (useFormGroupValuesToModel) {
       if (this.hasFormGroup(values)) {
         result = (values as any).$formGroup.getRawValue();
-      } else if (values instanceof FormGroup) {
-        result = (values as FormGroup).getRawValue();
+      } else if (values instanceof UntypedFormGroup) {
+        result = (values as UntypedFormGroup).getRawValue();
       }
     }
     return result;
@@ -217,7 +217,7 @@ export abstract class BaseModel {
         modelValue.setFormGroupValues();
         formArray.push((modelValue as BaseModel).$formGroup);
       } else {
-        const formControl = new FormControl(modelValue);
+        const formControl = new UntypedFormControl(modelValue);
         formArray.push(formControl);
       }
     }
@@ -229,7 +229,7 @@ export abstract class BaseModel {
    */
   public generateDelta(): any {
     // eslint-disable-next-line @typescript-eslint/ban-types
-    function getDirtyState(form: FormGroup): Object {
+    function getDirtyState(form: UntypedFormGroup): Object {
       // eslint-disable-next-line @typescript-eslint/ban-types
       return Object.keys(form.controls).reduce<Object>(
         (dirtyState, controlKey) => {
@@ -239,18 +239,18 @@ export abstract class BaseModel {
             return dirtyState;
           }
 
-          if (control instanceof FormGroup) {
+          if (control instanceof UntypedFormGroup) {
             return { ...dirtyState, [controlKey]: getDirtyState(control) };
           }
 
-          if (control instanceof FormArray) {
+          if (control instanceof UntypedFormArray) {
             return control.controls
               .filter((c) => {
-                const tmp = getDirtyState(c as FormGroup);
+                const tmp = getDirtyState(c as UntypedFormGroup);
                 return Object.entries(tmp).length === 0 ? false : true;
               })
               .map((c) => {
-                getDirtyState(c as FormGroup);
+                getDirtyState(c as UntypedFormGroup);
               });
           }
 

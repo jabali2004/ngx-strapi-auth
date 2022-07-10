@@ -2,8 +2,6 @@ import { ChangeDetectorRef, Component, Inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from '../../../services/auth/auth.service';
-import { ConfigServiceInjector } from '../../../services/config/config.service';
-import { StrapiAuthConfig } from '../../../types/StrapiAuthConfig';
 import { LoginBaseComponent } from '../../base-components/login-base/login-base.component';
 
 @Component({
@@ -15,7 +13,7 @@ export class DefaultLoginComponent extends LoginBaseComponent {
   constructor(
     protected authService: AuthService,
     protected router: Router,
-    protected translate: TranslateService,
+    protected translate: TranslateService
   ) {
     super(authService, router, translate);
   }

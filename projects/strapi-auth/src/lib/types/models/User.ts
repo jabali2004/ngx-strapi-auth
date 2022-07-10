@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { FormControl, FormGroup, FormArray, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, FormArray, Validators } from '@angular/forms';
 /*
 https://github.com/swagger-api/swagger-codegen/wiki/Mustache-Template-Variables
 */
@@ -107,18 +107,18 @@ export class User extends BaseModel implements IUser {
   /**
    * returns the FormGroup of that model
    */
-  public getFormGroup(): FormGroup {
+  public getFormGroup(): UntypedFormGroup {
     if (!this._formGroup) {
-      this._formGroup = new FormGroup({
-        id: new FormControl(this.id, [Validators.required]),
-        username: new FormControl(this.username, [Validators.required]),
-        email: new FormControl(this.email, [Validators.required]),
-        provider: new FormControl(this.provider, []),
-        confirmed: new FormControl(this.confirmed, []),
-        blocked: new FormControl(this.blocked, []),
-        role: new FormControl(this.role, []),
-        created_by: new FormControl(this.created_by, []),
-        updated_by: new FormControl(this.updated_by, [])
+      this._formGroup = new UntypedFormGroup({
+        id: new UntypedFormControl(this.id, [Validators.required]),
+        username: new UntypedFormControl(this.username, [Validators.required]),
+        email: new UntypedFormControl(this.email, [Validators.required]),
+        provider: new UntypedFormControl(this.provider, []),
+        confirmed: new UntypedFormControl(this.confirmed, []),
+        blocked: new UntypedFormControl(this.blocked, []),
+        role: new UntypedFormControl(this.role, []),
+        created_by: new UntypedFormControl(this.created_by, []),
+        updated_by: new UntypedFormControl(this.updated_by, [])
       });
     }
     return this._formGroup;

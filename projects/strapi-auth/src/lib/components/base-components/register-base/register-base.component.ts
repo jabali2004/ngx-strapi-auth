@@ -1,6 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from '../../../services/auth/auth.service';
@@ -13,12 +13,12 @@ import Validation from '../../../utils/validation';
 })
 export class RegisterBaseComponent implements OnInit {
   public registerReq: IReqAuthRegister;
-  public formGroup: FormGroup = new FormGroup(
+  public formGroup: UntypedFormGroup = new UntypedFormGroup(
     {
-      email: new FormControl('', [Validators.required, Validators.email]),
-      username: new FormControl('', [Validators.required]),
-      password: new FormControl('', [Validators.required]),
-      passwordConfirmation: new FormControl('', [Validators.required])
+      email: new UntypedFormControl('', [Validators.required, Validators.email]),
+      username: new UntypedFormControl('', [Validators.required]),
+      password: new UntypedFormControl('', [Validators.required]),
+      passwordConfirmation: new UntypedFormControl('', [Validators.required])
     },
     {
       validators: [Validation.match('password', 'passwordConfirmation')]

@@ -1,7 +1,7 @@
 import { OnInit, OnDestroy } from '@angular/core';
 import { Component } from '@angular/core';
-import { FormGroup } from '@angular/forms';
-import { Form, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { UntypedFormGroup } from '@angular/forms';
+import { Form, UntypedFormBuilder, UntypedFormControl, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth/auth.service';
 import { IReqUserUpdate } from '../../types/requests/ReqUserUpdate';
 import { IUser } from '../../types/models/User';
@@ -13,27 +13,27 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit, OnDestroy {
-  form: FormGroup = new FormBuilder().group({
-    firstname: new FormControl(),
-    lastname: new FormControl(),
-    email: new FormControl(),
-    username: new FormControl()
+  form: UntypedFormGroup = new UntypedFormBuilder().group({
+    firstname: new UntypedFormControl(),
+    lastname: new UntypedFormControl(),
+    email: new UntypedFormControl(),
+    username: new UntypedFormControl()
   });
 
-  passwordForm: FormGroup = new FormBuilder().group({
-    password: new FormControl('', [
+  passwordForm: UntypedFormGroup = new UntypedFormBuilder().group({
+    password: new UntypedFormControl('', [
       Validators.required,
       Validators.pattern(
         '(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\\d$@$!%*?&].{8,}'
       )
     ]),
-    rePass: new FormControl('', [
+    rePass: new UntypedFormControl('', [
       Validators.required,
       Validators.pattern(
         '(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\\d$@$!%*?&].{8,}'
       )
     ]),
-    oldPassword: new FormControl()
+    oldPassword: new UntypedFormControl()
   });
 
   oldUserObj: IUser;
