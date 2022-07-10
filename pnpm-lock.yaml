@@ -21,7 +21,7 @@ specifiers:
   '@angular/platform-browser-dynamic': ^14.0.5
   '@angular/router': ^14.0.5
   '@commitlint/cli': ^16.0.0
-  '@commitlint/config-conventional': ^16.0.0
+  '@commitlint/config-conventional': ^17.0.3
   '@compodoc/compodoc': ^1.1.19
   '@ngx-translate/core': ^14.0.0
   '@ngx-translate/http-loader': ^7.0.0
@@ -50,6 +50,7 @@ specifiers:
   karma-jasmine-html-reporter: ^1.7.0
   ng-packagr: ^14.0.3
   ngx-translate-extract: ^1.0.0
+  prettier: ^2.7.1
   protractor: ~7.0.0
   rxjs: ~7.5.1
   standard-version: ^9.3.1
@@ -90,7 +91,7 @@ devDependencies:
   '@angular/cli': 14.0.5
   '@angular/compiler-cli': 14.0.5_zpefgt72khwrbcajczg5cki5ui
   '@commitlint/cli': 16.3.0
-  '@commitlint/config-conventional': 16.2.4
+  '@commitlint/config-conventional': 17.0.3
   '@types/jasmine': 3.10.0
   '@types/jasminewd2': 2.0.10
   '@types/jwt-decode': 3.1.0
@@ -101,7 +102,7 @@ devDependencies:
   concurrently: 7.2.1
   eslint: 8.19.0
   eslint-config-prettier: 8.5.0_eslint@8.19.0
-  eslint-plugin-prettier: 4.0.0_n7lizdg3dtvja533h2gibblmxi
+  eslint-plugin-prettier: 4.0.0_7uxdfn2xinezdgvmbammh6ev5i
   husky: 7.0.4
   jasmine-core: 4.0.1
   jasmine-spec-reporter: 7.0.0
@@ -113,6 +114,7 @@ devDependencies:
   karma-jasmine-html-reporter: 1.7.0_dpevcp4smnker7kwx26sgxs7m4
   ng-packagr: 14.0.3_3a6jthn535pdpt5jxrd2bpfwra
   ngx-translate-extract: 1.0.0
+  prettier: 2.7.1
   protractor: 7.0.0
   standard-version: 9.3.2
   ts-node: 10.7.0_6nq352wiaj44ir2lfenbt2ezwy
@@ -2664,11 +2666,11 @@ packages:
       - '@swc/wasm'
     dev: true
 
-  /@commitlint/config-conventional/16.2.4:
-    resolution: {integrity: sha512-av2UQJa3CuE5P0dzxj/o/B9XVALqYzEViHrMXtDrW9iuflrqCStWBAioijppj9URyz6ONpohJKAtSdgAOE0gkA==}
-    engines: {node: '>=v12'}
+  /@commitlint/config-conventional/17.0.3:
+    resolution: {integrity: sha512-HCnzTm5ATwwwzNVq5Y57poS0a1oOOcd5pc1MmBpLbGmSysc4i7F/++JuwtdFPu16sgM3H9J/j2zznRLOSGVO2A==}
+    engines: {node: '>=v14'}
     dependencies:
-      conventional-changelog-conventionalcommits: 4.6.1
+      conventional-changelog-conventionalcommits: 5.0.0
     dev: true
 
   /@commitlint/config-validator/16.2.1:
@@ -5304,6 +5306,15 @@ packages:
       q: 1.5.1
     dev: true
 
+  /conventional-changelog-conventionalcommits/5.0.0:
+    resolution: {integrity: sha512-lCDbA+ZqVFQGUj7h9QBKoIpLhl8iihkO0nCTyRNzuXtcd7ubODpYB04IFy31JloiJgG0Uovu8ot8oxRzn7Nwtw==}
+    engines: {node: '>=10'}
+    dependencies:
+      compare-func: 2.0.0
+      lodash: 4.17.21
+      q: 1.5.1
+    dev: true
+
   /conventional-changelog-core/4.2.4:
     resolution: {integrity: sha512-gDVS+zVJHE2v4SLc6B0sLsPiloR0ygU7HaDW14aNJE1v4SlqJPILPl/aJC7YdtRE4CybBf8gDwObBvKha8Xlyg==}
     engines: {node: '>=10'}
@@ -6760,7 +6771,7 @@ packages:
       eslint: 8.19.0
     dev: true
 
-  /eslint-plugin-prettier/4.0.0_n7lizdg3dtvja533h2gibblmxi:
+  /eslint-plugin-prettier/4.0.0_7uxdfn2xinezdgvmbammh6ev5i:
     resolution: {integrity: sha512-98MqmCJ7vJodoQK359bqQWaxOE0CS8paAz/GgjaZLyex4TTk3g9HugoO89EqWCrFiOqn9EVvcoo7gZzONCWVwQ==}
     engines: {node: '>=6.0.0'}
     peerDependencies:
@@ -6773,6 +6784,7 @@ packages:
     dependencies:
       eslint: 8.19.0
       eslint-config-prettier: 8.5.0_eslint@8.19.0
+      prettier: 2.7.1
       prettier-linter-helpers: 1.0.0
     dev: true
 
@@ -10819,6 +10831,12 @@ packages:
       fast-diff: 1.2.0
     dev: true
 
+  /prettier/2.7.1:
+    resolution: {integrity: sha512-ujppO+MkdPqoVINuDFDRLClm7D78qbDt0/NR+wp5FqEZOoTNAjPHWj17QRhu7geIHJfcNhRk1XVQmF8Bp3ye+g==}
+    engines: {node: '>=10.13.0'}
+    hasBin: true
+    dev: true
+
   /pretty-bytes/5.6.0:
     resolution: {integrity: sha512-FFw039TmrBqFK8ma/7OL3sDz/VytdtJr044/QUJtH0wK9lb9jLq9tJyIxUwtQJHwar2BqtiA4iCWSwo9JLkzFg==}
     engines: {node: '>=6'}
@@ -10917,7 +10935,7 @@ packages:
     dev: true
 
   /q/1.5.1:
-    resolution: {integrity: sha1-fjL3W0E4EpHQRhHxvxQQmsAGUdc=}
+    resolution: {integrity: sha512-kV/CThkXo6xyFEZUugw/+pIOywXcDbFYgSct5cT3gqlbkBE1SJdwy6UQoZvodiWF/ckQLZyDE/Bu1M6gVu5lVw==}
     engines: {node: '>=0.6.0', teleport: '>=0.2.0'}
     dev: true
 
