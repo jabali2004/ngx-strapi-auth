@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.2.4 (2022-07-10)
+
+
+### Chores
+
+* upgrade to angular v14 ([040db5a](https://github.com/jabali2004/ngx-strapi-auth/commit/040db5aef9f420037712c4580937f033779792d5))
+
 ### 0.2.3 (2022-06-04)
 
 
