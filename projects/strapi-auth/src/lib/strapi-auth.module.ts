@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
-import { ProfileComponent } from './components/profile/profile.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { StrapiAuthRoutingModule } from './routing/strapi-auth-routing.module';
 import { AuthService } from './services/auth/auth.service';
@@ -24,10 +23,11 @@ import { LogoutBaseComponent } from './components/base-components/logout-base/lo
 import { RequestPasswordBaseComponent } from './components/base-components/request-password-base/request-password-base.component';
 import { ResetPasswordBaseComponent } from './components/base-components/reset-password-base/reset-password-base.component';
 import { TokenService } from './services/token/token.service';
+import { ProfileBaseComponent } from './components/base-components/profile-base/profile-base.component';
+import { DefaultProfileComponent } from './components/default-components/default-profile/default-profile.component';
 
 @NgModule({
   declarations: [
-    ProfileComponent,
     ValidationComponent,
     DynamicComponentDirective,
     DefaultLoginComponent,
@@ -35,11 +35,13 @@ import { TokenService } from './services/token/token.service';
     DefaultLogoutComponent,
     DefaultRequestPasswordComponent,
     DefaultResetPasswordComponent,
+    DefaultProfileComponent,
     LoginBaseComponent,
     RegisterBaseComponent,
     LogoutBaseComponent,
     RequestPasswordBaseComponent,
-    ResetPasswordBaseComponent
+    ResetPasswordBaseComponent,
+    ProfileBaseComponent
   ],
   imports: [
     CommonModule,
@@ -49,18 +51,19 @@ import { TokenService } from './services/token/token.service';
     TranslateModule
   ],
   exports: [
-    ProfileComponent,
     ValidationComponent,
     DefaultLoginComponent,
     DefaultRegisterComponent,
     DefaultLogoutComponent,
     DefaultRequestPasswordComponent,
     DefaultResetPasswordComponent,
+    DefaultProfileComponent,
     LoginBaseComponent,
     RegisterBaseComponent,
     LogoutBaseComponent,
     RequestPasswordBaseComponent,
-    ResetPasswordBaseComponent
+    ResetPasswordBaseComponent,
+    ProfileBaseComponent
   ]
 })
 export class StrapiAuthModule {

@@ -57,7 +57,6 @@ export { StrapiAuthRoutingModule } from './lib/routing/strapi-auth-routing.modul
 
 // Components
 export { ValidationComponent } from './lib/components/validation/validation.component';
-export { ProfileComponent } from './lib/components/profile/profile.component';
 
 // BaseComponents
 export { LoginBaseComponent } from './lib/components/base-components/login-base/login-base.component';
@@ -65,6 +64,7 @@ export { RegisterBaseComponent } from './lib/components/base-components/register
 export { LogoutBaseComponent } from './lib/components/base-components/logout-base/logout-base.component';
 export { RequestPasswordBaseComponent } from './lib/components/base-components/request-password-base/request-password-base.component';
 export { ResetPasswordBaseComponent } from './lib/components/base-components/reset-password-base/reset-password-base.component';
+export { ProfileBaseComponent } from './lib/components/base-components/profile-base/profile-base.component';
 
 // DefaultComponents
 export { DefaultLoginComponent } from './lib/components/default-components/default-login/default-login.component';
@@ -72,3 +72,4 @@ export { DefaultRegisterComponent } from './lib/components/default-components/de
 export { DefaultLogoutComponent } from './lib/components/default-components/default-logout/default-logout.component';
 export { DefaultRequestPasswordComponent } from './lib/components/default-components/default-request-password/default-request-password.component';
 export { DefaultResetPasswordComponent } from './lib/components/default-components/default-reset-password/default-reset-password.component';
+export { DefaultProfileComponent } from './lib/components/default-components/default-profile/default-profile.component';

@@ -1,26 +1,28 @@
-import { OnInit, OnDestroy } from '@angular/core';
-import { Component } from '@angular/core';
-import { UntypedFormGroup } from '@angular/forms';
-import { Form, UntypedFormBuilder, UntypedFormControl, Validators } from '@angular/forms';
-import { AuthService } from '../../services/auth/auth.service';
-import { IReqUserUpdate } from '../../types/requests/ReqUserUpdate';
-import { IUser } from '../../types/models/User';
+import { Component, OnInit } from '@angular/core';
+import {
+  UntypedFormBuilder,
+  UntypedFormControl,
+  UntypedFormGroup,
+  Validators
+} from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
+import { AuthService } from '../../../services/auth/auth.service';
+import { IUser } from '../../../types/models/User';
+import { IReqUserUpdate } from '../../../types/requests/ReqUserUpdate';
 
 @Component({
-  selector: 'strapi-auth-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.scss']
+  selector: 'strapi-profile-base',
+  template: ''
 })
-export class ProfileComponent implements OnInit, OnDestroy {
-  form: UntypedFormGroup = new UntypedFormBuilder().group({
+export class ProfileBaseComponent implements OnInit {
+  public form: UntypedFormGroup = new UntypedFormBuilder().group({
     firstname: new UntypedFormControl(),
     lastname: new UntypedFormControl(),
     email: new UntypedFormControl(),
     username: new UntypedFormControl()
   });
 
-  passwordForm: UntypedFormGroup = new UntypedFormBuilder().group({
+  public passwordForm: UntypedFormGroup = new UntypedFormBuilder().group({
     password: new UntypedFormControl('', [
       Validators.required,
       Validators.pattern(
@@ -113,8 +115,6 @@ export class ProfileComponent implements OnInit, OnDestroy {
       };
     });
   }
-
-  ngOnDestroy(): void {}
 
   /**
    * Update UserData if changed

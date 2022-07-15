@@ -3,10 +3,10 @@ import { Routes } from '@angular/router';
 import { RouterModule } from '@angular/router';
 import { DefaultLoginComponent } from '../components/default-components/default-login/default-login.component';
 import { DefaultLogoutComponent } from '../components/default-components/default-logout/default-logout.component';
+import { DefaultProfileComponent } from '../components/default-components/default-profile/default-profile.component';
 import { DefaultRegisterComponent } from '../components/default-components/default-register/default-register.component';
 import { DefaultRequestPasswordComponent } from '../components/default-components/default-request-password/default-request-password.component';
 import { DefaultResetPasswordComponent } from '../components/default-components/default-reset-password/default-reset-password.component';
-import { ProfileComponent } from '../components/profile/profile.component';
 import { AuthGuard } from '../guards/auth/auth.guard';
 import { TokenGuard } from '../guards/token/token.guard';
 
@@ -38,22 +38,13 @@ const routes: Routes = [
         path: 'providers',
         canActivateChild: [TokenGuard],
         children: [
-          {
-            path: 'github'
-          },
-          {
-            path: 'google'
-          },
-          {
-            path: 'microsoft'
-          }
           // TODO: Add more providers
         ]
       },
       {
         path: 'profile',
         canActivateChild: [AuthGuard],
-        component: ProfileComponent
+        component: DefaultProfileComponent
       }
     ]
   }
