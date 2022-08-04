@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.2.5 (2022-08-04)
+
+
+### Chores
+
+* store error object when login or registration fails ([b6db417](https://github.com/jabali2004/ngx-strapi-auth/commit/b6db417eb9913742c28390be9bd9d942bf2ab771))
+
 ### [0.2.4](https://github.com/jabali2004/ngx-strapi-auth/compare/v0.2.3...v0.2.4) (2022-07-10)
 
 
