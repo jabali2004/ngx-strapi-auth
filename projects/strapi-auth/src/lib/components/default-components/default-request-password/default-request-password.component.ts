@@ -9,10 +9,7 @@ import { RequestPasswordBaseComponent } from '../../base-components/request-pass
   templateUrl: './default-request-password.component.html',
   styleUrls: ['./default-request-password.component.scss']
 })
-export class DefaultRequestPasswordComponent
-  extends RequestPasswordBaseComponent
-  implements OnInit
-{
+export class DefaultRequestPasswordComponent extends RequestPasswordBaseComponent {
   constructor(
     protected cd: ChangeDetectorRef,
     protected router: Router,
@@ -21,6 +18,4 @@ export class DefaultRequestPasswordComponent
   ) {
     super(cd, router, authService, translate);
   }
-
-  ngOnInit(): void {}
 }

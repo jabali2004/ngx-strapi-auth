@@ -1,31 +1,27 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import {
+  FormGroup,
+  UntypedFormControl,
+  UntypedFormGroup,
+  Validators
+} from '@angular/forms';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from '../../../services/auth/auth.service';
+import { IAuthError } from '../../../types/responses/AuthError';
+import { IResRequestPasswordReset } from '../../../types/responses/ResRequestPasswordReset';
 
 @Component({
   selector: 'strapi-request-password-base',
   template: ''
 })
-export class RequestPasswordBaseComponent implements OnInit {
-  redirectDelay = 0;
-  showMessages: any = {
-    error: true,
-    success: true
-  };
+export class RequestPasswordBaseComponent {
+  public formGroup: FormGroup = new UntypedFormGroup({
+    email: new UntypedFormControl('', [Validators.required, Validators.email])
+  });
 
-  resetCreateReq: any = {
-    email: ''
-  };
-
-  submitted = false;
-  errors: string[] = [];
-  messages: string[] = [];
-
-  config = {
-    emailRequired: true
-  };
+  public error: IAuthError;
 
   constructor(
     protected cd: ChangeDetectorRef,
@@ -34,34 +30,15 @@ export class RequestPasswordBaseComponent implements OnInit {
     protected translate: TranslateService
   ) {}
 
-  ngOnInit(): void {}
-
-  ngOnDestroy(): void {}
-
-  requestPass(): void {
-    this.errors = [];
-    this.messages = [];
-    this.submitted = true;
-
+  public requestPasswordReset(): void {
     this.authService
-      .requestPasswordReset(this.resetCreateReq.email)
+      .requestPasswordReset(this.formGroup.value.email)
       .then(() => {
-        this.submitted = false;
-        this.resetCreateReq.email = '';
+        this.formGroup.get('email').setValue('');
         this.router.navigateByUrl(this.authService.RequestPasswordRedirectUrl);
       })
-      .catch((error: HttpErrorResponse) => {
-        this.submitted = false;
-
-        if (error.status === 400) {
-          this.errors.push(
-            this.translate.instant('errors.auth.request-password.email')
-          );
-        } else {
-          this.errors.push(
-            this.translate.instant('errors.auth.request-password.undefined')
-          );
-        }
+      .catch((err: HttpErrorResponse) => {
+        this.error = err.error;
       });
   }
 }

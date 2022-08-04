@@ -1,41 +1,37 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import {
+  FormGroup,
+  UntypedFormControl,
+  UntypedFormGroup,
+  Validators
+} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from '../../../services/auth/auth.service';
+import { IReqPasswordReset } from '../../../types/requests/ReqPasswordReset';
+import { IAuthError } from '../../../types/responses/AuthError';
+import Validation from '../../../utils/validation';
 
 @Component({
   selector: 'strapi-reset-password-base',
   template: ''
 })
 export class ResetPasswordBaseComponent implements OnInit {
-  redirectDelay = 0;
-  showMessages: any = {
-    error: true,
-    success: true
-  };
-  strategy = '';
+  private passwordResetReq: IReqPasswordReset;
 
-  submitted = false;
-  errors: string[] = [];
-  messages: string[] = [];
+  public formGroup: FormGroup = new UntypedFormGroup(
+    {
+      password: new UntypedFormControl('', [Validators.required]),
+      passwordConfirmation: new UntypedFormControl('', [Validators.required]),
+      code: new UntypedFormControl('', [Validators.required])
+    },
+    {
+      validators: [Validation.match('password', 'passwordConfirmation')]
+    }
+  );
 
-  passwordResetReq: any = {
-    password_confirmation: '',
-    password: '',
-    reset_token: ''
-  };
-
-  config = {
-    fullNameRequired: true,
-    fullNameMinLength: 2,
-    fullNameMaxLength: 100,
-    emailRequired: true,
-    passwordRequired: true,
-    passwordMinLength: 6,
-    passwordMaxLength: 60,
-    termsRequired: true
-  };
+  public error: IAuthError;
 
   constructor(
     protected cd: ChangeDetectorRef,
@@ -46,42 +42,32 @@ export class ResetPasswordBaseComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // get code from url
     this.route.queryParams.subscribe(() => {
-      this.passwordResetReq.code =
-        this.route.snapshot.queryParamMap.get('code');
+      const code = this.route.snapshot.queryParamMap.get('code');
+
+      if (code) {
+        this.formGroup.get('code').setValue(code);
+      } else {
+        console.error('Reset token not found!');
+      }
     });
 
-    if (!this.passwordResetReq.code) {
-      console.error('Reset token not found!');
-    }
+    console.log(this.formGroup.value);
   }
 
-  ngOnDestroy(): void {}
-
-  resetPass(): void {
-    this.errors = [];
-    this.messages = [];
-    this.submitted = true;
+  /**
+   * Reset password
+   */
+  public resetPassword(): void {
+    this.passwordResetReq = this.formGroup.value;
 
     this.authService
       .resetPassword(this.passwordResetReq)
       .then(() => {
-        this.submitted = false;
         this.router.navigateByUrl(this.authService.LoginUrl);
       })
-      .catch((error: HttpErrorResponse) => {
-        this.submitted = false;
-
-        if (error.status === 400) {
-          this.errors.push(
-            this.translate.instant('errors.auth.reset-password.code')
-          );
-        } else {
-          this.errors.push(
-            this.translate.instant('errors.auth.reset-password.undefined')
-          );
-        }
+      .catch((err: HttpErrorResponse) => {
+        this.error = err.error;
       });
   }
 }

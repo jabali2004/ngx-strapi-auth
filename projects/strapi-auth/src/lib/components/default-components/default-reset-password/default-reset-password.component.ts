@@ -9,10 +9,7 @@ import { ResetPasswordBaseComponent } from '../../base-components/reset-password
   templateUrl: './default-reset-password.component.html',
   styleUrls: ['./default-reset-password.component.scss']
 })
-export class DefaultResetPasswordComponent
-  extends ResetPasswordBaseComponent
-  implements OnInit
-{
+export class DefaultResetPasswordComponent extends ResetPasswordBaseComponent {
   constructor(
     protected cd: ChangeDetectorRef,
     protected router: Router,
@@ -22,6 +19,4 @@ export class DefaultResetPasswordComponent
   ) {
     super(cd, router, route, authService, translate);
   }
-
-  ngOnInit(): void {}
 }
