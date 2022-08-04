@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.2.6 (2022-08-04)
+
+
+### Chores
+
+* readd request and reset password components ([bd3876f](https://github.com/jabali2004/ngx-strapi-auth/commit/bd3876f95cd82580b1c6b730bf49443edca11e2a))
+
 ### [0.2.5](https://github.com/jabali2004/ngx-strapi-auth/compare/v0.2.4...v0.2.5) (2022-08-04)
 
 
