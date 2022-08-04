@@ -1,10 +1,15 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import {
+  UntypedFormControl,
+  UntypedFormGroup,
+  Validators
+} from '@angular/forms';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from '../../../services/auth/auth.service';
 import { IReqAuthRegister } from '../../../types/requests/ReqAuthRegister';
+import { IAuthError } from '../../../types/responses/AuthError';
 import Validation from '../../../utils/validation';
 
 @Component({
@@ -15,7 +20,10 @@ export class RegisterBaseComponent implements OnInit {
   public registerReq: IReqAuthRegister;
   public formGroup: UntypedFormGroup = new UntypedFormGroup(
     {
-      email: new UntypedFormControl('', [Validators.required, Validators.email]),
+      email: new UntypedFormControl('', [
+        Validators.required,
+        Validators.email
+      ]),
       username: new UntypedFormControl('', [Validators.required]),
       password: new UntypedFormControl('', [Validators.required]),
       passwordConfirmation: new UntypedFormControl('', [Validators.required])
@@ -24,6 +32,8 @@ export class RegisterBaseComponent implements OnInit {
       validators: [Validation.match('password', 'passwordConfirmation')]
     }
   );
+
+  public error: IAuthError;
 
   constructor(
     protected router: Router,
@@ -45,30 +55,8 @@ export class RegisterBaseComponent implements OnInit {
       .then(() => {
         this.router.navigateByUrl(this.authService.LoginUrl);
       })
-      .catch((error: HttpErrorResponse) => {
-        console.log(error);
+      .catch((err: HttpErrorResponse) => {
+        this.error = err.error;
       });
-
-    // this.authService
-    //   .register(
-    //     this.authRegisterReq.email,
-    //     this.authRegisterReq.username,
-    //     this.authRegisterReq.password
-    //   )
-    //   .then(() => {
-    //     this.router.navigateByUrl(this.authService.LoginUrl);
-    //   })
-    //   .catch((error: HttpErrorResponse) => {
-    //     this.submitted = false;
-    //     if (error.status === 400) {
-    //       this.errors.push(
-    //         this.translate.instant('errors.auth.register.password_or_email')
-    //       );
-    //     } else {
-    //       this.errors.push(
-    //         this.translate.instant('errors.auth.register.undefined')
-    //       );
-    //     }
-    //   });
   }
 }
