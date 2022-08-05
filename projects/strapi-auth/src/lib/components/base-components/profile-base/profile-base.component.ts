@@ -56,21 +56,19 @@ export class ProfileBaseComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // Import existing user obj
     this.oldUserObj = this.authService.getUser();
 
     if (this.oldUserObj) {
       this.userObj = {
         ...this.oldUserObj
       };
+
+      this.formGroup.setValue({
+        username: this.userObj.username,
+        email: this.userObj.email
+      });
     }
 
-    this.formGroup.setValue({
-      username: this.userObj.username,
-      email: this.userObj.email
-    });
-
-    // Hook on update from user service
     this.authService.UserState.subscribe(() => {
       this.oldUserObj = this.authService.getUser();
       this.userObj = {
