@@ -134,6 +134,7 @@ export class ProfileBaseComponent implements OnInit {
       .updateProfile(updateRequest)
       .then(() => {
         this.passwordFormGroup.reset();
+        this.passwordFormGroup.markAsPristine();
       })
       .catch((err: HttpErrorResponse) => {
         this.error = err.error;
