@@ -10,7 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from '../../../services/auth/auth.service';
 import { IReqPasswordReset } from '../../../types/requests/ReqPasswordReset';
-import { IAuthError } from '../../../types/responses/AuthError';
+import { IErrorRes } from '../../../types/responses/AuthError';
 import Validation from '../../../utils/validation';
 
 @Component({
@@ -31,7 +31,7 @@ export class ResetPasswordBaseComponent implements OnInit {
     }
   );
 
-  public error: IAuthError;
+  public error: IErrorRes;
 
   constructor(
     protected cd: ChangeDetectorRef,

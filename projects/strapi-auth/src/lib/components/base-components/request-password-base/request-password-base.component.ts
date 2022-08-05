@@ -9,7 +9,7 @@ import {
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from '../../../services/auth/auth.service';
-import { IAuthError } from '../../../types/responses/AuthError';
+import { IErrorRes } from '../../../types/responses/AuthError';
 import { IResRequestPasswordReset } from '../../../types/responses/ResRequestPasswordReset';
 
 @Component({
@@ -21,7 +21,7 @@ export class RequestPasswordBaseComponent {
     email: new UntypedFormControl('', [Validators.required, Validators.email])
   });
 
-  public error: IAuthError;
+  public error: IErrorRes;
 
   constructor(
     protected cd: ChangeDetectorRef,

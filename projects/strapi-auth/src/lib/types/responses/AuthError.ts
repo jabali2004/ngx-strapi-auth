@@ -5,7 +5,7 @@ export interface IStrapiError {
   status: number;
 }
 
-export interface IAuthError {
+export interface IErrorRes {
   data: object;
   error: IStrapiError;
 }

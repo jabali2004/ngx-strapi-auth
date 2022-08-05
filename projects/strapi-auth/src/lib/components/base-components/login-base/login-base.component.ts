@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from '../../../services/auth/auth.service';
 import { IReqAuthLogin } from '../../../types/requests/ReqAuthLogin';
-import { IAuthError } from '../../../types/responses/AuthError';
+import { IErrorRes } from '../../../types/responses/AuthError';
 import {
   StrapiAuthConfig,
   StrapiAuthProviders
@@ -29,7 +29,7 @@ export class LoginBaseComponent implements OnInit {
     password: new UntypedFormControl('', [Validators.required])
   });
 
-  public error: IAuthError;
+  public error: IErrorRes;
 
   constructor(
     protected authService: AuthService,

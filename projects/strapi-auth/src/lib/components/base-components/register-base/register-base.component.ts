@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from '../../../services/auth/auth.service';
 import { IReqAuthRegister } from '../../../types/requests/ReqAuthRegister';
-import { IAuthError } from '../../../types/responses/AuthError';
+import { IErrorRes } from '../../../types/responses/AuthError';
 import Validation from '../../../utils/validation';
 
 @Component({
@@ -33,7 +33,7 @@ export class RegisterBaseComponent implements OnInit {
     }
   );
 
-  public error: IAuthError;
+  public error: IErrorRes;
 
   constructor(
     protected router: Router,

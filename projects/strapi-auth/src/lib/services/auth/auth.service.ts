@@ -23,6 +23,7 @@ import { ConfigService, ConfigServiceInjector } from '../config/config.service';
 import { TokenService } from '../token/token.service';
 import { IReqAuthLogin } from '../../types/requests/ReqAuthLogin';
 import { BrowserCheckService } from '../browser-check/browser-check.service';
+import { IReqPasswordUpdate } from '../../types/requests/ReqPasswordUpdate';
 
 @Injectable({
   providedIn: 'root'
@@ -212,7 +213,9 @@ export class AuthService {
   /**
    * Update user profile
    */
-  public async updateProfile(updateReq: IReqUserUpdate): Promise<void> {
+  public async updateProfile(
+    updateReq: IReqUserUpdate | IReqPasswordUpdate
+  ): Promise<void> {
     const res: IUser | HttpErrorResponse = await this.updateUser(updateReq);
 
     if (res) {
@@ -294,7 +297,7 @@ export class AuthService {
    * Update user
    */
   private async updateUser(
-    updateReq: IReqUserUpdate
+    updateReq: IReqUserUpdate | IReqPasswordUpdate
   ): Promise<IUser | HttpErrorResponse> {
     // TODO: Check if functionality is given
     // Updating a user (authenticated user) profile is currently not built into strapi (in that way)

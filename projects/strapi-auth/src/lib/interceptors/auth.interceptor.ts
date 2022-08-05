@@ -8,10 +8,10 @@ import {
 import { Inject, Injectable, Injector } from '@angular/core';
 import { Router } from '@angular/router';
 import { catchError, Observable, throwError } from 'rxjs';
-import { IAuthError } from '../../public-api';
 import { AuthService } from '../services/auth/auth.service';
 import { ConfigServiceInjector } from '../services/config/config.service';
 import { TokenService } from '../services/token/token.service';
+import { IErrorRes } from '../types/responses/AuthError';
 import { StrapiAuthConfig } from '../types/StrapiAuthConfig';
 
 @Injectable()
@@ -46,7 +46,7 @@ export class AuthInterceptor implements HttpInterceptor {
 
     return next.handle(req).pipe(
       catchError((error: HttpErrorResponse) => {
-        const authError: IAuthError = error.error as IAuthError;
+        const authError: IErrorRes = error.error;
 
         switch (error.status) {
           // Intercept unauthorized request

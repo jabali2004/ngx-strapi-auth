@@ -1,201 +1,67 @@
 <h1 id="title" class="title">{{ 'auth.profile.title' | translate }}</h1>
-{{userObj | json}}
 
-<!-- <div class="row">
-  <div class="col-lg-12">
-    <nb-alert *ngIf="showMessages.error && errors?.length && !submitted" outline="danger" role="alert">
-      <p class="alert-title">
-        <b>{{ 'auth.profile.messages.error' | translate }}</b>
-      </p>
-      <ul class="alert-message-list">
-        <li *ngFor="let error of errors" class="alert-message">{{ error }}</li>
-      </ul>
-    </nb-alert>
 
-    <nb-alert *ngIf="showMessages.success && messages?.length && !submitted" outline="success" role="alert">
-      <p class="alert-title">
-        <b>{{ 'auth.profile.messages.success' | translate }}</b>
-      </p>
-      <ul class="alert-message-list">
-        <li *ngFor="let message of messages" class="alert-message">{{ message }}</li>
-      </ul>
-    </nb-alert>
+<div class="row">
+  <div class="col-12">
+    <form [formGroup]="formGroup">
+
+
+      <!-- Email -->
+      <div class="form-group">
+        <label class="label" for="input-email">{{ 'auth.register.form.input.email.label' | translate }}</label>
+        <input type="email" class="form-control" id="email" formControlName="email"
+          placeholder="{{ 'auth.register.form.input.email.placeholder' | translate }}" pattern=".+@.+\..+" />
+      </div>
+
+      <!-- Username -->
+      <div class="form-group">
+        <label class="label" for="input-username">{{ 'auth.register.form.input.username.label' | translate }}</label>
+        <input type="text" class="form-control" id="username" formControlName="username"
+          placeholder="{{ 'auth.register.form.input.username.placeholder' | translate }}" />
+      </div>
+
+      <div class="mt-2">
+        <button type="submit" class="btn btn-primary" (click)="update()" [disabled]="!formGroup.valid">
+          {{ 'auth.profile.form.button.save' | translate }}
+        </button>
+      </div>
+    </form>
+
   </div>
 
-  <div class="col-lg-6">
-    <nb-card>
-      <nb-card-header>
-        {{ 'auth.profile.general_information.title' | translate }}
-        <nb-icon class="float-right" style="width: 2rem; height: 2rem;"
-          *ngIf="oldUserObj.provider && iconPack.getIcon(oldUserObj?.provider + '-outline')"
-          [icon]="oldUserObj?.provider + '-outline'">
-        </nb-icon>
-      </nb-card-header>
-      <nb-card-body *ngIf="form">
-        <form (ngSubmit)="update()" [formGroup]="form" aria-labelledby="title">
-          <div class="form-control-group">
-            <label class="label" for="input-username">
-              {{ 'auth.profile.form.input.username.label' | translate }}
-            </label>
-            <input nbInput [(ngModel)]="userObj.username" #username formControlName="username" id="input-username"
-              name="username" placeholder="{{ 'auth.profile.form.input.username.placeholder' | translate }}" autofocus
-              fullWidth fieldSize="large" [status]="
-                form.controls.username.dirty ? (form.controls.username.invalid ? 'danger' : 'success') : 'basic'
-              " [required]="config.usernameRequired" [minlength]="config.usernameMinLength"
-              [maxlength]="config.usernameMaxLength"
-              [readOnly]="oldUserObj.provider !== null && oldUserObj.provider !== 'local'"
-              [attr.aria-invalid]="form.controls.username.invalid && form.controls.username.touched ? true : null" />
-            <ng-container *ngIf="username.invalid && username.touched">
-              <p class="caption status-danger" *ngIf="form.controls.username.errors?.required">
-                {{ 'auth.profile.form.input.username.required_message' | translate }}
-              </p>
-              <p class="caption status-danger"
-                *ngIf="form.controls.username.errors?.minlength || form.controls.username.errors?.maxlength">
-                {{
-                  'auth.profile.form.input.username.min_length_message'
-                    | translate: { min: config.usernameMinLength, max: config.usernameMaxLength }
-                }}
-              </p>
-            </ng-container>
-          </div>
+  <div class="col-12">
+    <form [formGroup]="passwordFormGroup">
 
-          <div class="form-control-group">
-            <label class="label" for="input-email">
-              {{ 'auth.profile.form.input.email.label' | translate }}
-            </label>
-            <input nbInput [(ngModel)]="userObj.email" #email formControlName="email" id="input-email" name="email"
-              pattern=".+@.+..+" placeholder="{{ 'auth.profile.form.input.email.placeholder' | translate }}" fullWidth
-              fieldSize="large"
-              [status]="form.controls.email.dirty ? (form.controls.email.invalid ? 'danger' : 'success') : 'basic'"
-              [readOnly]="(oldUserObj.provider !== null && oldUserObj.provider !== 'local')"
-              [required]="config.emailRequired"
-              [attr.aria-invalid]="form.controls.email.invalid && form.controls.email.touched ? true : null" />
-            <ng-container *ngIf="form.controls.email.invalid && form.controls.email.touched">
-              <p class="caption status-danger" *ngIf="form.controls.email.errors?.required">
-                {{ 'auth.profile.form.input.email.required_message' | translate }}
-              </p>
-              <p class="caption status-danger" *ngIf="form.controls.email.errors?.pattern">
-                {{ 'auth.profile.form.input.email.valid_message' | translate }}
-              </p>
-            </ng-container>
-          </div>
+      <!-- Password -->
+      <div class="form-group">
+        <label class="label"
+          for="input-oldPassword">{{ 'auth.profile.form.input.oldPassword.label' | translate }}</label>
+        <input type="password" class="form-control" id="oldPassword" formControlName="oldPassword"
+          placeholder="{{ 'auth.profile.form.input.oldPassword.placeholder' | translate }}" />
+      </div>
 
-          <br />
+      <!-- Password -->
+      <div class="form-group">
+        <label class="label" for="input-password">{{ 'auth.register.form.input.password.label' | translate }}</label>
+        <input type="password" class="form-control" id="password" formControlName="password"
+          placeholder="{{ 'auth.register.form.input.password.placeholder' | translate }}" />
+      </div>
 
-          <button nbButton fullWidth status="primary" size="large"
-            [disabled]="submitted || !form.valid || (oldUserObj.provider !== null && oldUserObj.provider !== 'local')"
-            [class.btn-pulse]="submitted" [nbSpinner]="submitted" [nbSpinnerStatus]="'control'"
-            [nbSpinnerSize]="'medium'">
-            {{ 'auth.profile.form.button.save' | translate }}
-          </button>
-        </form>
-      </nb-card-body>
-    </nb-card>
+      <!-- Password confirmation -->
+      <div class="form-group">
+        <label class="label"
+          for="input-password-confirmation">{{ 'auth.register.form.input.repeat_password.label' | translate }}</label>
+        <input type="password" class="form-control" id="password-confirmation" formControlName="passwordConfirmation"
+          placeholder="{{ 'auth.register.form.input.repeat_password.placeholder' | translate }}" />
+      </div>
+
+      <div class="mt-2">
+        <button type="submit" class="btn btn-primary" (click)="updatePassword()" [disabled]="!passwordFormGroup.valid">
+          {{ 'auth.profile.form.button.change_password' | translate }}
+        </button>
+
+      </div>
+    </form>
+
   </div>
-
-  <div class="col-lg-6" *ngIf="oldUserObj.provider === null || oldUserObj.provider === 'local'">
-    <nb-card>
-      <nb-card-header> {{ 'auth.profile.change_password.title' | translate }}</nb-card-header>
-      <nb-card-body *ngIf="passwordForm">
-        <form (ngSubmit)="updatePassword()" [formGroup]="passwordForm" aria-labelledby="title">
-          <div class="form-control-group">
-            <label class="label" for="input-password">
-              {{ 'auth.profile.form.input.oldPassword.label' | translate }}
-            </label>
-            <input nbInput [(ngModel)]="userObj.oldPassword" #oldPassword formControlName="oldPassword" type="password"
-              id="input-oldPassword" name="oldPassword"
-              placeholder="{{ 'auth.profile.form.input.oldPassword.placeholder' | translate }}" fullWidth
-              fieldSize="large" [status]="
-                passwordForm.controls.oldPassword.dirty
-                  ? passwordForm.controls.oldPassword.invalid
-                    ? 'danger'
-                    : 'success'
-                  : 'basic'
-              " [required]="config.passwordRequired" [attr.aria-invalid]="
-                passwordForm.controls.oldPassword.invalid && passwordForm.controls.oldPassword.touched ? true : null
-              " />
-            <ng-container
-              *ngIf="passwordForm.controls.oldPassword.invalid && passwordForm.controls.oldPassword.touched">
-              <p class="caption status-danger" *ngIf="passwordForm.controls.oldPassword.errors?.required">
-                {{ 'auth.profile.form.input.oldPassword.required_message' | translate }}
-              </p>
-            </ng-container>
-          </div>
-
-          <div class="form-control-group">
-            <label class="label" for="input-password">
-              {{ 'auth.profile.form.input.password.label' | translate }}
-            </label>
-            <input nbInput [(ngModel)]="userObj.password" #password formControlName="password" type="password"
-              id="input-password" name="password"
-              placeholder="{{ 'auth.profile.form.input.password.placeholder' | translate }}" fullWidth fieldSize="large"
-              [status]="
-                passwordForm.controls.password.dirty
-                  ? passwordForm.controls.password.invalid
-                    ? 'danger'
-                    : 'success'
-                  : 'basic'
-              " [required]="config.passwordRequired" [minlength]="config.passwordMinLength"
-              [maxlength]="config.passwordMaxLength" [attr.aria-invalid]="
-                passwordForm.controls.password.invalid && passwordForm.controls.password.touched ? true : null
-              " />
-            <ng-container *ngIf="passwordForm.controls.password.invalid && passwordForm.controls.password.touched">
-              <p class="caption status-danger" *ngIf="passwordForm.controls.password.errors?.required">
-                {{ 'auth.profile.form.input.password.required_message' | translate }}
-              </p>
-              <p class="caption status-danger" *ngIf="passwordForm.controls.password.errors?.pattern">
-                {{ 'auth.profile.form.input.password.pattern_message' | translate }}
-              </p>
-              <p class="caption status-danger" *ngIf="
-                  passwordForm.controls.password.errors?.minlength || passwordForm.controls.password.errors?.maxlength
-                ">
-                {{
-                  'auth.profile.form.input.password.min_length_message'
-                    | translate: { min: config.passwordMinLength, max: config.passwordMaxLength }
-                }}
-              </p>
-            </ng-container>
-          </div>
-
-          <div class="form-control-group">
-            <label class="label" for="input-re-password">
-              {{ 'auth.profile.form.input.repeat_password.label' | translate }}</label>
-            <input nbInput [(ngModel)]="userObj.password_confirmation" #rePass formControlName="rePass" type="password"
-              id="input-re-password" name="rePass"
-              placeholder="{{ 'auth.profile.form.input.repeat_password.placeholder' | translate }}" fullWidth
-              fieldSize="large" [status]="
-                passwordForm.controls.rePass.dirty
-                  ? passwordForm.controls.rePass.invalid ||
-                    passwordForm.controls.password.value != passwordForm.controls.rePass.value
-                    ? 'danger'
-                    : 'success'
-                  : 'basic'
-              " [required]="config.passwordRequired" [attr.aria-invalid]="
-                passwordForm.controls.rePass.invalid && passwordForm.controls.rePass.touched ? true : null
-              " />
-            <ng-container *ngIf="passwordForm.controls.rePass.invalid && passwordForm.controls.rePass.touched">
-              <p class="caption status-danger" *ngIf="passwordForm.controls.rePass.errors?.required">
-                {{ 'auth.profile.form.input.repeat_password.required_message' | translate }}
-              </p>
-              <p class="caption status-danger" *ngIf="
-                  passwordForm.controls.password.value != passwordForm.controls.rePass.value &&
-                  !passwordForm.controls.rePass.errors?.required
-                ">
-                {{ 'auth.profile.form.input.repeat_password.match_message' | translate }}
-              </p>
-            </ng-container>
-          </div>
-
-          <br />
-
-          <button nbButton fullWidth status="primary" size="large"
-            [disabled]="passwordSubmitted || !passwordForm.valid || password.value !== rePass.value"
-            [class.btn-pulse]="passwordSubmitted" [nbSpinner]="passwordSubmitted" [nbSpinnerStatus]="'control'"
-            [nbSpinnerSize]="'medium'">
-            {{ 'auth.profile.form.button.change_password' | translate }}
-          </button>
-        </form>
-      </nb-card-body>
-    </nb-card>
-  </div>
-</div> -->
+</div>

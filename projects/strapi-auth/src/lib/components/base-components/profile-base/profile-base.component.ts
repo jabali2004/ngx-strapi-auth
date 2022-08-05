@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import {
   UntypedFormBuilder,
@@ -8,76 +9,46 @@ import {
 import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from '../../../services/auth/auth.service';
 import { IUser } from '../../../types/models/User';
+import { IReqPasswordUpdate } from '../../../types/requests/ReqPasswordUpdate';
 import { IReqUserUpdate } from '../../../types/requests/ReqUserUpdate';
+import { IErrorRes } from '../../../types/responses/AuthError';
+import Validation from '../../../utils/validation';
 
 @Component({
   selector: 'strapi-profile-base',
   template: ''
 })
 export class ProfileBaseComponent implements OnInit {
-  public form: UntypedFormGroup = new UntypedFormBuilder().group({
-    firstname: new UntypedFormControl(),
-    lastname: new UntypedFormControl(),
+  private userObj: IUser;
+  private oldUserObj: IUser;
+
+  public formGroup: UntypedFormGroup = new UntypedFormGroup({
     email: new UntypedFormControl(),
     username: new UntypedFormControl()
   });
 
-  public passwordForm: UntypedFormGroup = new UntypedFormBuilder().group({
-    password: new UntypedFormControl('', [
-      Validators.required,
-      Validators.pattern(
-        '(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\\d$@$!%*?&].{8,}'
-      )
-    ]),
-    rePass: new UntypedFormControl('', [
-      Validators.required,
-      Validators.pattern(
-        '(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\\d$@$!%*?&].{8,}'
-      )
-    ]),
-    oldPassword: new UntypedFormControl()
-  });
+  public passwordFormGroup: UntypedFormGroup = new UntypedFormGroup(
+    {
+      password: new UntypedFormControl('', [
+        Validators.required,
+        Validators.pattern(
+          '(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\\d$@$!%*?&].{8,}'
+        )
+      ]),
+      passwordConfirmation: new UntypedFormControl('', [
+        Validators.required,
+        Validators.pattern(
+          '(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\\d$@$!%*?&].{8,}'
+        )
+      ]),
+      oldPassword: new UntypedFormControl('', [Validators.required])
+    },
+    {
+      validators: [Validation.match('password', 'passwordConfirmation')]
+    }
+  );
 
-  oldUserObj: IUser;
-
-  userObj = {
-    firstname: null,
-    lastname: null,
-    email: null,
-    username: null,
-    password: null,
-    password_confirmation: null,
-    oldPassword: null,
-    provider: null
-  };
-
-  redirectDelay = 0;
-  showMessages: any = {
-    error: true
-  };
-
-  // TODO: Create error component for displaying errors
-  // TODO: Add opt in error notifications
-  submitted = false;
-  passwordSubmitted = false;
-  errors: string[] = [];
-  messages: string[] = [];
-
-  config = {
-    firstnameRequired: false,
-    firstnameMinLength: 2,
-    firstnameMaxLength: 100,
-    lastnameRequired: false,
-    lastnameMinLength: 2,
-    lastnameMaxLength: 100,
-    usernameRequired: true,
-    usernameMinLength: 2,
-    usernameMaxLength: 100,
-    emailRequired: true,
-    passwordRequired: true,
-    passwordMinLength: 6,
-    passwordMaxLength: 60
-  };
+  public error: IErrorRes;
 
   constructor(
     protected authService: AuthService,
@@ -90,38 +61,37 @@ export class ProfileBaseComponent implements OnInit {
 
     if (this.oldUserObj) {
       this.userObj = {
-        firstname: null,
-        lastname: null,
-        username: this.oldUserObj.username,
-        email: this.oldUserObj.email,
-        password: null,
-        password_confirmation: null,
-        oldPassword: null,
-        provider: null
+        ...this.oldUserObj
       };
     }
+
+    this.formGroup.setValue({
+      username: this.userObj.username,
+      email: this.userObj.email
+    });
+
     // Hook on update from user service
     this.authService.UserState.subscribe(() => {
       this.oldUserObj = this.authService.getUser();
       this.userObj = {
-        firstname: null,
-        lastname: null,
-        username: this.oldUserObj.username,
-        email: this.oldUserObj.email,
-        password: null,
-        password_confirmation: null,
-        oldPassword: null,
-        provider: null
+        ...this.oldUserObj
       };
+
+      this.formGroup.setValue({
+        username: this.userObj.username,
+        email: this.userObj.email
+      });
     });
   }
 
   /**
    * Update UserData if changed
    */
-  update(): void {
-    this.clearErrors();
-    this.submitted = true;
+  public update(): void {
+    this.userObj = {
+      ...this.formGroup.value
+    };
+
     const updateRequest: IReqUserUpdate = {
       username:
         this.userObj.username &&
@@ -131,101 +101,44 @@ export class ProfileBaseComponent implements OnInit {
       email:
         this.userObj.email && this.oldUserObj.email !== this.userObj.email
           ? this.userObj.email
-          : null,
-      password: null,
-      oldPassword: null
+          : null
     };
 
     if (!updateRequest.username && !updateRequest.email) {
-      this.submitted = false;
       return;
     }
 
     this.authService
       .updateProfile(updateRequest)
       .then(() => {
-        this.submitted = false;
+        this.formGroup.markAsPristine();
       })
-      .catch((err) => {
-        console.error(err);
-
-        if (err.error.message === 'Username already exists!') {
-          console.log('error');
-          this.errors.push(
-            this.translate.instant('errors.auth.profile.username_existence')
-          );
-
-          console.log(this.errors);
-        }
-
-        if (err.error.message === 'Email already exists!') {
-          this.errors.push(
-            this.translate.instant('errors.auth.profile.email_existence')
-          );
-        }
-
-        this.submitted = false;
+      .catch((err: HttpErrorResponse) => {
+        this.error = err.error;
       });
-
-    this.form.markAsPristine();
   }
 
   /**
    * Update password if changed
    * and confirmed
    */
-  updatePassword(): void {
-    this.clearErrors();
-    this.passwordSubmitted = true;
-    const updateRequest: IReqUserUpdate = {
-      email: null,
-      username: null,
-      password:
-        this.userObj.email && this.userObj.password_confirmation
-          ? this.userObj.password
-          : null,
-      oldPassword: this.userObj.oldPassword
+  public updatePassword(): void {
+    const updateRequest: IReqPasswordUpdate = {
+      password: this.passwordFormGroup.value.password,
+      oldPassword: this.passwordFormGroup.value.oldPassword
     };
 
-    if (!updateRequest.password) {
-      this.passwordSubmitted = false;
+    if (!updateRequest.password || !updateRequest.oldPassword) {
       return;
     }
 
     this.authService
       .updateProfile(updateRequest)
       .then(() => {
-        this.passwordSubmitted = false;
-        this.passwordForm.controls.password.reset();
-        this.passwordForm.controls.rePass.reset();
-        this.passwordForm.controls.oldPassword.reset();
+        this.passwordFormGroup.reset();
       })
-      .catch((err) => {
-        console.error(err);
-
-        // TODO: Display errors
-
-        if (err.error.message === 'Old user password does not match!') {
-          this.errors.push(
-            this.translate.instant('errors.auth.profile.wrong_current_password')
-          );
-        } else if (
-          err.error.message === 'Password does not fulfill requirements!'
-        ) {
-          this.errors.push(
-            this.translate.instant('errors.auth.profile.password_requirements')
-          );
-        } else {
-          this.errors.push(
-            this.translate.instant('errors.auth.profile.password_change_error')
-          );
-        }
-
-        this.passwordSubmitted = false;
+      .catch((err: HttpErrorResponse) => {
+        this.error = err.error;
       });
-  }
-
-  private clearErrors(): void {
-    this.errors = [];
   }
 }

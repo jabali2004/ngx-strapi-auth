@@ -42,6 +42,7 @@ export { IReqAuthLogin } from './lib/types/requests/ReqAuthLogin';
 export { IReqAuthRegister } from './lib/types/requests/ReqAuthRegister';
 export { IReqPasswordReset } from './lib/types/requests/ReqPasswordReset';
 export { IReqUserUpdate } from './lib/types/requests/ReqUserUpdate';
+export { IReqPasswordUpdate } from './lib/types/requests/ReqPasswordUpdate';
 
 // Responses
 export { IResAuthLogin } from './lib/types/responses/ResAuthLogin';
@@ -50,7 +51,7 @@ export { IResPasswordReset } from './lib/types/responses/ResPasswordReset';
 export { IResRequestPasswordReset } from './lib/types/responses/ResRequestPasswordReset';
 
 // Errors
-export { IStrapiError, IAuthError } from './lib/types/responses/AuthError';
+export { IStrapiError, IErrorRes } from './lib/types/responses/AuthError';
 
 // Routing
 export { StrapiAuthRoutingModule } from './lib/routing/strapi-auth-routing.module';
