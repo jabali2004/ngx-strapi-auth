@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.2.7 (2022-08-05)
+
+
+### Chores
+
+* update base profile component ([7ad6084](https://github.com/jabali2004/ngx-strapi-auth/commit/7ad608477f003856de2a0bd4f3e437145b06d9d4))
+
 ### 0.2.6 (2022-08-04)
 
 
