@@ -49,6 +49,7 @@ export class ProfileBaseComponent implements OnInit {
   );
 
   public error: IErrorRes;
+  public passwordError: IErrorRes;
 
   constructor(
     protected authService: AuthService,
@@ -137,7 +138,7 @@ export class ProfileBaseComponent implements OnInit {
         this.passwordFormGroup.markAsPristine();
       })
       .catch((err: HttpErrorResponse) => {
-        this.error = err.error;
+        this.passwordError = err.error;
       });
   }
 }
