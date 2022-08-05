@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.2.8 (2022-08-05)
+
+
+### Bug Fixes
+
+* userObj wont get loaded after reload ([9a7549d](https://github.com/jabali2004/ngx-strapi-auth/commit/9a7549df12e6e19b390e994a3efa46e6ad164823))
+
 ### 0.2.7 (2022-08-05)
 
 
