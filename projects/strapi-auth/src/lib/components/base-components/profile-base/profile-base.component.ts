@@ -110,6 +110,7 @@ export class ProfileBaseComponent implements OnInit {
     this.authService
       .updateProfile(updateRequest)
       .then(() => {
+        this.error = null;
         this.formGroup.markAsPristine();
       })
       .catch((err: HttpErrorResponse) => {
@@ -134,6 +135,8 @@ export class ProfileBaseComponent implements OnInit {
     this.authService
       .updateProfile(updateRequest)
       .then(() => {
+        this.passwordError = null;
+
         this.passwordFormGroup.reset();
         this.passwordFormGroup.markAsPristine();
       })
