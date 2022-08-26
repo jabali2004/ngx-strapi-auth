@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.2.9 (2022-08-26)
+
+
+### Bug Fixes
+
+* token not set shortly after login ([1f6204f](https://github.com/jabali2004/ngx-strapi-auth/commit/1f6204f4107653db19285ff1eb3200267fd1a326))
+
 ### 0.2.8 (2022-08-05)
 
 
