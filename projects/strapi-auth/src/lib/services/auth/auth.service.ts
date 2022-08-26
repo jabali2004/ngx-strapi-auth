@@ -268,12 +268,12 @@ export class AuthService {
   private setTokenResponse(res: IResAuthRegister | IResAuthLogin): void {
     if (res.jwt && res.user) {
       this.user = res.user as IUser;
-
       this.isAuthenticated = true;
-      this.authState.next();
-      this.userState.next();
 
       this.tokenService.setToken(res.jwt);
+
+      this.authState.next();
+      this.userState.next();
     }
   }
 
