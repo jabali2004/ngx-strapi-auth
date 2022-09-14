@@ -35,6 +35,7 @@ export class TokenService {
    * Delete token in local storage
    */
   public deleteToken(): void {
+    this.token = null;
     sessionStorage.removeItem('token');
   }
 
