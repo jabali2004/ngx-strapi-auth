@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.2.10 (2022-09-14)
+
+
+### Bug Fixes
+
+* logout error token not cleared ([480b7bc](https://github.com/jabali2004/ngx-strapi-auth/commit/480b7bcd27f950547203da937a05e69b4637122a))
+
 ### 0.2.9 (2022-08-26)
 
 
