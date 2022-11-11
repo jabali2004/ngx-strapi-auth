@@ -51,8 +51,6 @@ export class ResetPasswordBaseComponent implements OnInit {
         console.error('Reset token not found!');
       }
     });
-
-    console.log(this.formGroup.value);
   }
 
   /**
