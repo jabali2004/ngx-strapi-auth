@@ -21,7 +21,10 @@ import localeEn from '@angular/common/locales/en';
 
 // StrapiAuthConfig
 const strapiAuthConfig: StrapiAuthConfig = {
-  strapi_base_url: 'http://localhost:1337'
+  strapi_base_url: 'http://localhost:1337/api',
+  routes: {
+    logoutRedirect: '/auth/login'
+  }
 };
 
 registerLocaleData(localeEn, 'en');

@@ -25,7 +25,6 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Install global deps
         run: |
-          npm install -g strapi
           npm install -g @angular/cli
       - name: Install project dependencies
         run: npm install
@@ -49,7 +48,6 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Install global deps
         run: |
-          npm install -g strapi
           npm install -g @angular/cli
       - name: Install project dependencies
         run: npm install
@@ -60,4 +58,4 @@ jobs:
       - name: Build showcase
         run: cd projects/strapi-auth-example && ng build --project strapi-auth-example
       - name: Build strapi
-        run: cd backend && strapi build
+        run: cd backend && npm run build
