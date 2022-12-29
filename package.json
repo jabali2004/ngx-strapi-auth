@@ -76,7 +76,7 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "husky": "8.0.2",
-    "jasmine-core": "~4.3.0",
+    "jasmine-core": "~4.5.0",
     "jasmine-spec-reporter": "~7.0.0",
     "jshint": "^2.13.5",
     "karma": "~6.4.0",
