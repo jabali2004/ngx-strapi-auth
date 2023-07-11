@@ -98,8 +98,8 @@ devDependencies:
     specifier: ^17.0.3
     version: 17.0.3
   '@types/jasmine':
-    specifier: ~4.0.3
-    version: 4.0.3
+    specifier: ~4.3.5
+    version: 4.3.5
   '@types/jasminewd2':
     specifier: ~2.0.10
     version: 2.0.10
@@ -3988,6 +3988,10 @@ packages:
 
   /@types/jasmine@4.0.3:
     resolution: {integrity: sha512-Opp1LvvEuZdk8fSSvchK2mZwhVrsNT0JgJE9Di6MjnaIpmEXM8TLCPPrVtNTYh8+5MPdY8j9bAHMu2SSfwpZJg==}
+    dev: true
+
+  /@types/jasmine@4.3.5:
+    resolution: {integrity: sha512-9YHUdvuNDDRJYXZwHqSsO72Ok0vmqoJbNn73ttyITQp/VA60SarnZ+MPLD37rJAhVoKp+9BWOvJP5tHIRfZylQ==}
     dev: true
 
   /@types/jasminewd2@2.0.10:
