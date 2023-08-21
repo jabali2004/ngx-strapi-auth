@@ -83,8 +83,8 @@ devDependencies:
     specifier: 14.1.1
     version: 14.1.1(@angular/cli@14.2.1)(eslint@8.23.0)(typescript@4.7.4)
   '@angular-eslint/template-parser':
-    specifier: 14.1.1
-    version: 14.1.1(eslint@8.23.0)(typescript@4.7.4)
+    specifier: 16.1.1
+    version: 16.1.1(eslint@8.23.0)(typescript@4.7.4)
   '@angular/cli':
     specifier: ^14.1.1
     version: 14.2.1
@@ -411,6 +411,10 @@ packages:
     resolution: {integrity: sha512-/l4741bivWuyA7zDXXjQc/MENOkIGKG6f7b5dTgquEGLyafFNIGXVHbHKD8BYOJ8ou6cheWGGKB9gL/JOltn7w==}
     dev: true
 
+  /@angular-eslint/bundled-angular-compiler@16.1.1:
+    resolution: {integrity: sha512-TB01AWZBDfrZBxN1I50HfBXtC7q4NI5fwl1aS4tOfef2/kQjTtR9zmha8CsxjDkAOa9tA/4MUayAMqEBQLuHKQ==}
+    dev: true
+
   /@angular-eslint/eslint-plugin-template@14.1.1(eslint@8.23.0)(typescript@4.7.4):
     resolution: {integrity: sha512-jFvUFx+rn7cqLjsvvZP8Sr0VA9ihYYzaXJHDx5KBVyyA1+VpTecBBKNW9nKW23IcJFwuW2Xxx2lqwj2H8xcTtQ==}
     peerDependencies:
@@ -459,15 +463,15 @@ packages:
       - typescript
     dev: true
 
-  /@angular-eslint/template-parser@14.1.1(eslint@8.23.0)(typescript@4.7.4):
-    resolution: {integrity: sha512-Uzk6zfkf3KHqnd7x12Gr68fUvRz4c7J2XNTDLM3WAYa/m2wO78/zyP/Nd4DCrqmQvsDyuDRgN8LY7msuoOA3rg==}
+  /@angular-eslint/template-parser@16.1.1(eslint@8.23.0)(typescript@4.7.4):
+    resolution: {integrity: sha512-ZJ+M4+JGYcsIP/t+XiuzL5A5pCjjCen272U3/M/WqIMDDxyIKrHubK1bVtr2kndCEudqud+WyJU0ub13UIwGgw==}
     peerDependencies:
-      eslint: ^7.0.0 || ^8.0.0
+      eslint: ^7.20.0 || ^8.0.0
       typescript: '*'
     dependencies:
-      '@angular-eslint/bundled-angular-compiler': 14.1.1
+      '@angular-eslint/bundled-angular-compiler': 16.1.1
       eslint: 8.23.0
-      eslint-scope: 5.1.1
+      eslint-scope: 7.1.1
       typescript: 4.7.4
     dev: true
 
@@ -4628,6 +4632,7 @@ packages:
   /amdefine@1.0.1:
     resolution: {integrity: sha512-S2Hw0TtNkMJhIabBwIojKL9YHO5T0n5eNqWJ7Lrlel/zDbftQpxpapi8tZs3X1HWa+u+QeydGmzzNU0m09+Rcg==}
     engines: {node: '>=0.4.2'}
+    requiresBuild: true
     dev: false
     optional: true
 
@@ -10357,6 +10362,7 @@ packages:
   /pify@4.0.1:
     resolution: {integrity: sha512-uB80kBFb/tfd68bVleG9T5GGsGPjJrLAUpR5PZIrhBnIaRTQRjqdJSsIKkOP6OAIFbj7GOrcudc5pNjZ+geV2g==}
     engines: {node: '>=6'}
+    requiresBuild: true
     dev: true
 
   /pinkie-promise@2.0.1:
@@ -11245,6 +11251,7 @@ packages:
 
   /prr@1.0.1:
     resolution: {integrity: sha512-yPw4Sng1gWghHQWj0B3ZggWUm4qVbPwPFcRG8KyxiU7J2OHFSoEHKS+EZ3fv5l1t9CyCiop6l/ZYeWbrgoQejw==}
+    requiresBuild: true
     dev: true
     optional: true
 
