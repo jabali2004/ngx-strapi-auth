@@ -3565,7 +3565,7 @@ packages:
     dependencies:
       '@foliojs-fork/fontkit': 1.9.1
       '@foliojs-fork/linebreak': 1.1.1
-      crypto-js: 4.1.1
+      crypto-js: 4.2.0
       png-js: 1.0.0
     dev: false
 
@@ -5982,8 +5982,8 @@ packages:
       shebang-command: 2.0.0
       which: 2.0.2
 
-  /crypto-js@4.1.1:
-    resolution: {integrity: sha512-o2JlM7ydqd3Qk9CA0L4NL6mTzU2sdx96a+oOfPu8Mkl/PK51vSyoi8/rQ8NknZtk44vq15lmhAj9CIAGwgeWKw==}
+  /crypto-js@4.2.0:
+    resolution: {integrity: sha512-KALDyEYgpY+Rlob/iriUtjV6d5Eq+Y191A5g4UqLAi8CyGP9N1+FdVbkc1SxKc2r4YAYqG8JzO2KGL+AizD70Q==}
     dev: false
 
   /css-blank-pseudo@3.0.3(postcss@8.4.14):
