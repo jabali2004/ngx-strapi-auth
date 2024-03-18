@@ -83,8 +83,8 @@ devDependencies:
     specifier: 14.1.1
     version: 14.1.1(@angular/cli@14.2.1)(eslint@8.23.0)(typescript@4.7.4)
   '@angular-eslint/template-parser':
-    specifier: 14.1.1
-    version: 14.1.1(eslint@8.23.0)(typescript@4.7.4)
+    specifier: 17.3.0
+    version: 17.3.0(eslint@8.23.0)(typescript@4.7.4)
   '@angular/cli':
     specifier: ^14.1.1
     version: 14.2.1
@@ -411,6 +411,10 @@ packages:
     resolution: {integrity: sha512-/l4741bivWuyA7zDXXjQc/MENOkIGKG6f7b5dTgquEGLyafFNIGXVHbHKD8BYOJ8ou6cheWGGKB9gL/JOltn7w==}
     dev: true
 
+  /@angular-eslint/bundled-angular-compiler@17.3.0:
+    resolution: {integrity: sha512-ejfNzRuBeHUV8m2fkgs+M809rj5STuCuQo4fdfc6ccQpzXDI6Ha7BKpTznWfg5g529q/wrkoGSGgFxU9Yc2/dQ==}
+    dev: true
+
   /@angular-eslint/eslint-plugin-template@14.1.1(eslint@8.23.0)(typescript@4.7.4):
     resolution: {integrity: sha512-jFvUFx+rn7cqLjsvvZP8Sr0VA9ihYYzaXJHDx5KBVyyA1+VpTecBBKNW9nKW23IcJFwuW2Xxx2lqwj2H8xcTtQ==}
     peerDependencies:
@@ -459,15 +463,15 @@ packages:
       - typescript
     dev: true
 
-  /@angular-eslint/template-parser@14.1.1(eslint@8.23.0)(typescript@4.7.4):
-    resolution: {integrity: sha512-Uzk6zfkf3KHqnd7x12Gr68fUvRz4c7J2XNTDLM3WAYa/m2wO78/zyP/Nd4DCrqmQvsDyuDRgN8LY7msuoOA3rg==}
+  /@angular-eslint/template-parser@17.3.0(eslint@8.23.0)(typescript@4.7.4):
+    resolution: {integrity: sha512-m+UzAnWgtjeS0x6skSmR0eXltD/p7HZA+c8pPyAkiHQzkxE7ohhfyZc03yWGuYJvWQUqQAKKdO/nQop14TP0bg==}
     peerDependencies:
-      eslint: ^7.0.0 || ^8.0.0
+      eslint: ^7.20.0 || ^8.0.0
       typescript: '*'
     dependencies:
-      '@angular-eslint/bundled-angular-compiler': 14.1.1
+      '@angular-eslint/bundled-angular-compiler': 17.3.0
       eslint: 8.23.0
-      eslint-scope: 5.1.1
+      eslint-scope: 8.0.0
       typescript: 4.7.4
     dev: true
 
@@ -7212,6 +7216,14 @@ packages:
   /eslint-scope@7.1.1:
     resolution: {integrity: sha512-QKQM/UXpIiHcLqJ5AOyIW7XZmzjkzQXYE54n1++wb0u9V/abW3l9uQnxX8Z5Xd18xyKIMTUAyQ0k1e8pz6LUrw==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    dependencies:
+      esrecurse: 4.3.0
+      estraverse: 5.2.0
+    dev: true
+
+  /eslint-scope@8.0.0:
+    resolution: {integrity: sha512-zj3Byw6jX4TcFCJmxOzLt6iol5FAr9xQyZZSQjEzW2UiCJXLwXdRIKCYVFftnpZckaC9Ps9xlC7jB8tSeWWOaw==}
+    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     dependencies:
       esrecurse: 4.3.0
       estraverse: 5.2.0
